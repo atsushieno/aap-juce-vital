@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <plugins xmlns="urn:org.androidaudioplugin.core" xmlns:pp="urn:org.androidaudioplugin.port">
-  <plugin name="Vial" category="Instrument" author="Vial Audio" manufacturer="vial.audio"
-          unique-id="juceaap:5669616c" library="libjuce_jni.so" entrypoint="GetJuceAAPFactory"
-          assets="">
+  <plugin name="Vitaloid" category="Instrument" author="AAP developers"
+          manufacturer="github.com/atsushieno/aap-juce-vital" unique-id="juceaap:56746c64"
+          library="libjuce_jni.so" entrypoint="GetJuceAAPFactory" assets="">
     <ports>
       <port name="Beats Per Minute" direction="input" pp:default="0.3571428656578064"
             content="other"/>
