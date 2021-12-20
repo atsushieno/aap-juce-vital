@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT id="GfsdNK" name="Vial" projectType="guiapp" version="1.0.6"
-              bundleIdentifier="audio.vital.standalone" includeBinaryInAppConfig="1"
-              companyName="Matt Tytel" companyWebsite="vial.audio" companyEmail="matthewtytel@gmail.com"
+<JUCERPROJECT id="GfsdNK" name="Vitaloid" projectType="guiapp" version="1.0.6"
+              bundleIdentifier="org.androidaudioplugin.vitaloid" includeBinaryInAppConfig="1"
+              companyName="AAP developers" companyWebsite="github.com/atsushieno/aap-juce-vital" companyEmail="atsushieno@gmail.com"
               defines="" displaySplashScreen="0" reportAppUsage="0" splashScreenColour="Dark"
-              cppLanguageStandard="14" companyCopyright="Matt Tytel" jucerFormatVersion="1"
+              cppLanguageStandard="14" companyCopyright="AAP developers" jucerFormatVersion="1"
               projectLineFeed="&#10;">
   <MAINGROUP id="CeypXq" name="Vial">
     <GROUP id="{C539C807-A3BC-1AAC-36A3-83E9F431E5C3}" name="tunings">
