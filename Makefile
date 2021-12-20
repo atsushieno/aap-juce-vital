@@ -8,19 +8,9 @@ APP_SRC_DIR=$(shell pwd)/external/vital
 # We avoid naming "Vital" (see vital/README)
 APP_NAME=vitaloid
 
-# app build directory name. Usually repo name is good.
-# We have some vital-specific trick here...
-# We cannot automate update-aap-metadata because `standalone` build does not
-# generate the library files that we want. Thus need `plugins` build for it.
-# Sadly you cannot build `plugins` without VST2_SDK without changes
-ifeq ('$(VITAL_UPDATE_METADATA)', '')
-APP_BUILD_DIR=apps/vital/standalone
-else
 APP_BUILD_DIR=apps/vital/plugin
-APP_CUSTOM_JUCER=$(shell pwd)/apps/override.$(APP_NAME)-plugin.jucer
-LIBFILES=builds/linux_vst/build/Vial.a
-endif
 APP_COPY_DIR=apps/vital
+LIBFILES=builds/linux_vst/build/Vial.a
 
 # aap_metadata.xml source
 AAP_METADATA_XML_SOURCE=$(shell pwd)/apps/vitaloid.aap_metadata.xml
@@ -41,11 +31,7 @@ ENABLE_MIDI_DEVICE_SERVICE=1
 ifeq ($(shell uname), 'Darwin')
 PLAT_BUILD_DIR=macosx
 else
-ifeq ($(VITAL_UPDATE_METADATA), '')
-PLAT_BUILD_DIR=linux
-else
 PLAT_BUILD_DIR=linux_vst
-endif
 endif
 BUILDS_DIR=builds
 METADATA_GENERATOR_EXTRA_LDFLAGS=-lGL

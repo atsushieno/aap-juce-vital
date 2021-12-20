@@ -428,6 +428,19 @@ index 65e44a0..c577d98 100644
  }
  
  void FileSourceOverlay::buttonClicked(Button* clicked_button) {
+diff --git a/src/plugin/synth_plugin.cpp b/src/plugin/synth_plugin.cpp
+index f215edd..e1127a6 100644
+--- a/src/plugin/synth_plugin.cpp
++++ b/src/plugin/synth_plugin.cpp
+@@ -210,7 +210,7 @@ void SynthPlugin::setStateInformation(const void* data, int size_in_bytes) {
+   }
+   catch (const json::exception& e) {
+     std::string error = "There was an error open the preset. Preset file is corrupted.";
+-    AlertWindow::showNativeDialogBox("Error opening preset", error, false);
++    AlertWindow::showMessageBoxAsync(AlertWindow::AlertIconType::WarningIcon, "Error opening preset", error);
+   }
+   pauseProcessing(false);
+ 
 diff --git a/src/standalone/main.cpp b/src/standalone/main.cpp
 index f8535fa..155c6eb 100644
 --- a/src/standalone/main.cpp
