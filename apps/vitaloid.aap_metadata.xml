@@ -1,0 +1,1030 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugins xmlns="urn:org.androidaudioplugin.core" xmlns:pp="urn:org.androidaudioplugin.port">
+  <plugin name="Vial" category="Instrument" author="Vial Audio" manufacturer="vial.audio"
+          unique-id="juceaap:5669616c" library="libjuce_jni.so" entrypoint="GetJuceAAPFactory"
+          assets="">
+    <ports>
+      <port name="Beats Per Minute" direction="input" content="other"/>
+      <port name="Chorus Filter Cutoff" direction="input" content="other"/>
+      <port name="Chorus Delay 1" direction="input" content="other"/>
+      <port name="Chorus Delay 2" direction="input" content="other"/>
+      <port name="Chorus Mix" direction="input" content="other"/>
+      <port name="Chorus Feedback" direction="input" content="other"/>
+      <port name="Chorus Frequency" direction="input" content="other"/>
+      <port name="Chorus Mod Depth" direction="input" content="other"/>
+      <port name="Chorus Switch" direction="input" pp:default="0.0" content="other"/>
+      <port name="Chorus Sync" direction="input" content="other"/>
+      <port name="Chorus Tempo" direction="input" content="other"/>
+      <port name="Compressor Attack" direction="input" content="other"/>
+      <port name="Compressor Band Gain" direction="input" content="other"/>
+      <port name="Band Lower Ratio" direction="input" content="other"/>
+      <port name="Band Lower Threshold" direction="input" content="other"/>
+      <port name="Band Upper Ratio" direction="input" content="other"/>
+      <port name="Band Upper Threshold" direction="input" content="other"/>
+      <port name="Compressor Enabled Bands" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Compressor High Gain" direction="input" content="other"/>
+      <port name="High Lower Ratio" direction="input" content="other"/>
+      <port name="High Lower Threshold" direction="input" content="other"/>
+      <port name="High Upper Ratio" direction="input" content="other"/>
+      <port name="High Upper Threshold" direction="input" content="other"/>
+      <port name="Compressor Low Gain" direction="input" content="other"/>
+      <port name="Low Lower Ratio" direction="input" content="other"/>
+      <port name="Low Lower Threshold" direction="input" content="other"/>
+      <port name="Low Upper Ratio" direction="input" content="other"/>
+      <port name="Low Upper Threshold" direction="input" content="other"/>
+      <port name="Compressor Switch" direction="input" pp:default="0.0" content="other"/>
+      <port name="Compressor Release" direction="input" content="other"/>
+      <port name="Delay Mix" direction="input" content="other"/>
+      <port name="Delay Feedback" direction="input" content="other"/>
+      <port name="Delay Filter Cutoff" direction="input" content="other"/>
+      <port name="Delay Filter Spread" direction="input" content="other"/>
+      <port name="Delay Frequency" direction="input" content="other"/>
+      <port name="Delay Switch" direction="input" pp:default="0.0" content="other"/>
+      <port name="Delay Style" direction="input" pp:default="0.0" content="other"/>
+      <port name="Delay Sync" direction="input" content="other"/>
+      <port name="Delay Tempo" direction="input" content="other"/>
+      <port name="Distortion Drive" direction="input" content="other"/>
+      <port name="Distortion Filter Blend" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Distortion Filter Cutoff" direction="input" content="other"/>
+      <port name="Distortion Filter Order" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Distortion Filter Resonance" direction="input" content="other"/>
+      <port name="Distortion Mix" direction="input" content="other"/>
+      <port name="Distortion Switch" direction="input" pp:default="0.0" content="other"/>
+      <port name="Distortion Type" direction="input" pp:default="0.0" content="other"/>
+      <port name="Effect Chain Order" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Envelope 1 Attack" direction="input" content="other"/>
+      <port name="Envelope 1 Attack Power" direction="input" content="other"/>
+      <port name="Envelope 1 Decay" direction="input" content="other"/>
+      <port name="Envelope 1 Decay Power" direction="input" content="other"/>
+      <port name="Envelope 1 Release" direction="input" content="other"/>
+      <port name="Envelope 1 Release Power" direction="input" content="other"/>
+      <port name="Envelope 1 Sustain" direction="input" content="other"/>
+      <port name="Envelope 2 Attack" direction="input" content="other"/>
+      <port name="Envelope 2 Attack Power" direction="input" content="other"/>
+      <port name="Envelope 2 Decay" direction="input" content="other"/>
+      <port name="Envelope 2 Decay Power" direction="input" content="other"/>
+      <port name="Envelope 2 Release" direction="input" content="other"/>
+      <port name="Envelope 2 Release Power" direction="input" content="other"/>
+      <port name="Envelope 2 Sustain" direction="input" content="other"/>
+      <port name="Envelope 3 Attack" direction="input" content="other"/>
+      <port name="Envelope 3 Attack Power" direction="input" content="other"/>
+      <port name="Envelope 3 Decay" direction="input" content="other"/>
+      <port name="Envelope 3 Decay Power" direction="input" content="other"/>
+      <port name="Envelope 3 Release" direction="input" content="other"/>
+      <port name="Envelope 3 Release Power" direction="input" content="other"/>
+      <port name="Envelope 3 Sustain" direction="input" content="other"/>
+      <port name="Envelope 4 Attack" direction="input" content="other"/>
+      <port name="Envelope 4 Attack Power" direction="input" content="other"/>
+      <port name="Envelope 4 Decay" direction="input" content="other"/>
+      <port name="Envelope 4 Decay Power" direction="input" content="other"/>
+      <port name="Envelope 4 Release" direction="input" content="other"/>
+      <port name="Envelope 4 Release Power" direction="input" content="other"/>
+      <port name="Envelope 4 Sustain" direction="input" content="other"/>
+      <port name="Envelope 5 Attack" direction="input" content="other"/>
+      <port name="Envelope 5 Attack Power" direction="input" content="other"/>
+      <port name="Envelope 5 Decay" direction="input" content="other"/>
+      <port name="Envelope 5 Decay Power" direction="input" content="other"/>
+      <port name="Envelope 5 Release" direction="input" content="other"/>
+      <port name="Envelope 5 Release Power" direction="input" content="other"/>
+      <port name="Envelope 5 Sustain" direction="input" content="other"/>
+      <port name="Envelope 6 Attack" direction="input" content="other"/>
+      <port name="Envelope 6 Attack Power" direction="input" content="other"/>
+      <port name="Envelope 6 Decay" direction="input" content="other"/>
+      <port name="Envelope 6 Decay Power" direction="input" content="other"/>
+      <port name="Envelope 6 Release" direction="input" content="other"/>
+      <port name="Envelope 6 Release Power" direction="input" content="other"/>
+      <port name="Envelope 6 Sustain" direction="input" content="other"/>
+      <port name="EQ Band Cutoff" direction="input" content="other"/>
+      <port name="EQ Band Gain" direction="input" content="other"/>
+      <port name="EQ Band Resonance" direction="input" content="other"/>
+      <port name="EQ High Cutoff" direction="input" content="other"/>
+      <port name="EQ High Gain" direction="input" content="other"/>
+      <port name="EQ High Mode" direction="input" pp:default="0.0" content="other"/>
+      <port name="EQ High Resonance" direction="input" content="other"/>
+      <port name="EQ Low Cutoff" direction="input" content="other"/>
+      <port name="EQ Low Gain" direction="input" content="other"/>
+      <port name="EQ Low Mode" direction="input" pp:default="0.0" content="other"/>
+      <port name="EQ Low Resonance" direction="input" content="other"/>
+      <port name="EQ Switch" direction="input" pp:default="0.0" content="other"/>
+      <port name="Filter 1 Blend" direction="input" pp:default="0.0" content="other"/>
+      <port name="Filter 1 Comb Blend Offset" direction="input" content="other"/>
+      <port name="Filter 1 Cutoff" direction="input" content="other"/>
+      <port name="Filter 1 Drive" direction="input" pp:default="0.0" content="other"/>
+      <port name="Filter 1 FILTER Input" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Filter 1 Formant Resonance" direction="input" content="other"/>
+      <port name="Filter 1 Formant Transpose" direction="input" content="other"/>
+      <port name="Filter 1 Formant X" direction="input" content="other"/>
+      <port name="Filter 1 Formant Y" direction="input" content="other"/>
+      <port name="Filter 1 Key Track" direction="input" content="other"/>
+      <port name="Filter 1 Mix" direction="input" content="other"/>
+      <port name="Filter 1 Model" direction="input" pp:default="0.0" content="other"/>
+      <port name="Filter 1 Switch" direction="input" pp:default="0.0" content="other"/>
+      <port name="Filter 1 Resonance" direction="input" content="other"/>
+      <port name="Filter 1 Style" direction="input" pp:default="0.0" content="other"/>
+      <port name="Filter 2 Blend" direction="input" pp:default="0.0" content="other"/>
+      <port name="Filter 2 Comb Blend Offset" direction="input" content="other"/>
+      <port name="Filter 2 Cutoff" direction="input" content="other"/>
+      <port name="Filter 2 Drive" direction="input" pp:default="0.0" content="other"/>
+      <port name="Filter 2 FILTER Input" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Filter 2 Formant Resonance" direction="input" content="other"/>
+      <port name="Filter 2 Formant Transpose" direction="input" content="other"/>
+      <port name="Filter 2 Formant X" direction="input" content="other"/>
+      <port name="Filter 2 Formant Y" direction="input" content="other"/>
+      <port name="Filter 2 Key Track" direction="input" content="other"/>
+      <port name="Filter 2 Mix" direction="input" content="other"/>
+      <port name="Filter 2 Model" direction="input" pp:default="0.0" content="other"/>
+      <port name="Filter 2 Switch" direction="input" pp:default="0.0" content="other"/>
+      <port name="Filter 2 Resonance" direction="input" content="other"/>
+      <port name="Filter 2 Style" direction="input" pp:default="0.0" content="other"/>
+      <port name="Filter fx Blend" direction="input" pp:default="0.0" content="other"/>
+      <port name="Filter fx Comb Blend Offset" direction="input" content="other"/>
+      <port name="Filter fx Cutoff" direction="input" content="other"/>
+      <port name="Filter fx Drive" direction="input" pp:default="0.0" content="other"/>
+      <port name="Filter fx Formant Resonance" direction="input" content="other"/>
+      <port name="Filter fx Formant Transpose" direction="input" content="other"/>
+      <port name="Filter fx Formant X" direction="input" content="other"/>
+      <port name="Filter fx Formant Y" direction="input" content="other"/>
+      <port name="Filter fx Key Track" direction="input" content="other"/>
+      <port name="Filter fx Mix" direction="input" content="other"/>
+      <port name="Filter fx Model" direction="input" pp:default="0.0" content="other"/>
+      <port name="Filter fx Switch" direction="input" pp:default="0.0" content="other"/>
+      <port name="Filter fx Resonance" direction="input" content="other"/>
+      <port name="Filter fx Style" direction="input" pp:default="0.0" content="other"/>
+      <port name="Flanger Mix" direction="input" content="other"/>
+      <port name="Flanger Feedback" direction="input" content="other"/>
+      <port name="Flanger Frequency" direction="input" content="other"/>
+      <port name="Flanger Mod Depth" direction="input" content="other"/>
+      <port name="Flanger Switch" direction="input" pp:default="0.0" content="other"/>
+      <port name="Flanger Phase Offset" direction="input" content="other"/>
+      <port name="Flanger Sync" direction="input" content="other"/>
+      <port name="Flanger Tempo" direction="input" content="other"/>
+      <port name="Legato" direction="input" pp:default="0.0" content="other"/>
+      <port name="LFO 1 Delay" direction="input" pp:default="0.0" content="other"/>
+      <port name="LFO 1 Fade In" direction="input" pp:default="0.0" content="other"/>
+      <port name="LFO 1 Frequency" direction="input" content="other"/>
+      <port name="LFO 1 Phase" direction="input" pp:default="0.0" content="other"/>
+      <port name="LFO 1 Sync" direction="input" content="other"/>
+      <port name="LFO 1 Sync Type" direction="input" pp:default="0.0" content="other"/>
+      <port name="LFO 1 Tempo" direction="input" content="other"/>
+      <port name="LFO 2 Delay" direction="input" pp:default="0.0" content="other"/>
+      <port name="LFO 2 Fade In" direction="input" pp:default="0.0" content="other"/>
+      <port name="LFO 2 Frequency" direction="input" content="other"/>
+      <port name="LFO 2 Phase" direction="input" pp:default="0.0" content="other"/>
+      <port name="LFO 2 Sync" direction="input" content="other"/>
+      <port name="LFO 2 Sync Type" direction="input" pp:default="0.0" content="other"/>
+      <port name="LFO 2 Tempo" direction="input" content="other"/>
+      <port name="LFO 3 Delay" direction="input" pp:default="0.0" content="other"/>
+      <port name="LFO 3 Fade In" direction="input" pp:default="0.0" content="other"/>
+      <port name="LFO 3 Frequency" direction="input" content="other"/>
+      <port name="LFO 3 Phase" direction="input" pp:default="0.0" content="other"/>
+      <port name="LFO 3 Sync" direction="input" content="other"/>
+      <port name="LFO 3 Sync Type" direction="input" pp:default="0.0" content="other"/>
+      <port name="LFO 3 Tempo" direction="input" content="other"/>
+      <port name="LFO 4 Delay" direction="input" pp:default="0.0" content="other"/>
+      <port name="LFO 4 Fade In" direction="input" pp:default="0.0" content="other"/>
+      <port name="LFO 4 Frequency" direction="input" content="other"/>
+      <port name="LFO 4 Phase" direction="input" pp:default="0.0" content="other"/>
+      <port name="LFO 4 Sync" direction="input" content="other"/>
+      <port name="LFO 4 Sync Type" direction="input" pp:default="0.0" content="other"/>
+      <port name="LFO 4 Tempo" direction="input" content="other"/>
+      <port name="LFO 5 Delay" direction="input" pp:default="0.0" content="other"/>
+      <port name="LFO 5 Fade In" direction="input" pp:default="0.0" content="other"/>
+      <port name="LFO 5 Frequency" direction="input" content="other"/>
+      <port name="LFO 5 Phase" direction="input" pp:default="0.0" content="other"/>
+      <port name="LFO 5 Sync" direction="input" content="other"/>
+      <port name="LFO 5 Sync Type" direction="input" pp:default="0.0" content="other"/>
+      <port name="LFO 5 Tempo" direction="input" content="other"/>
+      <port name="LFO 6 Delay" direction="input" pp:default="0.0" content="other"/>
+      <port name="LFO 6 Fade In" direction="input" pp:default="0.0" content="other"/>
+      <port name="LFO 6 Frequency" direction="input" content="other"/>
+      <port name="LFO 6 Phase" direction="input" pp:default="0.0" content="other"/>
+      <port name="LFO 6 Sync" direction="input" content="other"/>
+      <port name="LFO 6 Sync Type" direction="input" pp:default="0.0" content="other"/>
+      <port name="LFO 6 Tempo" direction="input" content="other"/>
+      <port name="LFO 7 Delay" direction="input" pp:default="0.0" content="other"/>
+      <port name="LFO 7 Fade In" direction="input" pp:default="0.0" content="other"/>
+      <port name="LFO 7 Frequency" direction="input" content="other"/>
+      <port name="LFO 7 Phase" direction="input" pp:default="0.0" content="other"/>
+      <port name="LFO 7 Sync" direction="input" content="other"/>
+      <port name="LFO 7 Sync Type" direction="input" pp:default="0.0" content="other"/>
+      <port name="LFO 7 Tempo" direction="input" content="other"/>
+      <port name="LFO 8 Delay" direction="input" pp:default="0.0" content="other"/>
+      <port name="LFO 8 Fade In" direction="input" pp:default="0.0" content="other"/>
+      <port name="LFO 8 Frequency" direction="input" content="other"/>
+      <port name="LFO 8 Phase" direction="input" pp:default="0.0" content="other"/>
+      <port name="LFO 8 Sync" direction="input" content="other"/>
+      <port name="LFO 8 Sync Type" direction="input" pp:default="0.0" content="other"/>
+      <port name="LFO 8 Tempo" direction="input" content="other"/>
+      <port name="Macro 1" direction="input" pp:default="0.0" content="other"/>
+      <port name="Macro 2" direction="input" pp:default="0.0" content="other"/>
+      <port name="Macro 3" direction="input" pp:default="0.0" content="other"/>
+      <port name="Macro 4" direction="input" pp:default="0.0" content="other"/>
+      <port name="Modulation 10 Amount" direction="input" content="other"/>
+      <port name="Modulation 10 Bipolar" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 10 Bypass" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 10 Power" direction="input" content="other"/>
+      <port name="Modulation 10 Stereo" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 11 Amount" direction="input" content="other"/>
+      <port name="Modulation 11 Bipolar" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 11 Bypass" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 11 Power" direction="input" content="other"/>
+      <port name="Modulation 11 Stereo" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 12 Amount" direction="input" content="other"/>
+      <port name="Modulation 12 Bipolar" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 12 Bypass" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 12 Power" direction="input" content="other"/>
+      <port name="Modulation 12 Stereo" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 13 Amount" direction="input" content="other"/>
+      <port name="Modulation 13 Bipolar" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 13 Bypass" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 13 Power" direction="input" content="other"/>
+      <port name="Modulation 13 Stereo" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 14 Amount" direction="input" content="other"/>
+      <port name="Modulation 14 Bipolar" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 14 Bypass" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 14 Power" direction="input" content="other"/>
+      <port name="Modulation 14 Stereo" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 15 Amount" direction="input" content="other"/>
+      <port name="Modulation 15 Bipolar" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 15 Bypass" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 15 Power" direction="input" content="other"/>
+      <port name="Modulation 15 Stereo" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 16 Amount" direction="input" content="other"/>
+      <port name="Modulation 16 Bipolar" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 16 Bypass" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 16 Power" direction="input" content="other"/>
+      <port name="Modulation 16 Stereo" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 17 Amount" direction="input" content="other"/>
+      <port name="Modulation 17 Bipolar" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 17 Bypass" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 17 Power" direction="input" content="other"/>
+      <port name="Modulation 17 Stereo" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 18 Amount" direction="input" content="other"/>
+      <port name="Modulation 18 Bipolar" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 18 Bypass" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 18 Power" direction="input" content="other"/>
+      <port name="Modulation 18 Stereo" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 19 Amount" direction="input" content="other"/>
+      <port name="Modulation 19 Bipolar" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 19 Bypass" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 19 Power" direction="input" content="other"/>
+      <port name="Modulation 19 Stereo" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 1 Amount" direction="input" content="other"/>
+      <port name="Modulation 1 Bipolar" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 1 Bypass" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 1 Power" direction="input" content="other"/>
+      <port name="Modulation 1 Stereo" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 20 Amount" direction="input" content="other"/>
+      <port name="Modulation 20 Bipolar" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 20 Bypass" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 20 Power" direction="input" content="other"/>
+      <port name="Modulation 20 Stereo" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 21 Amount" direction="input" content="other"/>
+      <port name="Modulation 21 Bipolar" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 21 Bypass" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 21 Power" direction="input" content="other"/>
+      <port name="Modulation 21 Stereo" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 22 Amount" direction="input" content="other"/>
+      <port name="Modulation 22 Bipolar" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 22 Bypass" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 22 Power" direction="input" content="other"/>
+      <port name="Modulation 22 Stereo" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 23 Amount" direction="input" content="other"/>
+      <port name="Modulation 23 Bipolar" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 23 Bypass" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 23 Power" direction="input" content="other"/>
+      <port name="Modulation 23 Stereo" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 24 Amount" direction="input" content="other"/>
+      <port name="Modulation 24 Bipolar" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 24 Bypass" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 24 Power" direction="input" content="other"/>
+      <port name="Modulation 24 Stereo" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 25 Amount" direction="input" content="other"/>
+      <port name="Modulation 25 Bipolar" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 25 Bypass" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 25 Power" direction="input" content="other"/>
+      <port name="Modulation 25 Stereo" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 26 Amount" direction="input" content="other"/>
+      <port name="Modulation 26 Bipolar" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 26 Bypass" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 26 Power" direction="input" content="other"/>
+      <port name="Modulation 26 Stereo" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 27 Amount" direction="input" content="other"/>
+      <port name="Modulation 27 Bipolar" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 27 Bypass" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 27 Power" direction="input" content="other"/>
+      <port name="Modulation 27 Stereo" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 28 Amount" direction="input" content="other"/>
+      <port name="Modulation 28 Bipolar" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 28 Bypass" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 28 Power" direction="input" content="other"/>
+      <port name="Modulation 28 Stereo" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 29 Amount" direction="input" content="other"/>
+      <port name="Modulation 29 Bipolar" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 29 Bypass" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 29 Power" direction="input" content="other"/>
+      <port name="Modulation 29 Stereo" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 2 Amount" direction="input" content="other"/>
+      <port name="Modulation 2 Bipolar" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 2 Bypass" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 2 Power" direction="input" content="other"/>
+      <port name="Modulation 2 Stereo" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 30 Amount" direction="input" content="other"/>
+      <port name="Modulation 30 Bipolar" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 30 Bypass" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 30 Power" direction="input" content="other"/>
+      <port name="Modulation 30 Stereo" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 31 Amount" direction="input" content="other"/>
+      <port name="Modulation 31 Bipolar" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 31 Bypass" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 31 Power" direction="input" content="other"/>
+      <port name="Modulation 31 Stereo" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 32 Amount" direction="input" content="other"/>
+      <port name="Modulation 32 Bipolar" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 32 Bypass" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 32 Power" direction="input" content="other"/>
+      <port name="Modulation 32 Stereo" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 3 Amount" direction="input" content="other"/>
+      <port name="Modulation 3 Bipolar" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 3 Bypass" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 3 Power" direction="input" content="other"/>
+      <port name="Modulation 3 Stereo" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 4 Amount" direction="input" content="other"/>
+      <port name="Modulation 4 Bipolar" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 4 Bypass" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 4 Power" direction="input" content="other"/>
+      <port name="Modulation 4 Stereo" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 5 Amount" direction="input" content="other"/>
+      <port name="Modulation 5 Bipolar" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 5 Bypass" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 5 Power" direction="input" content="other"/>
+      <port name="Modulation 5 Stereo" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 6 Amount" direction="input" content="other"/>
+      <port name="Modulation 6 Bipolar" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 6 Bypass" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 6 Power" direction="input" content="other"/>
+      <port name="Modulation 6 Stereo" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 7 Amount" direction="input" content="other"/>
+      <port name="Modulation 7 Bipolar" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 7 Bypass" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 7 Power" direction="input" content="other"/>
+      <port name="Modulation 7 Stereo" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 8 Amount" direction="input" content="other"/>
+      <port name="Modulation 8 Bipolar" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 8 Bypass" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 8 Power" direction="input" content="other"/>
+      <port name="Modulation 8 Stereo" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 9 Amount" direction="input" content="other"/>
+      <port name="Modulation 9 Bipolar" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 9 Bypass" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 9 Power" direction="input" content="other"/>
+      <port name="Modulation 9 Stereo" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Oscillator 1 Detune Power" direction="input" content="other"/>
+      <port name="Oscillator 1 Detune Range" direction="input" content="other"/>
+      <port name="Oscillator 1 Distortion Amount" direction="input" content="other"/>
+      <port name="Oscillator 1 Distortion Phase" direction="input" content="other"/>
+      <port name="Oscillator 1 Distortion Spread" direction="input" content="other"/>
+      <port name="Oscillator 1 Distortion Type" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Oscillator 1 Unison Frame Spread" direction="input" content="other"/>
+      <port name="Oscillator 1 Level" direction="input" content="other"/>
+      <port name="Oscillator 1 Midi Track" direction="input" content="other"/>
+      <port name="Oscillator 1 Switch" direction="input" content="other"/>
+      <port name="Oscillator 1 Pan" direction="input" content="other"/>
+      <port name="Oscillator 1 Phase" direction="input" content="other"/>
+      <port name="Oscillator 1 Phase Randomization" direction="input" content="other"/>
+      <port name="Oscillator 1 Smooth Interpolation" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Oscillator 1 Stack Style" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Oscillator 1 Stereo Spread" direction="input" content="other"/>
+      <port name="Oscillator 1 Transpose" direction="input" content="other"/>
+      <port name="Oscillator 1 Transpose Quantize" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Oscillator 1 Tune" direction="input" content="other"/>
+      <port name="Oscillator 1 Blend" direction="input" content="other"/>
+      <port name="Oscillator 1 Unison Detune" direction="input" content="other"/>
+      <port name="Oscillator 1 Unison Voices" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Oscillator 1 Wave Frame" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Oscillator 2 Detune Power" direction="input" content="other"/>
+      <port name="Oscillator 2 Detune Range" direction="input" content="other"/>
+      <port name="Oscillator 2 Distortion Amount" direction="input" content="other"/>
+      <port name="Oscillator 2 Distortion Phase" direction="input" content="other"/>
+      <port name="Oscillator 2 Distortion Spread" direction="input" content="other"/>
+      <port name="Oscillator 2 Distortion Type" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Oscillator 2 Unison Frame Spread" direction="input" content="other"/>
+      <port name="Oscillator 2 Level" direction="input" content="other"/>
+      <port name="Oscillator 2 Midi Track" direction="input" content="other"/>
+      <port name="Oscillator 2 Switch" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Oscillator 2 Pan" direction="input" content="other"/>
+      <port name="Oscillator 2 Phase" direction="input" content="other"/>
+      <port name="Oscillator 2 Phase Randomization" direction="input" content="other"/>
+      <port name="Oscillator 2 Smooth Interpolation" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Oscillator 2 Stack Style" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Oscillator 2 Stereo Spread" direction="input" content="other"/>
+      <port name="Oscillator 2 Transpose" direction="input" content="other"/>
+      <port name="Oscillator 2 Transpose Quantize" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Oscillator 2 Tune" direction="input" content="other"/>
+      <port name="Oscillator 2 Blend" direction="input" content="other"/>
+      <port name="Oscillator 2 Unison Detune" direction="input" content="other"/>
+      <port name="Oscillator 2 Unison Voices" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Oscillator 2 Wave Frame" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Oversampling" direction="input" content="other"/>
+      <port name="Phaser Center" direction="input" content="other"/>
+      <port name="Phaser Mix" direction="input" content="other"/>
+      <port name="Phaser Feedback" direction="input" content="other"/>
+      <port name="Phaser Frequency" direction="input" content="other"/>
+      <port name="Phaser Mod Depth" direction="input" content="other"/>
+      <port name="Phaser Switch" direction="input" pp:default="0.0" content="other"/>
+      <port name="Phaser Phase Offset" direction="input" content="other"/>
+      <port name="Phaser Sync" direction="input" content="other"/>
+      <port name="Phaser Tempo" direction="input" content="other"/>
+      <port name="Pitch Bend Range" direction="input" content="other"/>
+      <port name="Polyphony" direction="input" content="other"/>
+      <port name="Portamento Force" direction="input" pp:default="0.0" content="other"/>
+      <port name="Portamento Scale" direction="input" pp:default="0.0" content="other"/>
+      <port name="Portamento Slope" direction="input" content="other"/>
+      <port name="Portamento Time" direction="input" pp:default="0.0" content="other"/>
+      <port name="Reverb Chorus Amount" direction="input" content="other"/>
+      <port name="Reverb Chorus Frequency" direction="input" content="other"/>
+      <port name="Reverb Decay Time" direction="input" content="other"/>
+      <port name="Reverb Mix" direction="input" content="other"/>
+      <port name="Reverb High Cutoff" direction="input" content="other"/>
+      <port name="Reverb High Gain" direction="input" content="other"/>
+      <port name="Reverb Low Cutoff" direction="input" pp:default="0.0" content="other"/>
+      <port name="Reverb Low Gain" direction="input" content="other"/>
+      <port name="Reverb Switch" direction="input" pp:default="0.0" content="other"/>
+      <port name="Reverb Pre High Cutoff" direction="input" content="other"/>
+      <port name="Reverb Pre Low Cutoff" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Sample Keytrack" direction="input" pp:default="0.0" content="other"/>
+      <port name="Sample Level" direction="input" content="other"/>
+      <port name="Sample Loop" direction="input" content="other"/>
+      <port name="Sample Switch" direction="input" pp:default="0.0" content="other"/>
+      <port name="Sample Pan" direction="input" content="other"/>
+      <port name="Sample Random Phase" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Sample Transpose" direction="input" content="other"/>
+      <port name="Sample Transpose Quantize" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Sample Tune" direction="input" content="other"/>
+      <port name="Stereo Routing" direction="input" content="other"/>
+      <port name="Velocity Track" direction="input" content="other"/>
+      <port name="Voice Amplitude" direction="input" content="other"/>
+      <port name="Voice Priority" direction="input" content="other"/>
+      <port name="Voice Tune" direction="input" content="other"/>
+      <port name="Volume" direction="input" content="other"/>
+      <port name="Mod Wheel" direction="input" pp:default="0.0" content="other"/>
+      <port name="Pitch Wheel" direction="input" content="other"/>
+      <port name="Random LFO 1 Frequency" direction="input" content="other"/>
+      <port name="Random LFO 1 Stereo" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Random LFO 1 Style" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Random LFO 1 Sync" direction="input" content="other"/>
+      <port name="Random LFO 1 Tempo" direction="input" content="other"/>
+      <port name="Random LFO 2 Frequency" direction="input" content="other"/>
+      <port name="Random LFO 2 Stereo" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Random LFO 2 Style" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Random LFO 2 Sync" direction="input" content="other"/>
+      <port name="Random LFO 2 Tempo" direction="input" content="other"/>
+      <port name="Random LFO 3 Frequency" direction="input" content="other"/>
+      <port name="Random LFO 3 Stereo" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Random LFO 3 Style" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Random LFO 3 Sync" direction="input" content="other"/>
+      <port name="Random LFO 3 Tempo" direction="input" content="other"/>
+      <port name="Random LFO 4 Frequency" direction="input" content="other"/>
+      <port name="Random LFO 4 Stereo" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Random LFO 4 Style" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Random LFO 4 Sync" direction="input" content="other"/>
+      <port name="Random LFO 4 Tempo" direction="input" content="other"/>
+      <port name="Oscillator 1 View 2D" direction="input" content="other"/>
+      <port name="Oscillator 2 View 2D" direction="input" content="other"/>
+      <port name="LFO 1 Stereo" direction="input" content="other"/>
+      <port name="LFO 2 Stereo" direction="input" content="other"/>
+      <port name="LFO 3 Stereo" direction="input" content="other"/>
+      <port name="LFO 4 Stereo" direction="input" content="other"/>
+      <port name="LFO 5 Stereo" direction="input" content="other"/>
+      <port name="LFO 6 Stereo" direction="input" content="other"/>
+      <port name="LFO 7 Stereo" direction="input" content="other"/>
+      <port name="LFO 8 Stereo" direction="input" content="other"/>
+      <port name="Oscillator 1 Frequency Morph Amount" direction="input"
+            content="other"/>
+      <port name="Oscillator 1 Frequency Morph Spread" direction="input"
+            content="other"/>
+      <port name="Oscillator 1 Frequency Morph Type" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Oscillator 2 Frequency Morph Amount" direction="input"
+            content="other"/>
+      <port name="Oscillator 2 Frequency Morph Spread" direction="input"
+            content="other"/>
+      <port name="Oscillator 2 Frequency Morph Type" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Oscillator 1 Destination" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Oscillator 1 Spectral Unison" direction="input" content="other"/>
+      <port name="Oscillator 2 Destination" direction="input" content="other"/>
+      <port name="Oscillator 2 Spectral Unison" direction="input" content="other"/>
+      <port name="Oscillator 3 Destination" direction="input" content="other"/>
+      <port name="Oscillator 3 Detune Power" direction="input" content="other"/>
+      <port name="Oscillator 3 Detune Range" direction="input" content="other"/>
+      <port name="Oscillator 3 Distortion Amount" direction="input" content="other"/>
+      <port name="Oscillator 3 Distortion Phase" direction="input" content="other"/>
+      <port name="Oscillator 3 Distortion Spread" direction="input" content="other"/>
+      <port name="Oscillator 3 Distortion Type" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Oscillator 3 Unison Frame Spread" direction="input" content="other"/>
+      <port name="Oscillator 3 Level" direction="input" content="other"/>
+      <port name="Oscillator 3 Midi Track" direction="input" content="other"/>
+      <port name="Oscillator 3 Switch" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Oscillator 3 Pan" direction="input" content="other"/>
+      <port name="Oscillator 3 Phase" direction="input" content="other"/>
+      <port name="Oscillator 3 Phase Randomization" direction="input" content="other"/>
+      <port name="Oscillator 3 Smooth Interpolation" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Oscillator 3 Frequency Morph Amount" direction="input"
+            content="other"/>
+      <port name="Oscillator 3 Frequency Morph Spread" direction="input"
+            content="other"/>
+      <port name="Oscillator 3 Frequency Morph Type" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Oscillator 3 Spectral Unison" direction="input" content="other"/>
+      <port name="Oscillator 3 Stack Style" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Oscillator 3 Stereo Spread" direction="input" content="other"/>
+      <port name="Oscillator 3 Transpose" direction="input" content="other"/>
+      <port name="Oscillator 3 Transpose Quantize" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Oscillator 3 Tune" direction="input" content="other"/>
+      <port name="Oscillator 3 Blend" direction="input" content="other"/>
+      <port name="Oscillator 3 Unison Detune" direction="input" content="other"/>
+      <port name="Oscillator 3 Unison Voices" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Oscillator 3 View 2D" direction="input" content="other"/>
+      <port name="Oscillator 3 Wave Frame" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Sample Destination" direction="input" content="other"/>
+      <port name="MPE Enabled" direction="input" pp:default="0.0" content="other"/>
+      <port name="Envelope 1 Delay" direction="input" pp:default="0.0" content="other"/>
+      <port name="Envelope 2 Delay" direction="input" pp:default="0.0" content="other"/>
+      <port name="Envelope 3 Delay" direction="input" pp:default="0.0" content="other"/>
+      <port name="Envelope 4 Delay" direction="input" pp:default="0.0" content="other"/>
+      <port name="Envelope 5 Delay" direction="input" pp:default="0.0" content="other"/>
+      <port name="Envelope 6 Delay" direction="input" pp:default="0.0" content="other"/>
+      <port name="Envelope 1 Hold" direction="input" pp:default="0.0" content="other"/>
+      <port name="Envelope 2 Hold" direction="input" pp:default="0.0" content="other"/>
+      <port name="Envelope 3 Hold" direction="input" pp:default="0.0" content="other"/>
+      <port name="Envelope 4 Hold" direction="input" pp:default="0.0" content="other"/>
+      <port name="Envelope 5 Hold" direction="input" pp:default="0.0" content="other"/>
+      <port name="Envelope 6 Hold" direction="input" pp:default="0.0" content="other"/>
+      <port name="Flanger Center" direction="input" content="other"/>
+      <port name="EQ Band Mode" direction="input" pp:default="0.0" content="other"/>
+      <port name="Reverb Size" direction="input" content="other"/>
+      <port name="Delay Frequency 2" direction="input" content="other"/>
+      <port name="Delay Sync 2" direction="input" content="other"/>
+      <port name="Delay Tempo 2" direction="input" content="other"/>
+      <port name="Chorus Voices" direction="input" content="other"/>
+      <port name="Phaser Blend" direction="input" content="other"/>
+      <port name="Random LFO 1 Sync Type" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Random LFO 2 Sync Type" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Random LFO 3 Sync Type" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Random LFO 4 Sync Type" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 33 Amount" direction="input" content="other"/>
+      <port name="Modulation 33 Bipolar" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 33 Bypass" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 33 Power" direction="input" content="other"/>
+      <port name="Modulation 33 Stereo" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 34 Amount" direction="input" content="other"/>
+      <port name="Modulation 34 Bipolar" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 34 Bypass" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 34 Power" direction="input" content="other"/>
+      <port name="Modulation 34 Stereo" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 35 Amount" direction="input" content="other"/>
+      <port name="Modulation 35 Bipolar" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 35 Bypass" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 35 Power" direction="input" content="other"/>
+      <port name="Modulation 35 Stereo" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 36 Amount" direction="input" content="other"/>
+      <port name="Modulation 36 Bipolar" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 36 Bypass" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 36 Power" direction="input" content="other"/>
+      <port name="Modulation 36 Stereo" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 37 Amount" direction="input" content="other"/>
+      <port name="Modulation 37 Bipolar" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 37 Bypass" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 37 Power" direction="input" content="other"/>
+      <port name="Modulation 37 Stereo" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 38 Amount" direction="input" content="other"/>
+      <port name="Modulation 38 Bipolar" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 38 Bypass" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 38 Power" direction="input" content="other"/>
+      <port name="Modulation 38 Stereo" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 39 Amount" direction="input" content="other"/>
+      <port name="Modulation 39 Bipolar" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 39 Bypass" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 39 Power" direction="input" content="other"/>
+      <port name="Modulation 39 Stereo" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 40 Amount" direction="input" content="other"/>
+      <port name="Modulation 40 Bipolar" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 40 Bypass" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 40 Power" direction="input" content="other"/>
+      <port name="Modulation 40 Stereo" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 41 Amount" direction="input" content="other"/>
+      <port name="Modulation 41 Bipolar" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 41 Bypass" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 41 Power" direction="input" content="other"/>
+      <port name="Modulation 41 Stereo" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 42 Amount" direction="input" content="other"/>
+      <port name="Modulation 42 Bipolar" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 42 Bypass" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 42 Power" direction="input" content="other"/>
+      <port name="Modulation 42 Stereo" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 43 Amount" direction="input" content="other"/>
+      <port name="Modulation 43 Bipolar" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 43 Bypass" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 43 Power" direction="input" content="other"/>
+      <port name="Modulation 43 Stereo" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 44 Amount" direction="input" content="other"/>
+      <port name="Modulation 44 Bipolar" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 44 Bypass" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 44 Power" direction="input" content="other"/>
+      <port name="Modulation 44 Stereo" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 45 Amount" direction="input" content="other"/>
+      <port name="Modulation 45 Bipolar" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 45 Bypass" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 45 Power" direction="input" content="other"/>
+      <port name="Modulation 45 Stereo" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 46 Amount" direction="input" content="other"/>
+      <port name="Modulation 46 Bipolar" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 46 Bypass" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 46 Power" direction="input" content="other"/>
+      <port name="Modulation 46 Stereo" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 47 Amount" direction="input" content="other"/>
+      <port name="Modulation 47 Bipolar" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 47 Bypass" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 47 Power" direction="input" content="other"/>
+      <port name="Modulation 47 Stereo" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 48 Amount" direction="input" content="other"/>
+      <port name="Modulation 48 Bipolar" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 48 Bypass" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 48 Power" direction="input" content="other"/>
+      <port name="Modulation 48 Stereo" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 49 Amount" direction="input" content="other"/>
+      <port name="Modulation 49 Bipolar" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 49 Bypass" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 49 Power" direction="input" content="other"/>
+      <port name="Modulation 49 Stereo" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 50 Amount" direction="input" content="other"/>
+      <port name="Modulation 50 Bipolar" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 50 Bypass" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 50 Power" direction="input" content="other"/>
+      <port name="Modulation 50 Stereo" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 51 Amount" direction="input" content="other"/>
+      <port name="Modulation 51 Bipolar" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 51 Bypass" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 51 Power" direction="input" content="other"/>
+      <port name="Modulation 51 Stereo" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 52 Amount" direction="input" content="other"/>
+      <port name="Modulation 52 Bipolar" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 52 Bypass" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 52 Power" direction="input" content="other"/>
+      <port name="Modulation 52 Stereo" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 53 Amount" direction="input" content="other"/>
+      <port name="Modulation 53 Bipolar" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 53 Bypass" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 53 Power" direction="input" content="other"/>
+      <port name="Modulation 53 Stereo" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 54 Amount" direction="input" content="other"/>
+      <port name="Modulation 54 Bipolar" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 54 Bypass" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 54 Power" direction="input" content="other"/>
+      <port name="Modulation 54 Stereo" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 55 Amount" direction="input" content="other"/>
+      <port name="Modulation 55 Bipolar" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 55 Bypass" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 55 Power" direction="input" content="other"/>
+      <port name="Modulation 55 Stereo" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 56 Amount" direction="input" content="other"/>
+      <port name="Modulation 56 Bipolar" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 56 Bypass" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 56 Power" direction="input" content="other"/>
+      <port name="Modulation 56 Stereo" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 57 Amount" direction="input" content="other"/>
+      <port name="Modulation 57 Bipolar" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 57 Bypass" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 57 Power" direction="input" content="other"/>
+      <port name="Modulation 57 Stereo" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 58 Amount" direction="input" content="other"/>
+      <port name="Modulation 58 Bipolar" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 58 Bypass" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 58 Power" direction="input" content="other"/>
+      <port name="Modulation 58 Stereo" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 59 Amount" direction="input" content="other"/>
+      <port name="Modulation 59 Bipolar" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 59 Bypass" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 59 Power" direction="input" content="other"/>
+      <port name="Modulation 59 Stereo" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 60 Amount" direction="input" content="other"/>
+      <port name="Modulation 60 Bipolar" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 60 Bypass" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 60 Power" direction="input" content="other"/>
+      <port name="Modulation 60 Stereo" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 61 Amount" direction="input" content="other"/>
+      <port name="Modulation 61 Bipolar" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 61 Bypass" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 61 Power" direction="input" content="other"/>
+      <port name="Modulation 61 Stereo" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 62 Amount" direction="input" content="other"/>
+      <port name="Modulation 62 Bipolar" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 62 Bypass" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 62 Power" direction="input" content="other"/>
+      <port name="Modulation 62 Stereo" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 63 Amount" direction="input" content="other"/>
+      <port name="Modulation 63 Bipolar" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 63 Bypass" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 63 Power" direction="input" content="other"/>
+      <port name="Modulation 63 Stereo" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 64 Amount" direction="input" content="other"/>
+      <port name="Modulation 64 Bipolar" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 64 Bypass" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Modulation 64 Power" direction="input" content="other"/>
+      <port name="Modulation 64 Stereo" direction="input" pp:default="0.0"
+            content="other"/>
+      <port name="Compressor Mix" direction="input" content="other"/>
+      <port name="Sample Bounce" direction="input" pp:default="0.0" content="other"/>
+      <port name="Voice Transpose" direction="input" content="other"/>
+      <port name="Stereo Mode" direction="input" pp:default="0.0" content="other"/>
+      <port name="Chorus Filter Spread" direction="input" content="other"/>
+      <port name="Reverb Delay" direction="input" pp:default="0.0" content="other"/>
+      <port name="Voice Override" direction="input" pp:default="0.0" content="other"/>
+      <port name="Bypass" direction="input" pp:default="0.0" content="other"/>
+      <port name="LFO 1 Transpose" direction="input" content="other"/>
+      <port name="LFO 1 Tune" direction="input" content="other"/>
+      <port name="LFO 2 Transpose" direction="input" content="other"/>
+      <port name="LFO 2 Tune" direction="input" content="other"/>
+      <port name="LFO 3 Transpose" direction="input" content="other"/>
+      <port name="LFO 3 Tune" direction="input" content="other"/>
+      <port name="LFO 4 Transpose" direction="input" content="other"/>
+      <port name="LFO 4 Tune" direction="input" content="other"/>
+      <port name="LFO 5 Transpose" direction="input" content="other"/>
+      <port name="LFO 5 Tune" direction="input" content="other"/>
+      <port name="LFO 6 Transpose" direction="input" content="other"/>
+      <port name="LFO 6 Tune" direction="input" content="other"/>
+      <port name="LFO 7 Transpose" direction="input" content="other"/>
+      <port name="LFO 7 Tune" direction="input" content="other"/>
+      <port name="LFO 8 Transpose" direction="input" content="other"/>
+      <port name="LFO 8 Tune" direction="input" content="other"/>
+      <port name="Random LFO 1 Transpose" direction="input" content="other"/>
+      <port name="Random LFO 1 Tune" direction="input" content="other"/>
+      <port name="Random LFO 2 Transpose" direction="input" content="other"/>
+      <port name="Random LFO 2 Tune" direction="input" content="other"/>
+      <port name="Random LFO 3 Transpose" direction="input" content="other"/>
+      <port name="Random LFO 3 Tune" direction="input" content="other"/>
+      <port name="Random LFO 4 Transpose" direction="input" content="other"/>
+      <port name="Random LFO 4 Tune" direction="input" content="other"/>
+      <port name="Filter 1 Formant Spread" direction="input" content="other"/>
+      <port name="Filter 2 Formant Spread" direction="input" content="other"/>
+      <port name="Filter fx Formant Spread" direction="input" content="other"/>
+      <port name="LFO 1 Smooth Mode" direction="input" content="other"/>
+      <port name="LFO 1 Smooth Time" direction="input" content="other"/>
+      <port name="LFO 2 Smooth Mode" direction="input" content="other"/>
+      <port name="LFO 2 Smooth Time" direction="input" content="other"/>
+      <port name="LFO 3 Smooth Mode" direction="input" content="other"/>
+      <port name="LFO 3 Smooth Time" direction="input" content="other"/>
+      <port name="LFO 4 Smooth Mode" direction="input" content="other"/>
+      <port name="LFO 4 Smooth Time" direction="input" content="other"/>
+      <port name="LFO 5 Smooth Mode" direction="input" content="other"/>
+      <port name="LFO 5 Smooth Time" direction="input" content="other"/>
+      <port name="LFO 6 Smooth Mode" direction="input" content="other"/>
+      <port name="LFO 6 Smooth Time" direction="input" content="other"/>
+      <port name="LFO 7 Smooth Mode" direction="input" content="other"/>
+      <port name="LFO 7 Smooth Time" direction="input" content="other"/>
+      <port name="LFO 8 Smooth Mode" direction="input" content="other"/>
+      <port name="LFO 8 Smooth Time" direction="input" content="other"/>
+      <port name="View Spectrogram" direction="input" pp:default="0.0" content="other"/>
+      <port direction="output" content="audio" name="Left"/>
+      <port direction="output" content="audio" name="Right"/>
+      <port direction="input" content="audio" name="Left"/>
+      <port direction="input" content="audio" name="Right"/>
+      <port direction="input" content="midi" name="MIDI input"/>
+    </ports>
+  </plugin>
+</plugins>

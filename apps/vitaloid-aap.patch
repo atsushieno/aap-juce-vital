@@ -1,0 +1,483 @@
+diff --git a/src/interface/editor_components/synth_preset_selector.cpp b/src/interface/editor_components/synth_preset_selector.cpp
+index 64da1d5..01e7fb0 100644
+--- a/src/interface/editor_components/synth_preset_selector.cpp
++++ b/src/interface/editor_components/synth_preset_selector.cpp
+@@ -139,7 +139,8 @@ void SynthPresetSelector::newPresetSelected(File preset) {
+     resetText();
+   else {
+     error = "There was an error open the preset. " + error;
+-    AlertWindow::showNativeDialogBox("Error opening preset", error, false);
++    //AlertWindow::showNativeDialogBox("Error opening preset", error, false);
++    AlertWindow::showMessageBoxAsync(AlertWindow::AlertIconType::WarningIcon, "Error opening preset", error);
+   }
+ }
+ 
+@@ -283,9 +284,8 @@ void SynthPresetSelector::importPreset() {
+   SynthGuiInterface* parent = findParentComponentOfClass<SynthGuiInterface>();
+   File active_file = parent->getSynth()->getActiveFile();
+   FileChooser open_box("Open Preset", active_file, String("*.") + vital::kPresetExtension);
+-  if (!open_box.browseForFileToOpen())
+-    return;
+-  
++
++  std::function<void(const FileChooser &)> callback = [&](const FileChooser &fc) {
+   File choice = open_box.getResult();
+   if (!choice.exists())
+     return;
+@@ -294,10 +294,13 @@ void SynthPresetSelector::importPreset() {
+   if (!parent->getSynth()->loadFromFile(choice, error)) {
+     std::string name = ProjectInfo::projectName;
+     error = "There was an error open the preset. " + error;
+-    AlertWindow::showNativeDialogBox("Error opening preset", error, false);
++    //AlertWindow::showNativeDialogBox("Error opening preset", error, false);
++    AlertWindow::showMessageBoxAsync(AlertWindow::AlertIconType::WarningIcon, "Error opening preset", error);
+   }
+   else
+     parent->externalPresetLoaded(choice);
++  };
++  open_box.launchAsync(FileBrowserComponent::FileChooserFlags::openMode, callback);
+ }
+ 
+ void SynthPresetSelector::exportPreset() {
+@@ -308,16 +311,17 @@ void SynthPresetSelector::exportPreset() {
+   SynthBase* synth = parent->getSynth();
+   File active_file = synth->getActiveFile();
+   FileChooser save_box("Export Preset", File(), String("*.") + vital::kPresetExtension);
+-  if (!save_box.browseForFileToSave(true))
+-    return;
+-  
++
++  std::function<void(const FileChooser &)> callback = [&](const FileChooser &fc) {  
+   synth->saveToFile(save_box.getResult().withFileExtension(vital::kPresetExtension));
+   parent->externalPresetLoaded(synth->getActiveFile());
++  };
++  save_box.launchAsync(FileBrowserComponent::FileChooserFlags::saveMode, callback);
+ }
+ 
+ void SynthPresetSelector::importBank() {
+   FileChooser import_box("Import Bank", File(), String("*.") + vital::kBankExtension);
+-  if (import_box.browseForFileToOpen()) {
++  std::function<void(const FileChooser &)> callback = [&](const FileChooser &fc) {
+     File result = import_box.getResult();
+     FileInputStream input_stream(result);
+     if (input_stream.openedOk()) {
+@@ -338,7 +342,8 @@ void SynthPresetSelector::importBank() {
+     }
+     else
+       LoadSave::writeErrorLog("Opening file stream to bank failed!");
+-  }
++  };
++  import_box.launchAsync(FileBrowserComponent::FileChooserFlags::openMode, callback);
+ }
+ 
+ void SynthPresetSelector::exportBank() {
+@@ -348,8 +353,10 @@ void SynthPresetSelector::exportBank() {
+ void SynthPresetSelector::loadTuningFile() {
+   SynthGuiInterface* parent = findParentComponentOfClass<SynthGuiInterface>();
+   FileChooser load_box("Load Tuning", File(), Tuning::allFileExtensions());
+-  if (load_box.browseForFileToOpen())
++  std::function<void(const FileChooser &)> callback = [&](const FileChooser &fc) {
+     parent->getSynth()->loadTuningFile(load_box.getResult());
++  };
++  load_box.launchAsync(FileBrowserComponent::FileChooserFlags::openMode, callback);
+ }
+ 
+ void SynthPresetSelector::clearTuning() {
+@@ -404,12 +411,13 @@ void SynthPresetSelector::openSkinDesigner() {
+ 
+ void SynthPresetSelector::loadSkin() {
+   FileChooser open_box("Open Skin", File(), String("*.") + vital::kSkinExtension);
+-  if (open_box.browseForFileToOpen()) {
++  std::function<void(const FileChooser &)> callback = [&](const FileChooser &fc) {
+     File loaded = open_box.getResult();
+     loaded.copyFileTo(LoadSave::getDefaultSkin());
+     full_skin_->loadFromFile(loaded);
+     repaintWithSkin();
+-  }
++  };
++  open_box.launchAsync(FileBrowserComponent::FileChooserFlags::openMode, callback);
+ }
+ 
+ void SynthPresetSelector::clearSkin() {
+diff --git a/src/interface/editor_sections/bank_exporter.cpp b/src/interface/editor_sections/bank_exporter.cpp
+index ac1a476..ef68def 100644
+--- a/src/interface/editor_sections/bank_exporter.cpp
++++ b/src/interface/editor_sections/bank_exporter.cpp
+@@ -617,14 +617,15 @@ void BankExporter::exportBank() {
+ 
+   File file = File::getCurrentWorkingDirectory().getChildFile(bank_name + "." + vital::kBankExtension);
+   FileChooser export_box("Export Bank", file, String("*.") + vital::kBankExtension);
+-  if (export_box.browseForFileToSave(true)) {
++  std::function<void(const FileChooser &)> callback = [&](const FileChooser &fc) {
+     File destination = export_box.getResult().withFileExtension(vital::kBankExtension);
+     if (destination.hasWriteAccess()) {
+       FileOutputStream output_stream(destination);
+       if (output_stream.openedOk())
+         bank_zip.writeToStream(output_stream, nullptr);
+     }
+-  }
++  };
++  export_box.launchAsync(FileBrowserComponent::FileChooserFlags::saveMode, callback);
+ }
+ 
+ void BankExporter::loadFiles() {
+diff --git a/src/interface/editor_sections/download_section.cpp b/src/interface/editor_sections/download_section.cpp
+index fccb2d5..df8bc96 100644
+--- a/src/interface/editor_sections/download_section.cpp
++++ b/src/interface/editor_sections/download_section.cpp
+@@ -316,7 +316,8 @@ void DownloadSection::triggerInstall() {
+   if (!install_location_.exists() || !errors_file.exists() || !errors_file.hasWriteAccess()) {
+     MessageManagerLock lock(Thread::getCurrentThread());
+     String warning = "Can't create install directory. Select another destination";
+-    AlertWindow::showNativeDialogBox("Can't Create Directory", warning, false);
++    //AlertWindow::showNativeDialogBox("Can't Create Directory", warning, false);
++    AlertWindow::showMessageBoxAsync(AlertWindow::AlertIconType::WarningIcon, "Can't Create Directory", warning);
+     install_button_->setEnabled(true);
+     cancel_button_->setEnabled(true);
+     return;
+@@ -383,6 +384,8 @@ void DownloadSection::cancelDownload() {
+ }
+ 
+ void DownloadSection::chooseInstallFolder() {
++  AlertWindow::showMessageBoxAsync(AlertWindow::AlertIconType::WarningIcon, "Not supported", "Choosing Install Directory not supported");
++  /*
+   FileChooser open_box("Choose Install Directory", install_location_);
+   if (open_box.browseForDirectory()) {
+     File result = open_box.getResult();
+@@ -399,7 +402,9 @@ void DownloadSection::chooseInstallFolder() {
+     }
+     else {
+       String warning = "Can't create install directory. Select another destination";
+-      AlertWindow::showNativeDialogBox("Invalid Directory", warning, false);
++      //AlertWindow::showNativeDialogBox("Invalid Directory", warning, false);
++      AlertWindow::showMessageBoxAsync(AlertWindow::AlertIconType::WarningIcon, "Invalid Directory", warning);
+     }
+   }
++  */
+ }
+diff --git a/src/interface/editor_sections/lfo_section.cpp b/src/interface/editor_sections/lfo_section.cpp
+index 170326e..8fdac12 100644
+--- a/src/interface/editor_sections/lfo_section.cpp
++++ b/src/interface/editor_sections/lfo_section.cpp
+@@ -360,18 +360,19 @@ void LfoSection::togglePaintMode(bool enabled, bool temporary_switch) {
+ 
+ void LfoSection::importLfo() {
+   FileChooser import_box("Import LFO", LoadSave::getUserLfoDirectory(), String("*.") + vital::kLfoExtension);
+-  if (!import_box.browseForFileToOpen())
+-    return;
+ 
++  std::function<void(const FileChooser &)> callback = [&](const FileChooser &fc) {
+   File choice = import_box.getResult();
+   loadFile(choice.withFileExtension(vital::kLfoExtension));
++  };
++
++  import_box.launchAsync(FileBrowserComponent::FileChooserFlags::openMode, callback);
+ }
+ 
+ void LfoSection::exportLfo() {
+   FileChooser export_box("Export LFO", LoadSave::getUserLfoDirectory(), String("*.") + vital::kLfoExtension);
+-  if (!export_box.browseForFileToSave(true))
+-    return;
+ 
++  std::function<void(const FileChooser &)> callback = [&](const FileChooser &fc) {
+   File choice = export_box.getResult();
+   choice = choice.withFileExtension(vital::kLfoExtension);
+   if (!choice.exists())
+@@ -381,6 +382,8 @@ void LfoSection::exportLfo() {
+   String name = choice.getFileNameWithoutExtension();
+   editor_->getModel()->setName(name.toStdString());
+   preset_selector_->setText(name);
++  };
++  export_box.launchAsync(FileBrowserComponent::FileChooserFlags::saveMode, callback);
+ }
+ 
+ void LfoSection::fileLoaded() {
+diff --git a/src/interface/editor_sections/master_controls_interface.cpp b/src/interface/editor_sections/master_controls_interface.cpp
+index ec62969..95045fd 100644
+--- a/src/interface/editor_sections/master_controls_interface.cpp
++++ b/src/interface/editor_sections/master_controls_interface.cpp
+@@ -129,10 +129,13 @@ void TuningSelector::loadTuning(TuningStyle tuning) {
+ void TuningSelector::loadTuningFile() {
+   setCustomString("Custom");
+   FileChooser load_box("Load Tuning", File(), Tuning::allFileExtensions());
+-  if (load_box.browseForFileToOpen())
++  std::function<void(const FileChooser &)> callback = [&](const FileChooser &fc) {
+     loadTuningFile(load_box.getResult());
+ 
++  // I assume this should be called only for successful case
+   setCustomString(getTuningName().toStdString());
++  };
++  load_box.launchAsync(FileBrowserComponent::FileChooserFlags::openMode, callback);
+ }
+ 
+ void TuningSelector::loadTuningFile(const File& file) {
+@@ -496,14 +499,15 @@ class DisplaySettings : public SynthSection {
+         }
+         else if (skin_->getValue() == skins_.size() + 1) {
+           FileChooser open_box("Open Skin", File(), String("*.") + vital::kSkinExtension);
+-          if (open_box.browseForFileToOpen()) {
++          std::function<void(const FileChooser &)> callback = [&](const FileChooser &fc) {
+             File skin_file = open_box.getResult();
+             skin_file.copyFileTo(LoadSave::getDefaultSkin());
+             Skin skin;
+ 
+             skin.loadFromFile(skin_file);
+             loadSkin(skin);
+-          }
++          };
++          open_box.launchAsync(FileBrowserComponent::FileChooserFlags::openMode, callback);
+         }
+         else {
+           Skin skin;
+diff --git a/src/interface/editor_sections/modulation_matrix.cpp b/src/interface/editor_sections/modulation_matrix.cpp
+index 740b0cf..0a103d8 100644
+--- a/src/interface/editor_sections/modulation_matrix.cpp
++++ b/src/interface/editor_sections/modulation_matrix.cpp
+@@ -1191,18 +1191,18 @@ void ModulationMatrix::togglePaintMode(bool enabled, bool temporary_switch) {
+ 
+ void ModulationMatrix::importLfo() {
+   FileChooser import_box("Import LFO", LoadSave::getUserLfoDirectory(), String("*.") + vital::kLfoExtension);
+-  if (!import_box.browseForFileToOpen())
+-    return;
+ 
++  std::function<void(const FileChooser &)> callback = [&](const FileChooser &fc) {
+   File choice = import_box.getResult();
+   loadFile(choice.withFileExtension(vital::kLfoExtension));
++  };
++  import_box.launchAsync(FileBrowserComponent::FileChooserFlags::openMode, callback);
+ }
+ 
+ void ModulationMatrix::exportLfo() {
+   FileChooser export_box("Export LFO", LoadSave::getUserLfoDirectory(), String("*.") + vital::kLfoExtension);
+-  if (!export_box.browseForFileToSave(true))
+-    return;
+ 
++  std::function<void(const FileChooser &)> callback = [&](const FileChooser &fc) {
+   File choice = export_box.getResult();
+   choice = choice.withFileExtension(vital::kLfoExtension);
+   if (!choice.exists())
+@@ -1212,6 +1212,8 @@ void ModulationMatrix::exportLfo() {
+   String name = choice.getFileNameWithoutExtension();
+   map_editors_[selected_index_]->getModel()->setName(name.toStdString());
+   preset_selector_->setText(name);
++  };
++  export_box.launchAsync(FileBrowserComponent::FileChooserFlags::saveMode, callback);
+ }
+ 
+ void ModulationMatrix::fileLoaded() {
+diff --git a/src/interface/editor_sections/popup_browser.cpp b/src/interface/editor_sections/popup_browser.cpp
+index 13e827d..67ed851 100644
+--- a/src/interface/editor_sections/popup_browser.cpp
++++ b/src/interface/editor_sections/popup_browser.cpp
+@@ -517,6 +517,8 @@ void SelectionList::mouseDoubleClick(const MouseEvent& e) {
+ }
+ 
+ void SelectionList::addAdditionalFolder() {
++  AlertWindow::showMessageBoxAsync(AlertWindow::AlertIconType::WarningIcon, "Not supported", "Add Folder operation is not supported");
++  /*
+   FileChooser open_box("Add Folder", File());
+   if (open_box.browseForDirectory()) {
+     File result = open_box.getResult();
+@@ -545,6 +547,7 @@ void SelectionList::addAdditionalFolder() {
+         showAddRootWarning();
+     }
+   }
++  */
+ }
+ 
+ void SelectionList::removeAdditionalFolder(const File& folder) {
+diff --git a/src/interface/editor_sections/wavetable_edit_section.cpp b/src/interface/editor_sections/wavetable_edit_section.cpp
+index a3a1ebe..8ec4b3a 100644
+--- a/src/interface/editor_sections/wavetable_edit_section.cpp
++++ b/src/interface/editor_sections/wavetable_edit_section.cpp
+@@ -576,20 +576,22 @@ void WavetableEditSection::saveAsWavetable() {
+ 
+ void WavetableEditSection::importWavetable() {
+   FileChooser open_box("Import Wavetable", File(), vital::kWavetableExtensionsList);
+-  if (open_box.browseForFileToOpen()) {
++  std::function<void(const FileChooser &)> callback = [&](const FileChooser &fc) {
+     if (!open_box.getResult().exists())
+       return;
+     loadFile(open_box.getResult());
+-  }
++  };
++  open_box.launchAsync(FileBrowserComponent::FileChooserFlags::openMode, callback);
+ }
+ 
+ void WavetableEditSection::exportWavetable() {
+   FileChooser save_box("Export Wavetable", File(), String("*.") + vital::kWavetableExtension);
+-  if (save_box.browseForFileToSave(true)) {
++  std::function<void(const FileChooser &)> callback = [&](const FileChooser &fc) {
+     json wavetable_data = wavetable_creator_->stateToJson();
+     File file = save_box.getResult().withFileExtension(vital::kWavetableExtension);
+     file.replaceWithText(wavetable_data.dump());
+-  }
++  };
++  save_box.launchAsync(FileBrowserComponent::FileChooserFlags::saveMode, callback);
+ }
+ 
+ void WavetableEditSection::exportToWav() {
+@@ -597,9 +599,8 @@ void WavetableEditSection::exportToWav() {
+   static constexpr int kNumWaveframes = 256;
+   
+   FileChooser save_box("Export to .wav File", File(), String("*.wav"));
+-  if (!save_box.browseForFileToSave(true))
+-    return;
+ 
++  std::function<void(const FileChooser &)> callback = [&](const FileChooser &fc) {
+   File file = save_box.getResult().withFileExtension("wav");
+   if (!file.hasWriteAccess())
+     return;
+@@ -623,6 +624,8 @@ void WavetableEditSection::exportToWav() {
+ 
+   writer = nullptr;
+   file_stream.release();
++  };
++  save_box.launchAsync(FileBrowserComponent::FileChooserFlags::saveMode, callback);
+ }
+ 
+ void WavetableEditSection::loadFile(const File& wavetable_file) {
+diff --git a/src/interface/look_and_feel/shaders.cpp b/src/interface/look_and_feel/shaders.cpp
+index 48fceb4..39f53dc 100644
+--- a/src/interface/look_and_feel/shaders.cpp
++++ b/src/interface/look_and_feel/shaders.cpp
+@@ -254,7 +254,7 @@ namespace {
+       "    " MEDIUMP " vec2 one_pole = stage0 * low_pass + stage1 * high_pass;\n"
+       "    " MEDIUMP " vec2 high_pass2 = vec2(1.0, 0.0) - onePoleResponse(getCutoffRatio(position.x, stage3));\n"
+       "    " MEDIUMP " vec2 filter_input = vec2(1.0 - 0.5 * abs(resonance), 0.0);\n"
+-      "    " MEDIUMP " filter_input = complexMultiply(complexMultiply(filter_input, one_pole), high_pass2);\n"
++      "    " MEDIUMP " vec2 filter_input2 = complexMultiply(complexMultiply(filter_input, one_pole), high_pass2);\n"
+       "    " MEDIUMP " vec2 denominator = vec2(1.0, 0.0) - complexMultiply(complexMultiply(tick, one_pole), high_pass2);\n"
+       "    " MEDIUMP " float round_value = complexMultiply(one_pole, high_pass2).x * abs(resonance);\n"
+       "    " MEDIUMP " vec2 denominator_round = vec2(1.0 - round_value, 0.0);\n"
+@@ -264,7 +264,7 @@ namespace {
+       "    denominator = max_step * max_step_denominator + (1.0 - max_step) * denominator;\n"
+       "    " MEDIUMP " float denominator_round_step = 1.0 - max(max_step, step(ratio_diff, length(denominator)));\n"
+       "    denominator = denominator_round_step * denominator_round + (1.0 - denominator_round_step) * denominator;\n"
+-      "    " MEDIUMP " vec2 response = complexDivide(drive * filter_input, denominator);\n"
++      "    " MEDIUMP " vec2 response = complexDivide(drive * filter_input2, denominator);\n"
+       "    response = mix * response + vec2(1.0 - mix, 0.0);\n"
+       "    response_out = getYForResponse(response);\n"
+       "}\n";
+@@ -950,7 +950,8 @@ namespace {
+ 
+   inline String translateFragmentShader(const String& code) {
+   #if OPENGL_ES
+-    return String("#version 300 es\n") + "out mediump vec4 fragColor;\n" +
++    // FIXME: (Android) should this be highp? Did not improve visible scale so far...
++    return String("#version 300 es\nprecision mediump float;\n") + "out mediump vec4 fragColor;\n" +
+       code.replace("varying", "in").replace("texture2D", "texture").replace("gl_FragColor", "fragColor");
+   #else
+     return OpenGLHelpers::translateFragmentShaderToV3(code);
+@@ -959,7 +960,8 @@ namespace {
+ 
+   inline String translateVertexShader(const String& code) {
+   #if OPENGL_ES
+-    return String("#version 300 es\n") + code.replace("attribute", "in").replace("varying", "out");
++    // FIXME: (Android) should this be highp? Did not improve visible scale so far...
++    return String("#version 300 es\nprecision mediump float;\n") + code.replace("attribute", "in").replace("varying", "out");
+   #else
+     return OpenGLHelpers::translateVertexShaderToV3(code);
+   #endif
+diff --git a/src/interface/look_and_feel/skin.cpp b/src/interface/look_and_feel/skin.cpp
+index 13b1255..2bbdba7 100644
+--- a/src/interface/look_and_feel/skin.cpp
++++ b/src/interface/look_and_feel/skin.cpp
+@@ -641,20 +641,24 @@ class SkinColorPicker : public Component, public Button::Listener, public Slider
+     void buttonClicked(Button* clicked_button) override {
+       if (clicked_button == &load_button_) {
+         FileChooser open_box("Open Skin", File(), String("*.") + vital::kSkinExtension);
+-        if (open_box.browseForFileToOpen()) {
++        std::function<void(const FileChooser &)> callback = [&](const FileChooser &fc) {
+           if (!skin_->loadFromFile(open_box.getResult())) {
+-            AlertWindow::showNativeDialogBox("Error opening skin", "Skin file is corrupted and won't load.", false);
++            //AlertWindow::showNativeDialogBox("Error opening skin", "Skin file is corrupted and won't load.", false);
++            std::cout << "Error opening skin: Skin file is corrupted and won't load.";
+             return;
+           }
+           setSliderValues();
+           repaintWithSettings();
+-        }
++        };
++        open_box.launchAsync(FileBrowserComponent::FileChooserFlags::openMode, callback);
+         return;
+       }
+       if (clicked_button == &save_button_) {
+         FileChooser save_box("Save Skin", File(), String("*.") + vital::kSkinExtension);
+-        if (save_box.browseForFileToSave(true))
++        std::function<void(const FileChooser &)> callback = [&](const FileChooser &fc) {
+           skin_->saveToFile(save_box.getResult().withFileExtension(vital::kSkinExtension));
++        };
++        save_box.launchAsync(FileBrowserComponent::FileChooserFlags::saveMode, callback);
+ 
+         return;
+       }
+diff --git a/src/interface/wavetable/overlays/file_source_overlay.cpp b/src/interface/wavetable/overlays/file_source_overlay.cpp
+index 65e44a0..c577d98 100644
+--- a/src/interface/wavetable/overlays/file_source_overlay.cpp
++++ b/src/interface/wavetable/overlays/file_source_overlay.cpp
+@@ -443,8 +443,10 @@ void FileSourceOverlay::loadFile(const File& file) {
+ 
+ void FileSourceOverlay::loadFilePressed() {
+   FileChooser load_file("Load Audio File", File::getSpecialLocation(File::userHomeDirectory), String("*.wav"));
+-  if (load_file.browseForFileToOpen())
++  std::function<void(const FileChooser &)> callback = [&](const FileChooser &fc) {
+     loadFile(load_file.getResult());
++  };
++  load_file.launchAsync(FileBrowserComponent::FileChooserFlags::openMode, callback);
+ }
+ 
+ void FileSourceOverlay::buttonClicked(Button* clicked_button) {
+diff --git a/src/standalone/main.cpp b/src/standalone/main.cpp
+index f8535fa..155c6eb 100644
+--- a/src/standalone/main.cpp
++++ b/src/standalone/main.cpp
+@@ -96,7 +96,8 @@ class SynthApplication : public JUCEApplication {
+           if (!Startup::isComputerCompatible()) {
+             String error = String(ProjectInfo::projectName) +
+                            " requires SSE2, NEON or AVX2 compatible processor. Exiting.";
+-            AlertWindow::showNativeDialogBox("Computer not supported", error, false);
++            //AlertWindow::showNativeDialogBox("Computer not supported", error, false);
++            std::cout << "Computer not supported";
+             quit();
+           }
+ 
+@@ -185,8 +186,10 @@ class SynthApplication : public JUCEApplication {
+           else if (info.commandID == kSaveAs) {
+             File active_file = editor_->getActiveFile();
+             FileChooser save_box("Export Preset", File(), String("*.") + vital::kPresetExtension);
+-            if (save_box.browseForFileToSave(true))
++            std::function<void(const FileChooser &)> callback = [&](const FileChooser &fc) {
+               editor_->saveToFile(save_box.getResult().withFileExtension(vital::kPresetExtension));
++            };
++            save_box.launchAsync(FileBrowserComponent::FileChooserFlags::saveMode, callback);
+             grabKeyboardFocus();
+             editor_->setFocus();
+             return true;
+@@ -194,9 +197,8 @@ class SynthApplication : public JUCEApplication {
+           else if (info.commandID == kOpen) {
+             File active_file = editor_->getActiveFile();
+             FileChooser open_box("Open Preset", active_file, String("*.") + vital::kPresetExtension);
+-            if (!open_box.browseForFileToOpen())
+-              return true;
+             
++            std::function<void(const FileChooser &)> callback = [&](const FileChooser &fc) {
+             File choice = open_box.getResult();
+             if (!choice.exists())
+               return true;
+@@ -204,12 +206,14 @@ class SynthApplication : public JUCEApplication {
+             std::string error;
+             if (!editor_->loadFromFile(choice, error)) {
+               error = "There was an error open the preset. " + error;
+-              AlertWindow::showNativeDialogBox("Error opening preset", error, false);
++              AlertWindow::showMessageBoxAsync(AlertWindow::AlertIconType::WarningIcon, "Error opening preset", error);
+             }
+             else
+               editor_->externalPresetLoaded(choice);
+             grabKeyboardFocus();
+             editor_->setFocus();
++            };
++            open_box.launchAsync(FileBrowserComponent::FileChooserFlags::openMode, callback);
+             return true;
+           }
+           else if (info.commandID == kToggleVideo)
