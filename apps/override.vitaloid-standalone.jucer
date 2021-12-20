@@ -897,12 +897,12 @@
                    externalLibraries=""
                    >
       <CONFIGURATIONS>
-        <CONFIGURATION name="Debug" isDebug="1" 
+        <CONFIGURATION name="Debug" isDebug="1" androidArchitectures="x86 x86_64 arm64-v8a"
                        headerPath="../../android-audio-plugin-framework/native/androidaudioplugin/core/include;../../android-audio-plugin-framework/native/plugin-api/include;../../../src/common&#10;../../../src/common/wavetable&#10;../../../src/interface/editor_components&#10;../../../src/interface/editor_sections&#10;../../../src/interface/look_and_feel&#10;../../../src/interface/wavetable&#10;../../../src/interface/wavetable/editors&#10;../../../src/interface/wavetable/overlays&#10;../../../src/standalone&#10;../../../src/synthesis/synth_engine&#10;../../../src/synthesis/effects&#10;../../../src/synthesis/filters&#10;../../../src/synthesis/framework&#10;../../../src/synthesis/lookups&#10;../../../src/synthesis/modulators&#10;../../../src/synthesis/modules&#10;../../../src/synthesis/producers&#10;../../../src/synthesis/utilities&#10;../../../third_party"
                        libraryPath="../../android-audio-plugin-framework/java/androidaudioplugin/build/intermediates/cmake/debug/obj/${ANDROID_ABI}"
                        optimisation="1" linkTimeOptimisation="0"
                        recommendedWarnings="LLVM"/>
-        <CONFIGURATION name="Release" isDebug="0" optimisation="3" linkTimeOptimisation="0"
+        <CONFIGURATION name="Release" isDebug="0" androidArchitectures="x86 x86_64 arm64-v8a" optimisation="3" linkTimeOptimisation="0"
                        headerPath="../../android-audio-plugin-framework/native/androidaudioplugin/core/include;../../android-audio-plugin-framework/native/plugin-api/include;../../../src/common&#10;../../../src/common/wavetable&#10;../../../src/interface/editor_components&#10;../../../src/interface/editor_sections&#10;../../../src/interface/look_and_feel&#10;../../../src/interface/wavetable&#10;../../../src/interface/wavetable/editors&#10;../../../src/interface/wavetable/overlays&#10;../../../src/standalone&#10;../../../src/synthesis/synth_engine&#10;../../../src/synthesis/effects&#10;../../../src/synthesis/filters&#10;../../../src/synthesis/framework&#10;../../../src/synthesis/lookups&#10;../../../src/synthesis/modulators&#10;../../../src/synthesis/modules&#10;../../../src/synthesis/producers&#10;../../../src/synthesis/utilities&#10;../../../third_party"
                        libraryPath="../../android-audio-plugin-framework/java/androidaudioplugin/build/intermediates/cmake/release/obj/${ANDROID_ABI}"
                        recommendedWarnings="LLVM"/>
