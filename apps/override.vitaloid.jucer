@@ -4,7 +4,7 @@
               bundleIdentifier="org.androidaudioplugin.vitaloid" includeBinaryInAppConfig="1"
               buildVST="0" buildVST3="1" buildAU="1" buildRTAS="0" buildAAX="0"
               pluginName="Vitaloid" pluginDesc="" pluginManufacturer="AAP developers"
-              pluginManufacturerCode="Open" pluginCode="Vitaloid" pluginChannelConfigs="{0, 2}"
+              pluginManufacturerCode="Open" pluginCode="Vtld" pluginChannelConfigs="{0, 2}"
               pluginIsSynth="1" pluginWantsMidiIn="1" pluginProducesMidiOut="0"
               pluginSilenceInIsSilenceOut="0" pluginEditorRequiresKeys="1"
               pluginAUExportPrefix="vitaloid" pluginRTASCategory="" aaxIdentifier="org.androidaudioplugin.vitaloid"
