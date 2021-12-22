@@ -24,6 +24,18 @@ It can run on Android as a standalone app, which shows the "right" UI, just with
 
 To build this version, overwrite `apps/override.vitaloid.jucer` with `apps/override.vitaloid-standalone.jucer` and run `make`.
 
+## Updating JUCE to 6.1.4 (or any later versions)
+
+vital comes with its own version of JUCE in `third_party/JUCE` which is based on some version around JUCE 6.0.5, stripping out any extraneous bits.
+
+I created a diff between JUCE 6.0.5 and vital: https://gist.github.com/atsushieno/158b40759b01c7d70c60a682620277e9
+
+If you want to use later versions of JUCE, you might want to first patch the diff above against the target JUCE tree, then copy the required modules into `third_party/JUCE/modules/`.
+
+Note that there could be breaking changes that breaks vital builds. For example JUCE 6.1.0 broke build by requiring `using namespace juce::gl;` explicitly. (The change is in our `vitaloid-aap.patch` so that you don't have to worry about this particular breakage.)
+
+For JUCE 6.1.4 there is my version of the patch that you can directly apply to JUCE 6.1.4 tree (though there are some dropped changes that may break builds on non-Android platforms): https://gist.github.com/atsushieno/e5a2989e94c896fb15ea07ee57e249c7
+
 ## Licenses
 
 aap-juce-vital is distributed under the GPLv3 license.

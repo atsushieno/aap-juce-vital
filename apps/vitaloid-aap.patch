@@ -494,3 +494,16 @@ index f8535fa..155c6eb 100644
              return true;
            }
            else if (info.commandID == kToggleVideo)
+diff --git a/src/synthesis/framework/common.h b/src/synthesis/framework/common.h
+index f66ba88..0d15993 100644
+--- a/src/synthesis/framework/common.h
++++ b/src/synthesis/framework/common.h
+@@ -18,6 +18,8 @@
+ 
+ #include "JuceHeader.h"
+ 
++using namespace juce::gl; // It is required for JUCE 6.1.0 or later (see BREAKING-CHANGES.txt).
++
+ // Debugging.
+ #if DEBUG
+ #include <cassert>
