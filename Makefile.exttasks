@@ -1,4 +1,4 @@
-EXTERNAL_POST_PROJUCE_TASKS=replace-juce-modules
+
 
 .PHONY:
 replace-juce-modules: overwrite-juce-modules patch-juce-modules
