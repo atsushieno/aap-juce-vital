@@ -1,0 +1,17 @@
+EXTERNAL_POST_PROJUCE_TASKS=replace-juce-modules
+
+.PHONY:
+replace-juce-modules: overwrite-juce-modules patch-juce-modules
+
+.PHONY:
+overwrite-juce-modules:
+	for moddir in $(shell ls external/vital/third_party/JUCE/modules/) ; do \
+		echo "$${moddir}" ; \
+		rm -rf apps/vital/third_party/JUCE/modules/$${moddir} ; \
+		cp -R external/JUCE/modules/$${moddir} apps/vital/third_party/JUCE/modules/ ; \
+	done
+
+.PHONY:
+patch-juce-modules:
+	cd apps/vital/third_party/JUCE && patch -l -i ../../../../juce-6.1.4-diff-vital-modules.patch -p1
+
