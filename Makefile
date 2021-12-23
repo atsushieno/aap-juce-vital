@@ -36,7 +36,7 @@ endif
 BUILDS_DIR=builds
 METADATA_GENERATOR_EXTRA_LDFLAGS=-lGL
 
-EXTERNAL_POST_PROJUCE_TASKS=replace-juce-modules
+EXTERNAL_PRE_PROJUCE_TASKS=replace-juce-modules
 
 include $(AAP_JUCE_DIR)/Makefile.common
 
