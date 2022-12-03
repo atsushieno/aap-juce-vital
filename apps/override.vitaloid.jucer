@@ -12,7 +12,7 @@
               companyWebsite="github.com/atsushieno/aap-juce-vital" pluginIsMidiEffectPlugin="0" buildAUv3="1"
               displaySplashScreen="0" reportAppUsage="0" splashScreenColour="Dark"
               buildStandalone="1" enableIAA="1" cppLanguageStandard="14" companyCopyright="AAP developers"
-              pluginFormats="buildVST3,buildAU,buildAUv3,buildStandalone,enableIAA"
+              pluginFormats="buildAU,buildAUv3,buildStandalone,enableIAA"
               pluginCharacteristicsValue="pluginIsSynth,pluginWantsMidiIn,pluginEditorRequiresKeys"
               jucerFormatVersion="1" projectLineFeed="&#10;">
   <MAINGROUP id="OwcEM5" name="Vial">
@@ -847,8 +847,8 @@
       </MODULEPATHS>
     </LINUX_MAKE>
     <ANDROIDSTUDIO targetFolder="Builds/Android" bigIcon="JqKIEw" smallIcon="oFf3hH"
-                   androidMinimumSDK="29" androidTargetSDK="31"
-                   androidDependencies="implementation 'org.androidaudioplugin:androidaudioplugin:0.7.0'&#10;implementation 'org.androidaudioplugin:androidaudioplugin-midi-device-service:0.7.0'&#10;"
+                   androidMinimumSDK="29" androidTargetSDK="33"
+                   androidDependencies="implementation 'dev.atsushieno:libcxx-provider:24.0.8215888'&#10;implementation 'org.androidaudioplugin:androidaudioplugin:0.7.4'&#10;implementation 'org.androidaudioplugin:androidaudioplugin-midi-device-service:0.7.4'&#10;"
                    extraCompilerFlags="-ffast-math -ftree-vectorize -ftree-slp-vectorize -funroll-loops"
                    extraLinkerFlags="-ffast-math -ftree-vectorize -ftree-slp-vectorize"
                    extraDefs="REQUIRE_AUTH=0&#10;NO_AUTH=1&#10;OPENGL_ES=1&#10;BUILD_DATE=2021_12_00_00_00&#10;_GLIBCXX_USE_CXX11_ABI=0&#10;JUCE_JACK_CLIENT_NAME=&quot;Vital&quot;&#10;JUCE_ALSA_MIDI_INPUT_NAME=&quot;Vital&quot;&#10;JUCE_ALSA_MIDI_OUTPUT_NAME=&quot;Vital&quot;&#10;JUCE_USE_XRANDR=0&#10;JUCE_OPENGL3=1&#10;JUCE_DSP_USE_SHARED_FFTW=1"

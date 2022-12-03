@@ -1,1365 +1,1504 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<plugins xmlns="urn:org.androidaudioplugin.core" xmlns:pp="urn:org.androidaudioplugin.port">
+<plugins xmlns="urn:org.androidaudioplugin.core">
   <plugin name="Vitaloid" category="Instrument" author="AAP developers"
           manufacturer="github.com/atsushieno/aap-juce-vital" unique-id="juceaap:56746c64"
           library="libjuce_jni.so" entrypoint="GetJuceAAPFactory" assets="">
+    <extensions>
+      <extension uri="urn://androidaudioplugin.org/extensions/presets/v1"/>
+    </extensions>
+    <parameters xmlns="urn://androidaudioplugin.org/extensions/parameters">
+      <parameter id="0" name="Beats Per Minute" direction="input" default="0.3571428656578064"
+                 content="other"/>
+      <parameter id="1" name="Chorus Filter Cutoff" direction="input" default="0.40625"
+                 content="other"/>
+      <parameter id="2" name="Chorus Delay 1" direction="input" default="0.2295610308647156"
+                 content="other"/>
+      <parameter id="3" name="Chorus Delay 2" direction="input" default="0.6886830925941467"
+                 content="other"/>
+      <parameter id="4" name="Chorus Mix" direction="input" default="0.5" content="other"/>
+      <parameter id="5" name="Chorus Feedback" direction="input" default="0.7105263471603394"
+                 content="other"/>
+      <parameter id="6" name="Chorus Frequency" direction="input" default="0.3333333432674408"
+                 content="other"/>
+      <parameter id="7" name="Chorus Mod Depth" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="8" name="Chorus Switch" direction="input" default="0.0" content="other"/>
+      <parameter id="9" name="Chorus Sync" direction="input" default="0.3333333432674408"
+                 content="other"/>
+      <parameter id="10" name="Chorus Tempo" direction="input" default="0.4000000059604645"
+                 content="other"/>
+      <parameter id="11" name="Compressor Attack" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="12" name="Compressor Band Gain" direction="input" default="0.6949999928474426"
+                 content="other"/>
+      <parameter id="13" name="Band Lower Ratio" direction="input" default="0.8999999761581421"
+                 content="other"/>
+      <parameter id="14" name="Band Lower Threshold" direction="input" default="0.550000011920929"
+                 content="other"/>
+      <parameter id="15" name="Band Upper Ratio" direction="input" default="0.8569999933242798"
+                 content="other"/>
+      <parameter id="16" name="Band Upper Threshold" direction="input" default="0.6875"
+                 content="other"/>
+      <parameter id="17" name="Compressor Enabled Bands" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="18" name="Compressor High Gain" direction="input" default="0.7716666460037231"
+                 content="other"/>
+      <parameter id="19" name="High Lower Ratio" direction="input" default="0.8999999761581421"
+                 content="other"/>
+      <parameter id="20" name="High Lower Threshold" direction="input" default="0.5625"
+                 content="other"/>
+      <parameter id="21" name="High Upper Ratio" direction="input" default="1.0"
+                 content="other"/>
+      <parameter id="22" name="High Upper Threshold" direction="input" default="0.625"
+                 content="other"/>
+      <parameter id="23" name="Compressor Low Gain" direction="input" default="0.7716666460037231"
+                 content="other"/>
+      <parameter id="24" name="Low Lower Ratio" direction="input" default="0.8999999761581421"
+                 content="other"/>
+      <parameter id="25" name="Low Lower Threshold" direction="input" default="0.5625"
+                 content="other"/>
+      <parameter id="26" name="Low Upper Ratio" direction="input" default="0.8999999761581421"
+                 content="other"/>
+      <parameter id="27" name="Low Upper Threshold" direction="input" default="0.6499999761581421"
+                 content="other"/>
+      <parameter id="28" name="Compressor Switch" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="29" name="Compressor Release" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="30" name="Delay Mix" direction="input" default="0.3334000110626221"
+                 content="other"/>
+      <parameter id="31" name="Delay Feedback" direction="input" default="0.75"
+                 content="other"/>
+      <parameter id="32" name="Delay Filter Cutoff" direction="input" default="0.40625"
+                 content="other"/>
+      <parameter id="33" name="Delay Filter Spread" direction="input" default="1.0"
+                 content="other"/>
+      <parameter id="34" name="Delay Frequency" direction="input" default="0.3636363744735718"
+                 content="other"/>
+      <parameter id="35" name="Delay Switch" direction="input" default="0.0" content="other"/>
+      <parameter id="36" name="Delay Style" direction="input" default="0.0" content="other"/>
+      <parameter id="37" name="Delay Sync" direction="input" default="0.3333333432674408"
+                 content="other"/>
+      <parameter id="38" name="Delay Tempo" direction="input" default="0.625"
+                 content="other"/>
+      <parameter id="39" name="Distortion Drive" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="40" name="Distortion Filter Blend" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="41" name="Distortion Filter Cutoff" direction="input" default="0.5625"
+                 content="other"/>
+      <parameter id="42" name="Distortion Filter Order" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="43" name="Distortion Filter Resonance" direction="input"
+                 default="0.5" content="other"/>
+      <parameter id="44" name="Distortion Mix" direction="input" default="1.0"
+                 content="other"/>
+      <parameter id="45" name="Distortion Switch" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="46" name="Distortion Type" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="47" name="Effect Chain Order" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="48" name="Envelope 1 Attack" direction="input" default="0.06285685300827026"
+                 content="other"/>
+      <parameter id="49" name="Envelope 1 Attack Power" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="50" name="Envelope 1 Decay" direction="input" default="0.4204471707344055"
+                 content="other"/>
+      <parameter id="51" name="Envelope 1 Decay Power" direction="input" default="0.449999988079071"
+                 content="other"/>
+      <parameter id="52" name="Envelope 1 Release" direction="input" default="0.2302368581295013"
+                 content="other"/>
+      <parameter id="53" name="Envelope 1 Release Power" direction="input" default="0.449999988079071"
+                 content="other"/>
+      <parameter id="54" name="Envelope 1 Sustain" direction="input" default="1.0"
+                 content="other"/>
+      <parameter id="55" name="Envelope 2 Attack" direction="input" default="0.06285685300827026"
+                 content="other"/>
+      <parameter id="56" name="Envelope 2 Attack Power" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="57" name="Envelope 2 Decay" direction="input" default="0.4204471707344055"
+                 content="other"/>
+      <parameter id="58" name="Envelope 2 Decay Power" direction="input" default="0.449999988079071"
+                 content="other"/>
+      <parameter id="59" name="Envelope 2 Release" direction="input" default="0.2302368581295013"
+                 content="other"/>
+      <parameter id="60" name="Envelope 2 Release Power" direction="input" default="0.449999988079071"
+                 content="other"/>
+      <parameter id="61" name="Envelope 2 Sustain" direction="input" default="1.0"
+                 content="other"/>
+      <parameter id="62" name="Envelope 3 Attack" direction="input" default="0.06285685300827026"
+                 content="other"/>
+      <parameter id="63" name="Envelope 3 Attack Power" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="64" name="Envelope 3 Decay" direction="input" default="0.4204471707344055"
+                 content="other"/>
+      <parameter id="65" name="Envelope 3 Decay Power" direction="input" default="0.449999988079071"
+                 content="other"/>
+      <parameter id="66" name="Envelope 3 Release" direction="input" default="0.2302368581295013"
+                 content="other"/>
+      <parameter id="67" name="Envelope 3 Release Power" direction="input" default="0.449999988079071"
+                 content="other"/>
+      <parameter id="68" name="Envelope 3 Sustain" direction="input" default="1.0"
+                 content="other"/>
+      <parameter id="69" name="Envelope 4 Attack" direction="input" default="0.06285685300827026"
+                 content="other"/>
+      <parameter id="70" name="Envelope 4 Attack Power" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="71" name="Envelope 4 Decay" direction="input" default="0.4204471707344055"
+                 content="other"/>
+      <parameter id="72" name="Envelope 4 Decay Power" direction="input" default="0.449999988079071"
+                 content="other"/>
+      <parameter id="73" name="Envelope 4 Release" direction="input" default="0.2302368581295013"
+                 content="other"/>
+      <parameter id="74" name="Envelope 4 Release Power" direction="input" default="0.449999988079071"
+                 content="other"/>
+      <parameter id="75" name="Envelope 4 Sustain" direction="input" default="1.0"
+                 content="other"/>
+      <parameter id="76" name="Envelope 5 Attack" direction="input" default="0.06285685300827026"
+                 content="other"/>
+      <parameter id="77" name="Envelope 5 Attack Power" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="78" name="Envelope 5 Decay" direction="input" default="0.4204471707344055"
+                 content="other"/>
+      <parameter id="79" name="Envelope 5 Decay Power" direction="input" default="0.449999988079071"
+                 content="other"/>
+      <parameter id="80" name="Envelope 5 Release" direction="input" default="0.2302368581295013"
+                 content="other"/>
+      <parameter id="81" name="Envelope 5 Release Power" direction="input" default="0.449999988079071"
+                 content="other"/>
+      <parameter id="82" name="Envelope 5 Sustain" direction="input" default="1.0"
+                 content="other"/>
+      <parameter id="83" name="Envelope 6 Attack" direction="input" default="0.06285685300827026"
+                 content="other"/>
+      <parameter id="84" name="Envelope 6 Attack Power" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="85" name="Envelope 6 Decay" direction="input" default="0.4204471707344055"
+                 content="other"/>
+      <parameter id="86" name="Envelope 6 Decay Power" direction="input" default="0.449999988079071"
+                 content="other"/>
+      <parameter id="87" name="Envelope 6 Release" direction="input" default="0.2302368581295013"
+                 content="other"/>
+      <parameter id="88" name="Envelope 6 Release Power" direction="input" default="0.449999988079071"
+                 content="other"/>
+      <parameter id="89" name="Envelope 6 Sustain" direction="input" default="1.0"
+                 content="other"/>
+      <parameter id="90" name="EQ Band Cutoff" direction="input" default="0.5625"
+                 content="other"/>
+      <parameter id="91" name="EQ Band Gain" direction="input" default="0.5" content="other"/>
+      <parameter id="92" name="EQ Band Resonance" direction="input" default="0.447299987077713"
+                 content="other"/>
+      <parameter id="93" name="EQ High Cutoff" direction="input" default="0.71875"
+                 content="other"/>
+      <parameter id="94" name="EQ High Gain" direction="input" default="0.5" content="other"/>
+      <parameter id="95" name="EQ High Mode" direction="input" default="0.0" content="other"/>
+      <parameter id="96" name="EQ High Resonance" direction="input" default="0.3163000047206879"
+                 content="other"/>
+      <parameter id="97" name="EQ Low Cutoff" direction="input" default="0.25"
+                 content="other"/>
+      <parameter id="98" name="EQ Low Gain" direction="input" default="0.5" content="other"/>
+      <parameter id="99" name="EQ Low Mode" direction="input" default="0.0" content="other"/>
+      <parameter id="100" name="EQ Low Resonance" direction="input" default="0.3163000047206879"
+                 content="other"/>
+      <parameter id="101" name="EQ Switch" direction="input" default="0.0" content="other"/>
+      <parameter id="102" name="Filter 1 Blend" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="103" name="Filter 1 Comb Blend Offset" direction="input"
+                 default="0.5" content="other"/>
+      <parameter id="104" name="Filter 1 Cutoff" direction="input" default="0.40625"
+                 content="other"/>
+      <parameter id="105" name="Filter 1 Drive" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="106" name="Filter 1 FILTER Input" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="107" name="Filter 1 Formant Resonance" direction="input"
+                 default="0.785714328289032" content="other"/>
+      <parameter id="108" name="Filter 1 Formant Transpose" direction="input"
+                 default="0.5" content="other"/>
+      <parameter id="109" name="Filter 1 Formant X" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="110" name="Filter 1 Formant Y" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="111" name="Filter 1 Key Track" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="112" name="Filter 1 Mix" direction="input" default="1.0"
+                 content="other"/>
+      <parameter id="113" name="Filter 1 Model" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="114" name="Filter 1 Switch" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="115" name="Filter 1 Resonance" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="116" name="Filter 1 Style" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="117" name="Filter 2 Blend" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="118" name="Filter 2 Comb Blend Offset" direction="input"
+                 default="0.5" content="other"/>
+      <parameter id="119" name="Filter 2 Cutoff" direction="input" default="0.40625"
+                 content="other"/>
+      <parameter id="120" name="Filter 2 Drive" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="121" name="Filter 2 FILTER Input" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="122" name="Filter 2 Formant Resonance" direction="input"
+                 default="0.785714328289032" content="other"/>
+      <parameter id="123" name="Filter 2 Formant Transpose" direction="input"
+                 default="0.5" content="other"/>
+      <parameter id="124" name="Filter 2 Formant X" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="125" name="Filter 2 Formant Y" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="126" name="Filter 2 Key Track" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="127" name="Filter 2 Mix" direction="input" default="1.0"
+                 content="other"/>
+      <parameter id="128" name="Filter 2 Model" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="129" name="Filter 2 Switch" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="130" name="Filter 2 Resonance" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="131" name="Filter 2 Style" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="132" name="Filter fx Blend" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="133" name="Filter fx Comb Blend Offset" direction="input"
+                 default="0.5" content="other"/>
+      <parameter id="134" name="Filter fx Cutoff" direction="input" default="0.40625"
+                 content="other"/>
+      <parameter id="135" name="Filter fx Drive" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="136" name="Filter fx Formant Resonance" direction="input"
+                 default="0.785714328289032" content="other"/>
+      <parameter id="137" name="Filter fx Formant Transpose" direction="input"
+                 default="0.5" content="other"/>
+      <parameter id="138" name="Filter fx Formant X" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="139" name="Filter fx Formant Y" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="140" name="Filter fx Key Track" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="141" name="Filter fx Mix" direction="input" default="1.0"
+                 content="other"/>
+      <parameter id="142" name="Filter fx Model" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="143" name="Filter fx Switch" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="144" name="Filter fx Resonance" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="145" name="Filter fx Style" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="146" name="Flanger Mix" direction="input" default="1.0" content="other"/>
+      <parameter id="147" name="Flanger Feedback" direction="input" default="0.75"
+                 content="other"/>
+      <parameter id="148" name="Flanger Frequency" direction="input" default="1.0"
+                 content="other"/>
+      <parameter id="149" name="Flanger Mod Depth" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="150" name="Flanger Switch" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="151" name="Flanger Phase Offset" direction="input" default="0.3333333432674408"
+                 content="other"/>
+      <parameter id="152" name="Flanger Sync" direction="input" default="0.3333333432674408"
+                 content="other"/>
+      <parameter id="153" name="Flanger Tempo" direction="input" default="0.4000000059604645"
+                 content="other"/>
+      <parameter id="154" name="Legato" direction="input" default="0.0" content="other"/>
+      <parameter id="155" name="LFO 1 Delay" direction="input" default="0.0" content="other"/>
+      <parameter id="156" name="LFO 1 Fade In" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="157" name="LFO 1 Frequency" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="158" name="LFO 1 Phase" direction="input" default="0.0" content="other"/>
+      <parameter id="159" name="LFO 1 Sync" direction="input" default="0.25" content="other"/>
+      <parameter id="160" name="LFO 1 Sync Type" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="161" name="LFO 1 Tempo" direction="input" default="0.5833333134651184"
+                 content="other"/>
+      <parameter id="162" name="LFO 2 Delay" direction="input" default="0.0" content="other"/>
+      <parameter id="163" name="LFO 2 Fade In" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="164" name="LFO 2 Frequency" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="165" name="LFO 2 Phase" direction="input" default="0.0" content="other"/>
+      <parameter id="166" name="LFO 2 Sync" direction="input" default="0.25" content="other"/>
+      <parameter id="167" name="LFO 2 Sync Type" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="168" name="LFO 2 Tempo" direction="input" default="0.5833333134651184"
+                 content="other"/>
+      <parameter id="169" name="LFO 3 Delay" direction="input" default="0.0" content="other"/>
+      <parameter id="170" name="LFO 3 Fade In" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="171" name="LFO 3 Frequency" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="172" name="LFO 3 Phase" direction="input" default="0.0" content="other"/>
+      <parameter id="173" name="LFO 3 Sync" direction="input" default="0.25" content="other"/>
+      <parameter id="174" name="LFO 3 Sync Type" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="175" name="LFO 3 Tempo" direction="input" default="0.5833333134651184"
+                 content="other"/>
+      <parameter id="176" name="LFO 4 Delay" direction="input" default="0.0" content="other"/>
+      <parameter id="177" name="LFO 4 Fade In" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="178" name="LFO 4 Frequency" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="179" name="LFO 4 Phase" direction="input" default="0.0" content="other"/>
+      <parameter id="180" name="LFO 4 Sync" direction="input" default="0.25" content="other"/>
+      <parameter id="181" name="LFO 4 Sync Type" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="182" name="LFO 4 Tempo" direction="input" default="0.5833333134651184"
+                 content="other"/>
+      <parameter id="183" name="LFO 5 Delay" direction="input" default="0.0" content="other"/>
+      <parameter id="184" name="LFO 5 Fade In" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="185" name="LFO 5 Frequency" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="186" name="LFO 5 Phase" direction="input" default="0.0" content="other"/>
+      <parameter id="187" name="LFO 5 Sync" direction="input" default="0.25" content="other"/>
+      <parameter id="188" name="LFO 5 Sync Type" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="189" name="LFO 5 Tempo" direction="input" default="0.5833333134651184"
+                 content="other"/>
+      <parameter id="190" name="LFO 6 Delay" direction="input" default="0.0" content="other"/>
+      <parameter id="191" name="LFO 6 Fade In" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="192" name="LFO 6 Frequency" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="193" name="LFO 6 Phase" direction="input" default="0.0" content="other"/>
+      <parameter id="194" name="LFO 6 Sync" direction="input" default="0.25" content="other"/>
+      <parameter id="195" name="LFO 6 Sync Type" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="196" name="LFO 6 Tempo" direction="input" default="0.5833333134651184"
+                 content="other"/>
+      <parameter id="197" name="LFO 7 Delay" direction="input" default="0.0" content="other"/>
+      <parameter id="198" name="LFO 7 Fade In" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="199" name="LFO 7 Frequency" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="200" name="LFO 7 Phase" direction="input" default="0.0" content="other"/>
+      <parameter id="201" name="LFO 7 Sync" direction="input" default="0.25" content="other"/>
+      <parameter id="202" name="LFO 7 Sync Type" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="203" name="LFO 7 Tempo" direction="input" default="0.5833333134651184"
+                 content="other"/>
+      <parameter id="204" name="LFO 8 Delay" direction="input" default="0.0" content="other"/>
+      <parameter id="205" name="LFO 8 Fade In" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="206" name="LFO 8 Frequency" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="207" name="LFO 8 Phase" direction="input" default="0.0" content="other"/>
+      <parameter id="208" name="LFO 8 Sync" direction="input" default="0.25" content="other"/>
+      <parameter id="209" name="LFO 8 Sync Type" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="210" name="LFO 8 Tempo" direction="input" default="0.5833333134651184"
+                 content="other"/>
+      <parameter id="211" name="Macro 1" direction="input" default="0.0" content="other"/>
+      <parameter id="212" name="Macro 2" direction="input" default="0.0" content="other"/>
+      <parameter id="213" name="Macro 3" direction="input" default="0.0" content="other"/>
+      <parameter id="214" name="Macro 4" direction="input" default="0.0" content="other"/>
+      <parameter id="215" name="Modulation 10 Amount" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="216" name="Modulation 10 Bipolar" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="217" name="Modulation 10 Bypass" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="218" name="Modulation 10 Power" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="219" name="Modulation 10 Stereo" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="220" name="Modulation 11 Amount" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="221" name="Modulation 11 Bipolar" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="222" name="Modulation 11 Bypass" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="223" name="Modulation 11 Power" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="224" name="Modulation 11 Stereo" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="225" name="Modulation 12 Amount" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="226" name="Modulation 12 Bipolar" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="227" name="Modulation 12 Bypass" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="228" name="Modulation 12 Power" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="229" name="Modulation 12 Stereo" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="230" name="Modulation 13 Amount" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="231" name="Modulation 13 Bipolar" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="232" name="Modulation 13 Bypass" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="233" name="Modulation 13 Power" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="234" name="Modulation 13 Stereo" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="235" name="Modulation 14 Amount" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="236" name="Modulation 14 Bipolar" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="237" name="Modulation 14 Bypass" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="238" name="Modulation 14 Power" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="239" name="Modulation 14 Stereo" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="240" name="Modulation 15 Amount" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="241" name="Modulation 15 Bipolar" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="242" name="Modulation 15 Bypass" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="243" name="Modulation 15 Power" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="244" name="Modulation 15 Stereo" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="245" name="Modulation 16 Amount" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="246" name="Modulation 16 Bipolar" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="247" name="Modulation 16 Bypass" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="248" name="Modulation 16 Power" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="249" name="Modulation 16 Stereo" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="250" name="Modulation 17 Amount" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="251" name="Modulation 17 Bipolar" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="252" name="Modulation 17 Bypass" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="253" name="Modulation 17 Power" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="254" name="Modulation 17 Stereo" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="255" name="Modulation 18 Amount" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="256" name="Modulation 18 Bipolar" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="257" name="Modulation 18 Bypass" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="258" name="Modulation 18 Power" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="259" name="Modulation 18 Stereo" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="260" name="Modulation 19 Amount" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="261" name="Modulation 19 Bipolar" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="262" name="Modulation 19 Bypass" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="263" name="Modulation 19 Power" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="264" name="Modulation 19 Stereo" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="265" name="Modulation 1 Amount" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="266" name="Modulation 1 Bipolar" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="267" name="Modulation 1 Bypass" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="268" name="Modulation 1 Power" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="269" name="Modulation 1 Stereo" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="270" name="Modulation 20 Amount" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="271" name="Modulation 20 Bipolar" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="272" name="Modulation 20 Bypass" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="273" name="Modulation 20 Power" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="274" name="Modulation 20 Stereo" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="275" name="Modulation 21 Amount" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="276" name="Modulation 21 Bipolar" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="277" name="Modulation 21 Bypass" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="278" name="Modulation 21 Power" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="279" name="Modulation 21 Stereo" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="280" name="Modulation 22 Amount" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="281" name="Modulation 22 Bipolar" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="282" name="Modulation 22 Bypass" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="283" name="Modulation 22 Power" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="284" name="Modulation 22 Stereo" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="285" name="Modulation 23 Amount" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="286" name="Modulation 23 Bipolar" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="287" name="Modulation 23 Bypass" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="288" name="Modulation 23 Power" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="289" name="Modulation 23 Stereo" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="290" name="Modulation 24 Amount" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="291" name="Modulation 24 Bipolar" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="292" name="Modulation 24 Bypass" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="293" name="Modulation 24 Power" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="294" name="Modulation 24 Stereo" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="295" name="Modulation 25 Amount" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="296" name="Modulation 25 Bipolar" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="297" name="Modulation 25 Bypass" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="298" name="Modulation 25 Power" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="299" name="Modulation 25 Stereo" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="300" name="Modulation 26 Amount" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="301" name="Modulation 26 Bipolar" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="302" name="Modulation 26 Bypass" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="303" name="Modulation 26 Power" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="304" name="Modulation 26 Stereo" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="305" name="Modulation 27 Amount" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="306" name="Modulation 27 Bipolar" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="307" name="Modulation 27 Bypass" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="308" name="Modulation 27 Power" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="309" name="Modulation 27 Stereo" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="310" name="Modulation 28 Amount" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="311" name="Modulation 28 Bipolar" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="312" name="Modulation 28 Bypass" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="313" name="Modulation 28 Power" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="314" name="Modulation 28 Stereo" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="315" name="Modulation 29 Amount" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="316" name="Modulation 29 Bipolar" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="317" name="Modulation 29 Bypass" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="318" name="Modulation 29 Power" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="319" name="Modulation 29 Stereo" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="320" name="Modulation 2 Amount" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="321" name="Modulation 2 Bipolar" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="322" name="Modulation 2 Bypass" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="323" name="Modulation 2 Power" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="324" name="Modulation 2 Stereo" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="325" name="Modulation 30 Amount" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="326" name="Modulation 30 Bipolar" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="327" name="Modulation 30 Bypass" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="328" name="Modulation 30 Power" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="329" name="Modulation 30 Stereo" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="330" name="Modulation 31 Amount" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="331" name="Modulation 31 Bipolar" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="332" name="Modulation 31 Bypass" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="333" name="Modulation 31 Power" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="334" name="Modulation 31 Stereo" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="335" name="Modulation 32 Amount" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="336" name="Modulation 32 Bipolar" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="337" name="Modulation 32 Bypass" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="338" name="Modulation 32 Power" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="339" name="Modulation 32 Stereo" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="340" name="Modulation 3 Amount" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="341" name="Modulation 3 Bipolar" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="342" name="Modulation 3 Bypass" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="343" name="Modulation 3 Power" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="344" name="Modulation 3 Stereo" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="345" name="Modulation 4 Amount" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="346" name="Modulation 4 Bipolar" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="347" name="Modulation 4 Bypass" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="348" name="Modulation 4 Power" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="349" name="Modulation 4 Stereo" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="350" name="Modulation 5 Amount" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="351" name="Modulation 5 Bipolar" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="352" name="Modulation 5 Bypass" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="353" name="Modulation 5 Power" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="354" name="Modulation 5 Stereo" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="355" name="Modulation 6 Amount" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="356" name="Modulation 6 Bipolar" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="357" name="Modulation 6 Bypass" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="358" name="Modulation 6 Power" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="359" name="Modulation 6 Stereo" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="360" name="Modulation 7 Amount" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="361" name="Modulation 7 Bipolar" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="362" name="Modulation 7 Bypass" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="363" name="Modulation 7 Power" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="364" name="Modulation 7 Stereo" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="365" name="Modulation 8 Amount" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="366" name="Modulation 8 Bipolar" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="367" name="Modulation 8 Bypass" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="368" name="Modulation 8 Power" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="369" name="Modulation 8 Stereo" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="370" name="Modulation 9 Amount" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="371" name="Modulation 9 Bipolar" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="372" name="Modulation 9 Bypass" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="373" name="Modulation 9 Power" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="374" name="Modulation 9 Stereo" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="375" name="Oscillator 1 Detune Power" direction="input" default="0.6499999761581421"
+                 content="other"/>
+      <parameter id="376" name="Oscillator 1 Detune Range" direction="input" default="0.0416666679084301"
+                 content="other"/>
+      <parameter id="377" name="Oscillator 1 Distortion Amount" direction="input"
+                 default="0.5" content="other"/>
+      <parameter id="378" name="Oscillator 1 Distortion Phase" direction="input"
+                 default="0.5" content="other"/>
+      <parameter id="379" name="Oscillator 1 Distortion Spread" direction="input"
+                 default="0.5" content="other"/>
+      <parameter id="380" name="Oscillator 1 Distortion Type" direction="input"
+                 default="0.0" content="other"/>
+      <parameter id="381" name="Oscillator 1 Unison Frame Spread" direction="input"
+                 default="0.5" content="other"/>
+      <parameter id="382" name="Oscillator 1 Level" direction="input" default="0.7071067690849304"
+                 content="other"/>
+      <parameter id="383" name="Oscillator 1 Midi Track" direction="input" default="1.0"
+                 content="other"/>
+      <parameter id="384" name="Oscillator 1 Switch" direction="input" default="1.0"
+                 content="other"/>
+      <parameter id="385" name="Oscillator 1 Pan" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="386" name="Oscillator 1 Phase" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="387" name="Oscillator 1 Phase Randomization" direction="input"
+                 default="1.0" content="other"/>
+      <parameter id="388" name="Oscillator 1 Smooth Interpolation" direction="input"
+                 default="0.0" content="other"/>
+      <parameter id="389" name="Oscillator 1 Stack Style" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="390" name="Oscillator 1 Stereo Spread" direction="input"
+                 default="1.0" content="other"/>
+      <parameter id="391" name="Oscillator 1 Transpose" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="392" name="Oscillator 1 Transpose Quantize" direction="input"
+                 default="0.0" content="other"/>
+      <parameter id="393" name="Oscillator 1 Tune" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="394" name="Oscillator 1 Blend" direction="input" default="0.800000011920929"
+                 content="other"/>
+      <parameter id="395" name="Oscillator 1 Unison Detune" direction="input"
+                 default="0.4472135901451111" content="other"/>
+      <parameter id="396" name="Oscillator 1 Unison Voices" direction="input"
+                 default="0.0" content="other"/>
+      <parameter id="397" name="Oscillator 1 Wave Frame" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="398" name="Oscillator 2 Detune Power" direction="input" default="0.6499999761581421"
+                 content="other"/>
+      <parameter id="399" name="Oscillator 2 Detune Range" direction="input" default="0.0416666679084301"
+                 content="other"/>
+      <parameter id="400" name="Oscillator 2 Distortion Amount" direction="input"
+                 default="0.5" content="other"/>
+      <parameter id="401" name="Oscillator 2 Distortion Phase" direction="input"
+                 default="0.5" content="other"/>
+      <parameter id="402" name="Oscillator 2 Distortion Spread" direction="input"
+                 default="0.5" content="other"/>
+      <parameter id="403" name="Oscillator 2 Distortion Type" direction="input"
+                 default="0.0" content="other"/>
+      <parameter id="404" name="Oscillator 2 Unison Frame Spread" direction="input"
+                 default="0.5" content="other"/>
+      <parameter id="405" name="Oscillator 2 Level" direction="input" default="0.7071067690849304"
+                 content="other"/>
+      <parameter id="406" name="Oscillator 2 Midi Track" direction="input" default="1.0"
+                 content="other"/>
+      <parameter id="407" name="Oscillator 2 Switch" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="408" name="Oscillator 2 Pan" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="409" name="Oscillator 2 Phase" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="410" name="Oscillator 2 Phase Randomization" direction="input"
+                 default="1.0" content="other"/>
+      <parameter id="411" name="Oscillator 2 Smooth Interpolation" direction="input"
+                 default="0.0" content="other"/>
+      <parameter id="412" name="Oscillator 2 Stack Style" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="413" name="Oscillator 2 Stereo Spread" direction="input"
+                 default="1.0" content="other"/>
+      <parameter id="414" name="Oscillator 2 Transpose" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="415" name="Oscillator 2 Transpose Quantize" direction="input"
+                 default="0.0" content="other"/>
+      <parameter id="416" name="Oscillator 2 Tune" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="417" name="Oscillator 2 Blend" direction="input" default="0.800000011920929"
+                 content="other"/>
+      <parameter id="418" name="Oscillator 2 Unison Detune" direction="input"
+                 default="0.4472135901451111" content="other"/>
+      <parameter id="419" name="Oscillator 2 Unison Voices" direction="input"
+                 default="0.0" content="other"/>
+      <parameter id="420" name="Oscillator 2 Wave Frame" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="421" name="Oversampling" direction="input" default="0.3333333432674408"
+                 content="other"/>
+      <parameter id="422" name="Phaser Center" direction="input" default="0.5625"
+                 content="other"/>
+      <parameter id="423" name="Phaser Mix" direction="input" default="1.0" content="other"/>
+      <parameter id="424" name="Phaser Feedback" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="425" name="Phaser Frequency" direction="input" default="0.2857142984867096"
+                 content="other"/>
+      <parameter id="426" name="Phaser Mod Depth" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="427" name="Phaser Switch" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="428" name="Phaser Phase Offset" direction="input" default="0.3333333432674408"
+                 content="other"/>
+      <parameter id="429" name="Phaser Sync" direction="input" default="0.3333333432674408"
+                 content="other"/>
+      <parameter id="430" name="Phaser Tempo" direction="input" default="0.300000011920929"
+                 content="other"/>
+      <parameter id="431" name="Pitch Bend Range" direction="input" default="0.0416666679084301"
+                 content="other"/>
+      <parameter id="432" name="Polyphony" direction="input" default="0.2258064448833466"
+                 content="other"/>
+      <parameter id="433" name="Portamento Force" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="434" name="Portamento Scale" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="435" name="Portamento Slope" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="436" name="Portamento Time" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="437" name="Reverb Chorus Amount" direction="input" default="0.2236070036888123"
+                 content="other"/>
+      <parameter id="438" name="Reverb Chorus Frequency" direction="input" default="0.5454545617103577"
+                 content="other"/>
+      <parameter id="439" name="Reverb Decay Time" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="440" name="Reverb Mix" direction="input" default="0.25" content="other"/>
+      <parameter id="441" name="Reverb High Cutoff" direction="input" default="0.703125"
+                 content="other"/>
+      <parameter id="442" name="Reverb High Gain" direction="input" default="0.8333333134651184"
+                 content="other"/>
+      <parameter id="443" name="Reverb Low Cutoff" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="444" name="Reverb Low Gain" direction="input" default="1.0"
+                 content="other"/>
+      <parameter id="445" name="Reverb Switch" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="446" name="Reverb Pre High Cutoff" direction="input" default="0.859375"
+                 content="other"/>
+      <parameter id="447" name="Reverb Pre Low Cutoff" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="448" name="Sample Keytrack" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="449" name="Sample Level" direction="input" default="0.7071067690849304"
+                 content="other"/>
+      <parameter id="450" name="Sample Loop" direction="input" default="1.0" content="other"/>
+      <parameter id="451" name="Sample Switch" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="452" name="Sample Pan" direction="input" default="0.5" content="other"/>
+      <parameter id="453" name="Sample Random Phase" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="454" name="Sample Transpose" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="455" name="Sample Transpose Quantize" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="456" name="Sample Tune" direction="input" default="0.5" content="other"/>
+      <parameter id="457" name="Stereo Routing" direction="input" default="1.0"
+                 content="other"/>
+      <parameter id="458" name="Velocity Track" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="459" name="Voice Amplitude" direction="input" default="1.0"
+                 content="other"/>
+      <parameter id="460" name="Voice Priority" direction="input" default="1.0"
+                 content="other"/>
+      <parameter id="461" name="Voice Tune" direction="input" default="0.5" content="other"/>
+      <parameter id="462" name="Volume" direction="input" default="0.7396560311317444"
+                 content="other"/>
+      <parameter id="463" name="Mod Wheel" direction="input" default="0.0" content="other"/>
+      <parameter id="464" name="Pitch Wheel" direction="input" default="0.5" content="other"/>
+      <parameter id="465" name="Random LFO 1 Frequency" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="466" name="Random LFO 1 Stereo" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="467" name="Random LFO 1 Style" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="468" name="Random LFO 1 Sync" direction="input" default="0.25"
+                 content="other"/>
+      <parameter id="469" name="Random LFO 1 Tempo" direction="input" default="0.6666666865348816"
+                 content="other"/>
+      <parameter id="470" name="Random LFO 2 Frequency" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="471" name="Random LFO 2 Stereo" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="472" name="Random LFO 2 Style" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="473" name="Random LFO 2 Sync" direction="input" default="0.25"
+                 content="other"/>
+      <parameter id="474" name="Random LFO 2 Tempo" direction="input" default="0.6666666865348816"
+                 content="other"/>
+      <parameter id="475" name="Random LFO 3 Frequency" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="476" name="Random LFO 3 Stereo" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="477" name="Random LFO 3 Style" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="478" name="Random LFO 3 Sync" direction="input" default="0.25"
+                 content="other"/>
+      <parameter id="479" name="Random LFO 3 Tempo" direction="input" default="0.6666666865348816"
+                 content="other"/>
+      <parameter id="480" name="Random LFO 4 Frequency" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="481" name="Random LFO 4 Stereo" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="482" name="Random LFO 4 Style" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="483" name="Random LFO 4 Sync" direction="input" default="0.25"
+                 content="other"/>
+      <parameter id="484" name="Random LFO 4 Tempo" direction="input" default="0.6666666865348816"
+                 content="other"/>
+      <parameter id="485" name="Oscillator 1 View 2D" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="486" name="Oscillator 2 View 2D" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="487" name="LFO 1 Stereo" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="488" name="LFO 2 Stereo" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="489" name="LFO 3 Stereo" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="490" name="LFO 4 Stereo" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="491" name="LFO 5 Stereo" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="492" name="LFO 6 Stereo" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="493" name="LFO 7 Stereo" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="494" name="LFO 8 Stereo" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="495" name="Oscillator 1 Frequency Morph Amount" direction="input"
+                 default="0.5" content="other"/>
+      <parameter id="496" name="Oscillator 1 Frequency Morph Spread" direction="input"
+                 default="0.5" content="other"/>
+      <parameter id="497" name="Oscillator 1 Frequency Morph Type" direction="input"
+                 default="0.0" content="other"/>
+      <parameter id="498" name="Oscillator 2 Frequency Morph Amount" direction="input"
+                 default="0.5" content="other"/>
+      <parameter id="499" name="Oscillator 2 Frequency Morph Spread" direction="input"
+                 default="0.5" content="other"/>
+      <parameter id="500" name="Oscillator 2 Frequency Morph Type" direction="input"
+                 default="0.0" content="other"/>
+      <parameter id="501" name="Oscillator 1 Destination" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="502" name="Oscillator 1 Spectral Unison" direction="input"
+                 default="1.0" content="other"/>
+      <parameter id="503" name="Oscillator 2 Destination" direction="input" default="0.0714285746216774"
+                 content="other"/>
+      <parameter id="504" name="Oscillator 2 Spectral Unison" direction="input"
+                 default="1.0" content="other"/>
+      <parameter id="505" name="Oscillator 3 Destination" direction="input" default="0.2142857164144516"
+                 content="other"/>
+      <parameter id="506" name="Oscillator 3 Detune Power" direction="input" default="0.6499999761581421"
+                 content="other"/>
+      <parameter id="507" name="Oscillator 3 Detune Range" direction="input" default="0.0416666679084301"
+                 content="other"/>
+      <parameter id="508" name="Oscillator 3 Distortion Amount" direction="input"
+                 default="0.5" content="other"/>
+      <parameter id="509" name="Oscillator 3 Distortion Phase" direction="input"
+                 default="0.5" content="other"/>
+      <parameter id="510" name="Oscillator 3 Distortion Spread" direction="input"
+                 default="0.5" content="other"/>
+      <parameter id="511" name="Oscillator 3 Distortion Type" direction="input"
+                 default="0.0" content="other"/>
+      <parameter id="512" name="Oscillator 3 Unison Frame Spread" direction="input"
+                 default="0.5" content="other"/>
+      <parameter id="513" name="Oscillator 3 Level" direction="input" default="0.7071067690849304"
+                 content="other"/>
+      <parameter id="514" name="Oscillator 3 Midi Track" direction="input" default="1.0"
+                 content="other"/>
+      <parameter id="515" name="Oscillator 3 Switch" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="516" name="Oscillator 3 Pan" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="517" name="Oscillator 3 Phase" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="518" name="Oscillator 3 Phase Randomization" direction="input"
+                 default="1.0" content="other"/>
+      <parameter id="519" name="Oscillator 3 Smooth Interpolation" direction="input"
+                 default="0.0" content="other"/>
+      <parameter id="520" name="Oscillator 3 Frequency Morph Amount" direction="input"
+                 default="0.5" content="other"/>
+      <parameter id="521" name="Oscillator 3 Frequency Morph Spread" direction="input"
+                 default="0.5" content="other"/>
+      <parameter id="522" name="Oscillator 3 Frequency Morph Type" direction="input"
+                 default="0.0" content="other"/>
+      <parameter id="523" name="Oscillator 3 Spectral Unison" direction="input"
+                 default="1.0" content="other"/>
+      <parameter id="524" name="Oscillator 3 Stack Style" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="525" name="Oscillator 3 Stereo Spread" direction="input"
+                 default="1.0" content="other"/>
+      <parameter id="526" name="Oscillator 3 Transpose" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="527" name="Oscillator 3 Transpose Quantize" direction="input"
+                 default="0.0" content="other"/>
+      <parameter id="528" name="Oscillator 3 Tune" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="529" name="Oscillator 3 Blend" direction="input" default="0.800000011920929"
+                 content="other"/>
+      <parameter id="530" name="Oscillator 3 Unison Detune" direction="input"
+                 default="0.4472135901451111" content="other"/>
+      <parameter id="531" name="Oscillator 3 Unison Voices" direction="input"
+                 default="0.0" content="other"/>
+      <parameter id="532" name="Oscillator 3 View 2D" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="533" name="Oscillator 3 Wave Frame" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="534" name="Sample Destination" direction="input" default="0.2142857164144516"
+                 content="other"/>
+      <parameter id="535" name="MPE Enabled" direction="input" default="0.0" content="other"/>
+      <parameter id="536" name="Envelope 1 Delay" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="537" name="Envelope 2 Delay" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="538" name="Envelope 3 Delay" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="539" name="Envelope 4 Delay" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="540" name="Envelope 5 Delay" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="541" name="Envelope 6 Delay" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="542" name="Envelope 1 Hold" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="543" name="Envelope 2 Hold" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="544" name="Envelope 3 Hold" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="545" name="Envelope 4 Hold" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="546" name="Envelope 5 Hold" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="547" name="Envelope 6 Hold" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="548" name="Flanger Center" direction="input" default="0.4375"
+                 content="other"/>
+      <parameter id="549" name="EQ Band Mode" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="550" name="Reverb Size" direction="input" default="0.5" content="other"/>
+      <parameter id="551" name="Delay Frequency 2" direction="input" default="0.3636363744735718"
+                 content="other"/>
+      <parameter id="552" name="Delay Sync 2" direction="input" default="0.3333333432674408"
+                 content="other"/>
+      <parameter id="553" name="Delay Tempo 2" direction="input" default="0.625"
+                 content="other"/>
+      <parameter id="554" name="Chorus Voices" direction="input" default="1.0"
+                 content="other"/>
+      <parameter id="555" name="Phaser Blend" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="556" name="Random LFO 1 Sync Type" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="557" name="Random LFO 2 Sync Type" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="558" name="Random LFO 3 Sync Type" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="559" name="Random LFO 4 Sync Type" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="560" name="Modulation 33 Amount" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="561" name="Modulation 33 Bipolar" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="562" name="Modulation 33 Bypass" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="563" name="Modulation 33 Power" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="564" name="Modulation 33 Stereo" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="565" name="Modulation 34 Amount" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="566" name="Modulation 34 Bipolar" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="567" name="Modulation 34 Bypass" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="568" name="Modulation 34 Power" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="569" name="Modulation 34 Stereo" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="570" name="Modulation 35 Amount" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="571" name="Modulation 35 Bipolar" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="572" name="Modulation 35 Bypass" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="573" name="Modulation 35 Power" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="574" name="Modulation 35 Stereo" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="575" name="Modulation 36 Amount" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="576" name="Modulation 36 Bipolar" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="577" name="Modulation 36 Bypass" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="578" name="Modulation 36 Power" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="579" name="Modulation 36 Stereo" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="580" name="Modulation 37 Amount" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="581" name="Modulation 37 Bipolar" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="582" name="Modulation 37 Bypass" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="583" name="Modulation 37 Power" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="584" name="Modulation 37 Stereo" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="585" name="Modulation 38 Amount" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="586" name="Modulation 38 Bipolar" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="587" name="Modulation 38 Bypass" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="588" name="Modulation 38 Power" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="589" name="Modulation 38 Stereo" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="590" name="Modulation 39 Amount" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="591" name="Modulation 39 Bipolar" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="592" name="Modulation 39 Bypass" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="593" name="Modulation 39 Power" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="594" name="Modulation 39 Stereo" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="595" name="Modulation 40 Amount" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="596" name="Modulation 40 Bipolar" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="597" name="Modulation 40 Bypass" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="598" name="Modulation 40 Power" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="599" name="Modulation 40 Stereo" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="600" name="Modulation 41 Amount" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="601" name="Modulation 41 Bipolar" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="602" name="Modulation 41 Bypass" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="603" name="Modulation 41 Power" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="604" name="Modulation 41 Stereo" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="605" name="Modulation 42 Amount" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="606" name="Modulation 42 Bipolar" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="607" name="Modulation 42 Bypass" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="608" name="Modulation 42 Power" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="609" name="Modulation 42 Stereo" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="610" name="Modulation 43 Amount" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="611" name="Modulation 43 Bipolar" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="612" name="Modulation 43 Bypass" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="613" name="Modulation 43 Power" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="614" name="Modulation 43 Stereo" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="615" name="Modulation 44 Amount" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="616" name="Modulation 44 Bipolar" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="617" name="Modulation 44 Bypass" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="618" name="Modulation 44 Power" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="619" name="Modulation 44 Stereo" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="620" name="Modulation 45 Amount" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="621" name="Modulation 45 Bipolar" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="622" name="Modulation 45 Bypass" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="623" name="Modulation 45 Power" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="624" name="Modulation 45 Stereo" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="625" name="Modulation 46 Amount" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="626" name="Modulation 46 Bipolar" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="627" name="Modulation 46 Bypass" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="628" name="Modulation 46 Power" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="629" name="Modulation 46 Stereo" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="630" name="Modulation 47 Amount" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="631" name="Modulation 47 Bipolar" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="632" name="Modulation 47 Bypass" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="633" name="Modulation 47 Power" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="634" name="Modulation 47 Stereo" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="635" name="Modulation 48 Amount" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="636" name="Modulation 48 Bipolar" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="637" name="Modulation 48 Bypass" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="638" name="Modulation 48 Power" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="639" name="Modulation 48 Stereo" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="640" name="Modulation 49 Amount" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="641" name="Modulation 49 Bipolar" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="642" name="Modulation 49 Bypass" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="643" name="Modulation 49 Power" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="644" name="Modulation 49 Stereo" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="645" name="Modulation 50 Amount" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="646" name="Modulation 50 Bipolar" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="647" name="Modulation 50 Bypass" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="648" name="Modulation 50 Power" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="649" name="Modulation 50 Stereo" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="650" name="Modulation 51 Amount" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="651" name="Modulation 51 Bipolar" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="652" name="Modulation 51 Bypass" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="653" name="Modulation 51 Power" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="654" name="Modulation 51 Stereo" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="655" name="Modulation 52 Amount" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="656" name="Modulation 52 Bipolar" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="657" name="Modulation 52 Bypass" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="658" name="Modulation 52 Power" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="659" name="Modulation 52 Stereo" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="660" name="Modulation 53 Amount" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="661" name="Modulation 53 Bipolar" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="662" name="Modulation 53 Bypass" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="663" name="Modulation 53 Power" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="664" name="Modulation 53 Stereo" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="665" name="Modulation 54 Amount" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="666" name="Modulation 54 Bipolar" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="667" name="Modulation 54 Bypass" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="668" name="Modulation 54 Power" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="669" name="Modulation 54 Stereo" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="670" name="Modulation 55 Amount" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="671" name="Modulation 55 Bipolar" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="672" name="Modulation 55 Bypass" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="673" name="Modulation 55 Power" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="674" name="Modulation 55 Stereo" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="675" name="Modulation 56 Amount" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="676" name="Modulation 56 Bipolar" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="677" name="Modulation 56 Bypass" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="678" name="Modulation 56 Power" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="679" name="Modulation 56 Stereo" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="680" name="Modulation 57 Amount" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="681" name="Modulation 57 Bipolar" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="682" name="Modulation 57 Bypass" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="683" name="Modulation 57 Power" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="684" name="Modulation 57 Stereo" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="685" name="Modulation 58 Amount" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="686" name="Modulation 58 Bipolar" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="687" name="Modulation 58 Bypass" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="688" name="Modulation 58 Power" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="689" name="Modulation 58 Stereo" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="690" name="Modulation 59 Amount" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="691" name="Modulation 59 Bipolar" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="692" name="Modulation 59 Bypass" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="693" name="Modulation 59 Power" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="694" name="Modulation 59 Stereo" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="695" name="Modulation 60 Amount" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="696" name="Modulation 60 Bipolar" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="697" name="Modulation 60 Bypass" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="698" name="Modulation 60 Power" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="699" name="Modulation 60 Stereo" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="700" name="Modulation 61 Amount" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="701" name="Modulation 61 Bipolar" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="702" name="Modulation 61 Bypass" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="703" name="Modulation 61 Power" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="704" name="Modulation 61 Stereo" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="705" name="Modulation 62 Amount" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="706" name="Modulation 62 Bipolar" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="707" name="Modulation 62 Bypass" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="708" name="Modulation 62 Power" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="709" name="Modulation 62 Stereo" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="710" name="Modulation 63 Amount" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="711" name="Modulation 63 Bipolar" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="712" name="Modulation 63 Bypass" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="713" name="Modulation 63 Power" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="714" name="Modulation 63 Stereo" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="715" name="Modulation 64 Amount" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="716" name="Modulation 64 Bipolar" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="717" name="Modulation 64 Bypass" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="718" name="Modulation 64 Power" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="719" name="Modulation 64 Stereo" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="720" name="Compressor Mix" direction="input" default="1.0"
+                 content="other"/>
+      <parameter id="721" name="Sample Bounce" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="722" name="Voice Transpose" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="723" name="Stereo Mode" direction="input" default="0.0" content="other"/>
+      <parameter id="724" name="Chorus Filter Spread" direction="input" default="1.0"
+                 content="other"/>
+      <parameter id="725" name="Reverb Delay" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="726" name="Voice Override" direction="input" default="0.0"
+                 content="other"/>
+      <parameter id="727" name="Bypass" direction="input" default="0.0" content="other"/>
+      <parameter id="728" name="LFO 1 Transpose" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="729" name="LFO 1 Tune" direction="input" default="0.5" content="other"/>
+      <parameter id="730" name="LFO 2 Transpose" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="731" name="LFO 2 Tune" direction="input" default="0.5" content="other"/>
+      <parameter id="732" name="LFO 3 Transpose" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="733" name="LFO 3 Tune" direction="input" default="0.5" content="other"/>
+      <parameter id="734" name="LFO 4 Transpose" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="735" name="LFO 4 Tune" direction="input" default="0.5" content="other"/>
+      <parameter id="736" name="LFO 5 Transpose" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="737" name="LFO 5 Tune" direction="input" default="0.5" content="other"/>
+      <parameter id="738" name="LFO 6 Transpose" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="739" name="LFO 6 Tune" direction="input" default="0.5" content="other"/>
+      <parameter id="740" name="LFO 7 Transpose" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="741" name="LFO 7 Tune" direction="input" default="0.5" content="other"/>
+      <parameter id="742" name="LFO 8 Transpose" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="743" name="LFO 8 Tune" direction="input" default="0.5" content="other"/>
+      <parameter id="744" name="Random LFO 1 Transpose" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="745" name="Random LFO 1 Tune" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="746" name="Random LFO 2 Transpose" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="747" name="Random LFO 2 Tune" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="748" name="Random LFO 3 Transpose" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="749" name="Random LFO 3 Tune" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="750" name="Random LFO 4 Transpose" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="751" name="Random LFO 4 Tune" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="752" name="Filter 1 Formant Spread" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="753" name="Filter 2 Formant Spread" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="754" name="Filter fx Formant Spread" direction="input" default="0.5"
+                 content="other"/>
+      <parameter id="755" name="LFO 1 Smooth Mode" direction="input" default="1.0"
+                 content="other"/>
+      <parameter id="756" name="LFO 1 Smooth Time" direction="input" default="0.1785714328289032"
+                 content="other"/>
+      <parameter id="757" name="LFO 2 Smooth Mode" direction="input" default="1.0"
+                 content="other"/>
+      <parameter id="758" name="LFO 2 Smooth Time" direction="input" default="0.1785714328289032"
+                 content="other"/>
+      <parameter id="759" name="LFO 3 Smooth Mode" direction="input" default="1.0"
+                 content="other"/>
+      <parameter id="760" name="LFO 3 Smooth Time" direction="input" default="0.1785714328289032"
+                 content="other"/>
+      <parameter id="761" name="LFO 4 Smooth Mode" direction="input" default="1.0"
+                 content="other"/>
+      <parameter id="762" name="LFO 4 Smooth Time" direction="input" default="0.1785714328289032"
+                 content="other"/>
+      <parameter id="763" name="LFO 5 Smooth Mode" direction="input" default="1.0"
+                 content="other"/>
+      <parameter id="764" name="LFO 5 Smooth Time" direction="input" default="0.1785714328289032"
+                 content="other"/>
+      <parameter id="765" name="LFO 6 Smooth Mode" direction="input" default="1.0"
+                 content="other"/>
+      <parameter id="766" name="LFO 6 Smooth Time" direction="input" default="0.1785714328289032"
+                 content="other"/>
+      <parameter id="767" name="LFO 7 Smooth Mode" direction="input" default="1.0"
+                 content="other"/>
+      <parameter id="768" name="LFO 7 Smooth Time" direction="input" default="0.1785714328289032"
+                 content="other"/>
+      <parameter id="769" name="LFO 8 Smooth Mode" direction="input" default="1.0"
+                 content="other"/>
+      <parameter id="770" name="LFO 8 Smooth Time" direction="input" default="0.1785714328289032"
+                 content="other"/>
+      <parameter id="771" name="View Spectrogram" direction="input" default="0.0"
+                 content="other"/>
+    </parameters>
     <ports>
-      <port name="Beats Per Minute" direction="input" pp:default="0.3571428656578064"
-            content="other"/>
-      <port name="Chorus Filter Cutoff" direction="input" pp:default="0.40625"
-            content="other"/>
-      <port name="Chorus Delay 1" direction="input" pp:default="0.2295610308647156"
-            content="other"/>
-      <port name="Chorus Delay 2" direction="input" pp:default="0.6886830925941467"
-            content="other"/>
-      <port name="Chorus Mix" direction="input" pp:default="0.5" content="other"/>
-      <port name="Chorus Feedback" direction="input" pp:default="0.7105263471603394"
-            content="other"/>
-      <port name="Chorus Frequency" direction="input" pp:default="0.3333333432674408"
-            content="other"/>
-      <port name="Chorus Mod Depth" direction="input" pp:default="0.5" content="other"/>
-      <port name="Chorus Switch" direction="input" pp:default="0.0" content="other"/>
-      <port name="Chorus Sync" direction="input" pp:default="0.3333333432674408"
-            content="other"/>
-      <port name="Chorus Tempo" direction="input" pp:default="0.4000000059604645"
-            content="other"/>
-      <port name="Compressor Attack" direction="input" pp:default="0.5" content="other"/>
-      <port name="Compressor Band Gain" direction="input" pp:default="0.6949999928474426"
-            content="other"/>
-      <port name="Band Lower Ratio" direction="input" pp:default="0.8999999761581421"
-            content="other"/>
-      <port name="Band Lower Threshold" direction="input" pp:default="0.550000011920929"
-            content="other"/>
-      <port name="Band Upper Ratio" direction="input" pp:default="0.8569999933242798"
-            content="other"/>
-      <port name="Band Upper Threshold" direction="input" pp:default="0.6875"
-            content="other"/>
-      <port name="Compressor Enabled Bands" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Compressor High Gain" direction="input" pp:default="0.7716666460037231"
-            content="other"/>
-      <port name="High Lower Ratio" direction="input" pp:default="0.8999999761581421"
-            content="other"/>
-      <port name="High Lower Threshold" direction="input" pp:default="0.5625"
-            content="other"/>
-      <port name="High Upper Ratio" direction="input" pp:default="1.0" content="other"/>
-      <port name="High Upper Threshold" direction="input" pp:default="0.625"
-            content="other"/>
-      <port name="Compressor Low Gain" direction="input" pp:default="0.7716666460037231"
-            content="other"/>
-      <port name="Low Lower Ratio" direction="input" pp:default="0.8999999761581421"
-            content="other"/>
-      <port name="Low Lower Threshold" direction="input" pp:default="0.5625"
-            content="other"/>
-      <port name="Low Upper Ratio" direction="input" pp:default="0.8999999761581421"
-            content="other"/>
-      <port name="Low Upper Threshold" direction="input" pp:default="0.6499999761581421"
-            content="other"/>
-      <port name="Compressor Switch" direction="input" pp:default="0.0" content="other"/>
-      <port name="Compressor Release" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Delay Mix" direction="input" pp:default="0.3334000110626221"
-            content="other"/>
-      <port name="Delay Feedback" direction="input" pp:default="0.75" content="other"/>
-      <port name="Delay Filter Cutoff" direction="input" pp:default="0.40625"
-            content="other"/>
-      <port name="Delay Filter Spread" direction="input" pp:default="1.0"
-            content="other"/>
-      <port name="Delay Frequency" direction="input" pp:default="0.3636363744735718"
-            content="other"/>
-      <port name="Delay Switch" direction="input" pp:default="0.0" content="other"/>
-      <port name="Delay Style" direction="input" pp:default="0.0" content="other"/>
-      <port name="Delay Sync" direction="input" pp:default="0.3333333432674408"
-            content="other"/>
-      <port name="Delay Tempo" direction="input" pp:default="0.625" content="other"/>
-      <port name="Distortion Drive" direction="input" pp:default="0.5" content="other"/>
-      <port name="Distortion Filter Blend" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Distortion Filter Cutoff" direction="input" pp:default="0.5625"
-            content="other"/>
-      <port name="Distortion Filter Order" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Distortion Filter Resonance" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Distortion Mix" direction="input" pp:default="1.0" content="other"/>
-      <port name="Distortion Switch" direction="input" pp:default="0.0" content="other"/>
-      <port name="Distortion Type" direction="input" pp:default="0.0" content="other"/>
-      <port name="Effect Chain Order" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Envelope 1 Attack" direction="input" pp:default="0.06285685300827026"
-            content="other"/>
-      <port name="Envelope 1 Attack Power" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Envelope 1 Decay" direction="input" pp:default="0.4204471707344055"
-            content="other"/>
-      <port name="Envelope 1 Decay Power" direction="input" pp:default="0.449999988079071"
-            content="other"/>
-      <port name="Envelope 1 Release" direction="input" pp:default="0.2302368581295013"
-            content="other"/>
-      <port name="Envelope 1 Release Power" direction="input" pp:default="0.449999988079071"
-            content="other"/>
-      <port name="Envelope 1 Sustain" direction="input" pp:default="1.0"
-            content="other"/>
-      <port name="Envelope 2 Attack" direction="input" pp:default="0.06285685300827026"
-            content="other"/>
-      <port name="Envelope 2 Attack Power" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Envelope 2 Decay" direction="input" pp:default="0.4204471707344055"
-            content="other"/>
-      <port name="Envelope 2 Decay Power" direction="input" pp:default="0.449999988079071"
-            content="other"/>
-      <port name="Envelope 2 Release" direction="input" pp:default="0.2302368581295013"
-            content="other"/>
-      <port name="Envelope 2 Release Power" direction="input" pp:default="0.449999988079071"
-            content="other"/>
-      <port name="Envelope 2 Sustain" direction="input" pp:default="1.0"
-            content="other"/>
-      <port name="Envelope 3 Attack" direction="input" pp:default="0.06285685300827026"
-            content="other"/>
-      <port name="Envelope 3 Attack Power" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Envelope 3 Decay" direction="input" pp:default="0.4204471707344055"
-            content="other"/>
-      <port name="Envelope 3 Decay Power" direction="input" pp:default="0.449999988079071"
-            content="other"/>
-      <port name="Envelope 3 Release" direction="input" pp:default="0.2302368581295013"
-            content="other"/>
-      <port name="Envelope 3 Release Power" direction="input" pp:default="0.449999988079071"
-            content="other"/>
-      <port name="Envelope 3 Sustain" direction="input" pp:default="1.0"
-            content="other"/>
-      <port name="Envelope 4 Attack" direction="input" pp:default="0.06285685300827026"
-            content="other"/>
-      <port name="Envelope 4 Attack Power" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Envelope 4 Decay" direction="input" pp:default="0.4204471707344055"
-            content="other"/>
-      <port name="Envelope 4 Decay Power" direction="input" pp:default="0.449999988079071"
-            content="other"/>
-      <port name="Envelope 4 Release" direction="input" pp:default="0.2302368581295013"
-            content="other"/>
-      <port name="Envelope 4 Release Power" direction="input" pp:default="0.449999988079071"
-            content="other"/>
-      <port name="Envelope 4 Sustain" direction="input" pp:default="1.0"
-            content="other"/>
-      <port name="Envelope 5 Attack" direction="input" pp:default="0.06285685300827026"
-            content="other"/>
-      <port name="Envelope 5 Attack Power" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Envelope 5 Decay" direction="input" pp:default="0.4204471707344055"
-            content="other"/>
-      <port name="Envelope 5 Decay Power" direction="input" pp:default="0.449999988079071"
-            content="other"/>
-      <port name="Envelope 5 Release" direction="input" pp:default="0.2302368581295013"
-            content="other"/>
-      <port name="Envelope 5 Release Power" direction="input" pp:default="0.449999988079071"
-            content="other"/>
-      <port name="Envelope 5 Sustain" direction="input" pp:default="1.0"
-            content="other"/>
-      <port name="Envelope 6 Attack" direction="input" pp:default="0.06285685300827026"
-            content="other"/>
-      <port name="Envelope 6 Attack Power" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Envelope 6 Decay" direction="input" pp:default="0.4204471707344055"
-            content="other"/>
-      <port name="Envelope 6 Decay Power" direction="input" pp:default="0.449999988079071"
-            content="other"/>
-      <port name="Envelope 6 Release" direction="input" pp:default="0.2302368581295013"
-            content="other"/>
-      <port name="Envelope 6 Release Power" direction="input" pp:default="0.449999988079071"
-            content="other"/>
-      <port name="Envelope 6 Sustain" direction="input" pp:default="1.0"
-            content="other"/>
-      <port name="EQ Band Cutoff" direction="input" pp:default="0.5625" content="other"/>
-      <port name="EQ Band Gain" direction="input" pp:default="0.5" content="other"/>
-      <port name="EQ Band Resonance" direction="input" pp:default="0.447299987077713"
-            content="other"/>
-      <port name="EQ High Cutoff" direction="input" pp:default="0.71875"
-            content="other"/>
-      <port name="EQ High Gain" direction="input" pp:default="0.5" content="other"/>
-      <port name="EQ High Mode" direction="input" pp:default="0.0" content="other"/>
-      <port name="EQ High Resonance" direction="input" pp:default="0.3163000047206879"
-            content="other"/>
-      <port name="EQ Low Cutoff" direction="input" pp:default="0.25" content="other"/>
-      <port name="EQ Low Gain" direction="input" pp:default="0.5" content="other"/>
-      <port name="EQ Low Mode" direction="input" pp:default="0.0" content="other"/>
-      <port name="EQ Low Resonance" direction="input" pp:default="0.3163000047206879"
-            content="other"/>
-      <port name="EQ Switch" direction="input" pp:default="0.0" content="other"/>
-      <port name="Filter 1 Blend" direction="input" pp:default="0.0" content="other"/>
-      <port name="Filter 1 Comb Blend Offset" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Filter 1 Cutoff" direction="input" pp:default="0.40625"
-            content="other"/>
-      <port name="Filter 1 Drive" direction="input" pp:default="0.0" content="other"/>
-      <port name="Filter 1 FILTER Input" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Filter 1 Formant Resonance" direction="input" pp:default="0.785714328289032"
-            content="other"/>
-      <port name="Filter 1 Formant Transpose" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Filter 1 Formant X" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Filter 1 Formant Y" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Filter 1 Key Track" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Filter 1 Mix" direction="input" pp:default="1.0" content="other"/>
-      <port name="Filter 1 Model" direction="input" pp:default="0.0" content="other"/>
-      <port name="Filter 1 Switch" direction="input" pp:default="0.0" content="other"/>
-      <port name="Filter 1 Resonance" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Filter 1 Style" direction="input" pp:default="0.0" content="other"/>
-      <port name="Filter 2 Blend" direction="input" pp:default="0.0" content="other"/>
-      <port name="Filter 2 Comb Blend Offset" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Filter 2 Cutoff" direction="input" pp:default="0.40625"
-            content="other"/>
-      <port name="Filter 2 Drive" direction="input" pp:default="0.0" content="other"/>
-      <port name="Filter 2 FILTER Input" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Filter 2 Formant Resonance" direction="input" pp:default="0.785714328289032"
-            content="other"/>
-      <port name="Filter 2 Formant Transpose" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Filter 2 Formant X" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Filter 2 Formant Y" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Filter 2 Key Track" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Filter 2 Mix" direction="input" pp:default="1.0" content="other"/>
-      <port name="Filter 2 Model" direction="input" pp:default="0.0" content="other"/>
-      <port name="Filter 2 Switch" direction="input" pp:default="0.0" content="other"/>
-      <port name="Filter 2 Resonance" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Filter 2 Style" direction="input" pp:default="0.0" content="other"/>
-      <port name="Filter fx Blend" direction="input" pp:default="0.0" content="other"/>
-      <port name="Filter fx Comb Blend Offset" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Filter fx Cutoff" direction="input" pp:default="0.40625"
-            content="other"/>
-      <port name="Filter fx Drive" direction="input" pp:default="0.0" content="other"/>
-      <port name="Filter fx Formant Resonance" direction="input" pp:default="0.785714328289032"
-            content="other"/>
-      <port name="Filter fx Formant Transpose" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Filter fx Formant X" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Filter fx Formant Y" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Filter fx Key Track" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Filter fx Mix" direction="input" pp:default="1.0" content="other"/>
-      <port name="Filter fx Model" direction="input" pp:default="0.0" content="other"/>
-      <port name="Filter fx Switch" direction="input" pp:default="0.0" content="other"/>
-      <port name="Filter fx Resonance" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Filter fx Style" direction="input" pp:default="0.0" content="other"/>
-      <port name="Flanger Mix" direction="input" pp:default="1.0" content="other"/>
-      <port name="Flanger Feedback" direction="input" pp:default="0.75" content="other"/>
-      <port name="Flanger Frequency" direction="input" pp:default="1.0" content="other"/>
-      <port name="Flanger Mod Depth" direction="input" pp:default="0.5" content="other"/>
-      <port name="Flanger Switch" direction="input" pp:default="0.0" content="other"/>
-      <port name="Flanger Phase Offset" direction="input" pp:default="0.3333333432674408"
-            content="other"/>
-      <port name="Flanger Sync" direction="input" pp:default="0.3333333432674408"
-            content="other"/>
-      <port name="Flanger Tempo" direction="input" pp:default="0.4000000059604645"
-            content="other"/>
-      <port name="Legato" direction="input" pp:default="0.0" content="other"/>
-      <port name="LFO 1 Delay" direction="input" pp:default="0.0" content="other"/>
-      <port name="LFO 1 Fade In" direction="input" pp:default="0.0" content="other"/>
-      <port name="LFO 1 Frequency" direction="input" pp:default="0.5" content="other"/>
-      <port name="LFO 1 Phase" direction="input" pp:default="0.0" content="other"/>
-      <port name="LFO 1 Sync" direction="input" pp:default="0.25" content="other"/>
-      <port name="LFO 1 Sync Type" direction="input" pp:default="0.0" content="other"/>
-      <port name="LFO 1 Tempo" direction="input" pp:default="0.5833333134651184"
-            content="other"/>
-      <port name="LFO 2 Delay" direction="input" pp:default="0.0" content="other"/>
-      <port name="LFO 2 Fade In" direction="input" pp:default="0.0" content="other"/>
-      <port name="LFO 2 Frequency" direction="input" pp:default="0.5" content="other"/>
-      <port name="LFO 2 Phase" direction="input" pp:default="0.0" content="other"/>
-      <port name="LFO 2 Sync" direction="input" pp:default="0.25" content="other"/>
-      <port name="LFO 2 Sync Type" direction="input" pp:default="0.0" content="other"/>
-      <port name="LFO 2 Tempo" direction="input" pp:default="0.5833333134651184"
-            content="other"/>
-      <port name="LFO 3 Delay" direction="input" pp:default="0.0" content="other"/>
-      <port name="LFO 3 Fade In" direction="input" pp:default="0.0" content="other"/>
-      <port name="LFO 3 Frequency" direction="input" pp:default="0.5" content="other"/>
-      <port name="LFO 3 Phase" direction="input" pp:default="0.0" content="other"/>
-      <port name="LFO 3 Sync" direction="input" pp:default="0.25" content="other"/>
-      <port name="LFO 3 Sync Type" direction="input" pp:default="0.0" content="other"/>
-      <port name="LFO 3 Tempo" direction="input" pp:default="0.5833333134651184"
-            content="other"/>
-      <port name="LFO 4 Delay" direction="input" pp:default="0.0" content="other"/>
-      <port name="LFO 4 Fade In" direction="input" pp:default="0.0" content="other"/>
-      <port name="LFO 4 Frequency" direction="input" pp:default="0.5" content="other"/>
-      <port name="LFO 4 Phase" direction="input" pp:default="0.0" content="other"/>
-      <port name="LFO 4 Sync" direction="input" pp:default="0.25" content="other"/>
-      <port name="LFO 4 Sync Type" direction="input" pp:default="0.0" content="other"/>
-      <port name="LFO 4 Tempo" direction="input" pp:default="0.5833333134651184"
-            content="other"/>
-      <port name="LFO 5 Delay" direction="input" pp:default="0.0" content="other"/>
-      <port name="LFO 5 Fade In" direction="input" pp:default="0.0" content="other"/>
-      <port name="LFO 5 Frequency" direction="input" pp:default="0.5" content="other"/>
-      <port name="LFO 5 Phase" direction="input" pp:default="0.0" content="other"/>
-      <port name="LFO 5 Sync" direction="input" pp:default="0.25" content="other"/>
-      <port name="LFO 5 Sync Type" direction="input" pp:default="0.0" content="other"/>
-      <port name="LFO 5 Tempo" direction="input" pp:default="0.5833333134651184"
-            content="other"/>
-      <port name="LFO 6 Delay" direction="input" pp:default="0.0" content="other"/>
-      <port name="LFO 6 Fade In" direction="input" pp:default="0.0" content="other"/>
-      <port name="LFO 6 Frequency" direction="input" pp:default="0.5" content="other"/>
-      <port name="LFO 6 Phase" direction="input" pp:default="0.0" content="other"/>
-      <port name="LFO 6 Sync" direction="input" pp:default="0.25" content="other"/>
-      <port name="LFO 6 Sync Type" direction="input" pp:default="0.0" content="other"/>
-      <port name="LFO 6 Tempo" direction="input" pp:default="0.5833333134651184"
-            content="other"/>
-      <port name="LFO 7 Delay" direction="input" pp:default="0.0" content="other"/>
-      <port name="LFO 7 Fade In" direction="input" pp:default="0.0" content="other"/>
-      <port name="LFO 7 Frequency" direction="input" pp:default="0.5" content="other"/>
-      <port name="LFO 7 Phase" direction="input" pp:default="0.0" content="other"/>
-      <port name="LFO 7 Sync" direction="input" pp:default="0.25" content="other"/>
-      <port name="LFO 7 Sync Type" direction="input" pp:default="0.0" content="other"/>
-      <port name="LFO 7 Tempo" direction="input" pp:default="0.5833333134651184"
-            content="other"/>
-      <port name="LFO 8 Delay" direction="input" pp:default="0.0" content="other"/>
-      <port name="LFO 8 Fade In" direction="input" pp:default="0.0" content="other"/>
-      <port name="LFO 8 Frequency" direction="input" pp:default="0.5" content="other"/>
-      <port name="LFO 8 Phase" direction="input" pp:default="0.0" content="other"/>
-      <port name="LFO 8 Sync" direction="input" pp:default="0.25" content="other"/>
-      <port name="LFO 8 Sync Type" direction="input" pp:default="0.0" content="other"/>
-      <port name="LFO 8 Tempo" direction="input" pp:default="0.5833333134651184"
-            content="other"/>
-      <port name="Macro 1" direction="input" pp:default="0.0" content="other"/>
-      <port name="Macro 2" direction="input" pp:default="0.0" content="other"/>
-      <port name="Macro 3" direction="input" pp:default="0.0" content="other"/>
-      <port name="Macro 4" direction="input" pp:default="0.0" content="other"/>
-      <port name="Modulation 10 Amount" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 10 Bipolar" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 10 Bypass" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 10 Power" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 10 Stereo" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 11 Amount" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 11 Bipolar" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 11 Bypass" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 11 Power" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 11 Stereo" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 12 Amount" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 12 Bipolar" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 12 Bypass" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 12 Power" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 12 Stereo" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 13 Amount" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 13 Bipolar" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 13 Bypass" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 13 Power" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 13 Stereo" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 14 Amount" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 14 Bipolar" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 14 Bypass" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 14 Power" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 14 Stereo" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 15 Amount" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 15 Bipolar" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 15 Bypass" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 15 Power" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 15 Stereo" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 16 Amount" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 16 Bipolar" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 16 Bypass" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 16 Power" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 16 Stereo" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 17 Amount" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 17 Bipolar" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 17 Bypass" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 17 Power" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 17 Stereo" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 18 Amount" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 18 Bipolar" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 18 Bypass" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 18 Power" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 18 Stereo" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 19 Amount" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 19 Bipolar" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 19 Bypass" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 19 Power" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 19 Stereo" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 1 Amount" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 1 Bipolar" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 1 Bypass" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 1 Power" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 1 Stereo" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 20 Amount" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 20 Bipolar" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 20 Bypass" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 20 Power" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 20 Stereo" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 21 Amount" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 21 Bipolar" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 21 Bypass" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 21 Power" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 21 Stereo" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 22 Amount" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 22 Bipolar" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 22 Bypass" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 22 Power" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 22 Stereo" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 23 Amount" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 23 Bipolar" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 23 Bypass" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 23 Power" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 23 Stereo" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 24 Amount" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 24 Bipolar" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 24 Bypass" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 24 Power" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 24 Stereo" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 25 Amount" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 25 Bipolar" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 25 Bypass" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 25 Power" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 25 Stereo" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 26 Amount" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 26 Bipolar" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 26 Bypass" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 26 Power" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 26 Stereo" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 27 Amount" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 27 Bipolar" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 27 Bypass" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 27 Power" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 27 Stereo" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 28 Amount" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 28 Bipolar" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 28 Bypass" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 28 Power" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 28 Stereo" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 29 Amount" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 29 Bipolar" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 29 Bypass" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 29 Power" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 29 Stereo" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 2 Amount" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 2 Bipolar" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 2 Bypass" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 2 Power" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 2 Stereo" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 30 Amount" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 30 Bipolar" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 30 Bypass" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 30 Power" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 30 Stereo" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 31 Amount" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 31 Bipolar" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 31 Bypass" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 31 Power" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 31 Stereo" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 32 Amount" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 32 Bipolar" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 32 Bypass" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 32 Power" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 32 Stereo" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 3 Amount" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 3 Bipolar" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 3 Bypass" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 3 Power" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 3 Stereo" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 4 Amount" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 4 Bipolar" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 4 Bypass" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 4 Power" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 4 Stereo" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 5 Amount" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 5 Bipolar" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 5 Bypass" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 5 Power" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 5 Stereo" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 6 Amount" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 6 Bipolar" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 6 Bypass" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 6 Power" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 6 Stereo" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 7 Amount" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 7 Bipolar" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 7 Bypass" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 7 Power" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 7 Stereo" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 8 Amount" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 8 Bipolar" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 8 Bypass" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 8 Power" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 8 Stereo" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 9 Amount" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 9 Bipolar" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 9 Bypass" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 9 Power" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 9 Stereo" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Oscillator 1 Detune Power" direction="input" pp:default="0.6499999761581421"
-            content="other"/>
-      <port name="Oscillator 1 Detune Range" direction="input" pp:default="0.0416666679084301"
-            content="other"/>
-      <port name="Oscillator 1 Distortion Amount" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Oscillator 1 Distortion Phase" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Oscillator 1 Distortion Spread" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Oscillator 1 Distortion Type" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Oscillator 1 Unison Frame Spread" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Oscillator 1 Level" direction="input" pp:default="0.7071067690849304"
-            content="other"/>
-      <port name="Oscillator 1 Midi Track" direction="input" pp:default="1.0"
-            content="other"/>
-      <port name="Oscillator 1 Switch" direction="input" pp:default="1.0"
-            content="other"/>
-      <port name="Oscillator 1 Pan" direction="input" pp:default="0.5" content="other"/>
-      <port name="Oscillator 1 Phase" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Oscillator 1 Phase Randomization" direction="input" pp:default="1.0"
-            content="other"/>
-      <port name="Oscillator 1 Smooth Interpolation" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Oscillator 1 Stack Style" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Oscillator 1 Stereo Spread" direction="input" pp:default="1.0"
-            content="other"/>
-      <port name="Oscillator 1 Transpose" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Oscillator 1 Transpose Quantize" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Oscillator 1 Tune" direction="input" pp:default="0.5" content="other"/>
-      <port name="Oscillator 1 Blend" direction="input" pp:default="0.800000011920929"
-            content="other"/>
-      <port name="Oscillator 1 Unison Detune" direction="input" pp:default="0.4472135901451111"
-            content="other"/>
-      <port name="Oscillator 1 Unison Voices" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Oscillator 1 Wave Frame" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Oscillator 2 Detune Power" direction="input" pp:default="0.6499999761581421"
-            content="other"/>
-      <port name="Oscillator 2 Detune Range" direction="input" pp:default="0.0416666679084301"
-            content="other"/>
-      <port name="Oscillator 2 Distortion Amount" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Oscillator 2 Distortion Phase" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Oscillator 2 Distortion Spread" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Oscillator 2 Distortion Type" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Oscillator 2 Unison Frame Spread" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Oscillator 2 Level" direction="input" pp:default="0.7071067690849304"
-            content="other"/>
-      <port name="Oscillator 2 Midi Track" direction="input" pp:default="1.0"
-            content="other"/>
-      <port name="Oscillator 2 Switch" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Oscillator 2 Pan" direction="input" pp:default="0.5" content="other"/>
-      <port name="Oscillator 2 Phase" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Oscillator 2 Phase Randomization" direction="input" pp:default="1.0"
-            content="other"/>
-      <port name="Oscillator 2 Smooth Interpolation" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Oscillator 2 Stack Style" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Oscillator 2 Stereo Spread" direction="input" pp:default="1.0"
-            content="other"/>
-      <port name="Oscillator 2 Transpose" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Oscillator 2 Transpose Quantize" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Oscillator 2 Tune" direction="input" pp:default="0.5" content="other"/>
-      <port name="Oscillator 2 Blend" direction="input" pp:default="0.800000011920929"
-            content="other"/>
-      <port name="Oscillator 2 Unison Detune" direction="input" pp:default="0.4472135901451111"
-            content="other"/>
-      <port name="Oscillator 2 Unison Voices" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Oscillator 2 Wave Frame" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Oversampling" direction="input" pp:default="0.3333333432674408"
-            content="other"/>
-      <port name="Phaser Center" direction="input" pp:default="0.5625" content="other"/>
-      <port name="Phaser Mix" direction="input" pp:default="1.0" content="other"/>
-      <port name="Phaser Feedback" direction="input" pp:default="0.5" content="other"/>
-      <port name="Phaser Frequency" direction="input" pp:default="0.2857142984867096"
-            content="other"/>
-      <port name="Phaser Mod Depth" direction="input" pp:default="0.5" content="other"/>
-      <port name="Phaser Switch" direction="input" pp:default="0.0" content="other"/>
-      <port name="Phaser Phase Offset" direction="input" pp:default="0.3333333432674408"
-            content="other"/>
-      <port name="Phaser Sync" direction="input" pp:default="0.3333333432674408"
-            content="other"/>
-      <port name="Phaser Tempo" direction="input" pp:default="0.300000011920929"
-            content="other"/>
-      <port name="Pitch Bend Range" direction="input" pp:default="0.0416666679084301"
-            content="other"/>
-      <port name="Polyphony" direction="input" pp:default="0.2258064448833466"
-            content="other"/>
-      <port name="Portamento Force" direction="input" pp:default="0.0" content="other"/>
-      <port name="Portamento Scale" direction="input" pp:default="0.0" content="other"/>
-      <port name="Portamento Slope" direction="input" pp:default="0.5" content="other"/>
-      <port name="Portamento Time" direction="input" pp:default="0.0" content="other"/>
-      <port name="Reverb Chorus Amount" direction="input" pp:default="0.2236070036888123"
-            content="other"/>
-      <port name="Reverb Chorus Frequency" direction="input" pp:default="0.5454545617103577"
-            content="other"/>
-      <port name="Reverb Decay Time" direction="input" pp:default="0.5" content="other"/>
-      <port name="Reverb Mix" direction="input" pp:default="0.25" content="other"/>
-      <port name="Reverb High Cutoff" direction="input" pp:default="0.703125"
-            content="other"/>
-      <port name="Reverb High Gain" direction="input" pp:default="0.8333333134651184"
-            content="other"/>
-      <port name="Reverb Low Cutoff" direction="input" pp:default="0.0" content="other"/>
-      <port name="Reverb Low Gain" direction="input" pp:default="1.0" content="other"/>
-      <port name="Reverb Switch" direction="input" pp:default="0.0" content="other"/>
-      <port name="Reverb Pre High Cutoff" direction="input" pp:default="0.859375"
-            content="other"/>
-      <port name="Reverb Pre Low Cutoff" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Sample Keytrack" direction="input" pp:default="0.0" content="other"/>
-      <port name="Sample Level" direction="input" pp:default="0.7071067690849304"
-            content="other"/>
-      <port name="Sample Loop" direction="input" pp:default="1.0" content="other"/>
-      <port name="Sample Switch" direction="input" pp:default="0.0" content="other"/>
-      <port name="Sample Pan" direction="input" pp:default="0.5" content="other"/>
-      <port name="Sample Random Phase" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Sample Transpose" direction="input" pp:default="0.5" content="other"/>
-      <port name="Sample Transpose Quantize" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Sample Tune" direction="input" pp:default="0.5" content="other"/>
-      <port name="Stereo Routing" direction="input" pp:default="1.0" content="other"/>
-      <port name="Velocity Track" direction="input" pp:default="0.5" content="other"/>
-      <port name="Voice Amplitude" direction="input" pp:default="1.0" content="other"/>
-      <port name="Voice Priority" direction="input" pp:default="1.0" content="other"/>
-      <port name="Voice Tune" direction="input" pp:default="0.5" content="other"/>
-      <port name="Volume" direction="input" pp:default="0.7396560311317444"
-            content="other"/>
-      <port name="Mod Wheel" direction="input" pp:default="0.0" content="other"/>
-      <port name="Pitch Wheel" direction="input" pp:default="0.5" content="other"/>
-      <port name="Random LFO 1 Frequency" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Random LFO 1 Stereo" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Random LFO 1 Style" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Random LFO 1 Sync" direction="input" pp:default="0.25"
-            content="other"/>
-      <port name="Random LFO 1 Tempo" direction="input" pp:default="0.6666666865348816"
-            content="other"/>
-      <port name="Random LFO 2 Frequency" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Random LFO 2 Stereo" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Random LFO 2 Style" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Random LFO 2 Sync" direction="input" pp:default="0.25"
-            content="other"/>
-      <port name="Random LFO 2 Tempo" direction="input" pp:default="0.6666666865348816"
-            content="other"/>
-      <port name="Random LFO 3 Frequency" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Random LFO 3 Stereo" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Random LFO 3 Style" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Random LFO 3 Sync" direction="input" pp:default="0.25"
-            content="other"/>
-      <port name="Random LFO 3 Tempo" direction="input" pp:default="0.6666666865348816"
-            content="other"/>
-      <port name="Random LFO 4 Frequency" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Random LFO 4 Stereo" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Random LFO 4 Style" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Random LFO 4 Sync" direction="input" pp:default="0.25"
-            content="other"/>
-      <port name="Random LFO 4 Tempo" direction="input" pp:default="0.6666666865348816"
-            content="other"/>
-      <port name="Oscillator 1 View 2D" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Oscillator 2 View 2D" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="LFO 1 Stereo" direction="input" pp:default="0.5" content="other"/>
-      <port name="LFO 2 Stereo" direction="input" pp:default="0.5" content="other"/>
-      <port name="LFO 3 Stereo" direction="input" pp:default="0.5" content="other"/>
-      <port name="LFO 4 Stereo" direction="input" pp:default="0.5" content="other"/>
-      <port name="LFO 5 Stereo" direction="input" pp:default="0.5" content="other"/>
-      <port name="LFO 6 Stereo" direction="input" pp:default="0.5" content="other"/>
-      <port name="LFO 7 Stereo" direction="input" pp:default="0.5" content="other"/>
-      <port name="LFO 8 Stereo" direction="input" pp:default="0.5" content="other"/>
-      <port name="Oscillator 1 Frequency Morph Amount" direction="input"
-            pp:default="0.5" content="other"/>
-      <port name="Oscillator 1 Frequency Morph Spread" direction="input"
-            pp:default="0.5" content="other"/>
-      <port name="Oscillator 1 Frequency Morph Type" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Oscillator 2 Frequency Morph Amount" direction="input"
-            pp:default="0.5" content="other"/>
-      <port name="Oscillator 2 Frequency Morph Spread" direction="input"
-            pp:default="0.5" content="other"/>
-      <port name="Oscillator 2 Frequency Morph Type" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Oscillator 1 Destination" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Oscillator 1 Spectral Unison" direction="input" pp:default="1.0"
-            content="other"/>
-      <port name="Oscillator 2 Destination" direction="input" pp:default="0.0714285746216774"
-            content="other"/>
-      <port name="Oscillator 2 Spectral Unison" direction="input" pp:default="1.0"
-            content="other"/>
-      <port name="Oscillator 3 Destination" direction="input" pp:default="0.2142857164144516"
-            content="other"/>
-      <port name="Oscillator 3 Detune Power" direction="input" pp:default="0.6499999761581421"
-            content="other"/>
-      <port name="Oscillator 3 Detune Range" direction="input" pp:default="0.0416666679084301"
-            content="other"/>
-      <port name="Oscillator 3 Distortion Amount" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Oscillator 3 Distortion Phase" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Oscillator 3 Distortion Spread" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Oscillator 3 Distortion Type" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Oscillator 3 Unison Frame Spread" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Oscillator 3 Level" direction="input" pp:default="0.7071067690849304"
-            content="other"/>
-      <port name="Oscillator 3 Midi Track" direction="input" pp:default="1.0"
-            content="other"/>
-      <port name="Oscillator 3 Switch" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Oscillator 3 Pan" direction="input" pp:default="0.5" content="other"/>
-      <port name="Oscillator 3 Phase" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Oscillator 3 Phase Randomization" direction="input" pp:default="1.0"
-            content="other"/>
-      <port name="Oscillator 3 Smooth Interpolation" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Oscillator 3 Frequency Morph Amount" direction="input"
-            pp:default="0.5" content="other"/>
-      <port name="Oscillator 3 Frequency Morph Spread" direction="input"
-            pp:default="0.5" content="other"/>
-      <port name="Oscillator 3 Frequency Morph Type" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Oscillator 3 Spectral Unison" direction="input" pp:default="1.0"
-            content="other"/>
-      <port name="Oscillator 3 Stack Style" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Oscillator 3 Stereo Spread" direction="input" pp:default="1.0"
-            content="other"/>
-      <port name="Oscillator 3 Transpose" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Oscillator 3 Transpose Quantize" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Oscillator 3 Tune" direction="input" pp:default="0.5" content="other"/>
-      <port name="Oscillator 3 Blend" direction="input" pp:default="0.800000011920929"
-            content="other"/>
-      <port name="Oscillator 3 Unison Detune" direction="input" pp:default="0.4472135901451111"
-            content="other"/>
-      <port name="Oscillator 3 Unison Voices" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Oscillator 3 View 2D" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Oscillator 3 Wave Frame" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Sample Destination" direction="input" pp:default="0.2142857164144516"
-            content="other"/>
-      <port name="MPE Enabled" direction="input" pp:default="0.0" content="other"/>
-      <port name="Envelope 1 Delay" direction="input" pp:default="0.0" content="other"/>
-      <port name="Envelope 2 Delay" direction="input" pp:default="0.0" content="other"/>
-      <port name="Envelope 3 Delay" direction="input" pp:default="0.0" content="other"/>
-      <port name="Envelope 4 Delay" direction="input" pp:default="0.0" content="other"/>
-      <port name="Envelope 5 Delay" direction="input" pp:default="0.0" content="other"/>
-      <port name="Envelope 6 Delay" direction="input" pp:default="0.0" content="other"/>
-      <port name="Envelope 1 Hold" direction="input" pp:default="0.0" content="other"/>
-      <port name="Envelope 2 Hold" direction="input" pp:default="0.0" content="other"/>
-      <port name="Envelope 3 Hold" direction="input" pp:default="0.0" content="other"/>
-      <port name="Envelope 4 Hold" direction="input" pp:default="0.0" content="other"/>
-      <port name="Envelope 5 Hold" direction="input" pp:default="0.0" content="other"/>
-      <port name="Envelope 6 Hold" direction="input" pp:default="0.0" content="other"/>
-      <port name="Flanger Center" direction="input" pp:default="0.4375" content="other"/>
-      <port name="EQ Band Mode" direction="input" pp:default="0.0" content="other"/>
-      <port name="Reverb Size" direction="input" pp:default="0.5" content="other"/>
-      <port name="Delay Frequency 2" direction="input" pp:default="0.3636363744735718"
-            content="other"/>
-      <port name="Delay Sync 2" direction="input" pp:default="0.3333333432674408"
-            content="other"/>
-      <port name="Delay Tempo 2" direction="input" pp:default="0.625" content="other"/>
-      <port name="Chorus Voices" direction="input" pp:default="1.0" content="other"/>
-      <port name="Phaser Blend" direction="input" pp:default="0.5" content="other"/>
-      <port name="Random LFO 1 Sync Type" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Random LFO 2 Sync Type" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Random LFO 3 Sync Type" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Random LFO 4 Sync Type" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 33 Amount" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 33 Bipolar" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 33 Bypass" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 33 Power" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 33 Stereo" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 34 Amount" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 34 Bipolar" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 34 Bypass" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 34 Power" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 34 Stereo" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 35 Amount" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 35 Bipolar" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 35 Bypass" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 35 Power" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 35 Stereo" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 36 Amount" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 36 Bipolar" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 36 Bypass" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 36 Power" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 36 Stereo" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 37 Amount" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 37 Bipolar" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 37 Bypass" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 37 Power" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 37 Stereo" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 38 Amount" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 38 Bipolar" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 38 Bypass" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 38 Power" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 38 Stereo" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 39 Amount" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 39 Bipolar" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 39 Bypass" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 39 Power" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 39 Stereo" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 40 Amount" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 40 Bipolar" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 40 Bypass" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 40 Power" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 40 Stereo" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 41 Amount" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 41 Bipolar" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 41 Bypass" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 41 Power" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 41 Stereo" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 42 Amount" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 42 Bipolar" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 42 Bypass" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 42 Power" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 42 Stereo" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 43 Amount" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 43 Bipolar" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 43 Bypass" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 43 Power" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 43 Stereo" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 44 Amount" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 44 Bipolar" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 44 Bypass" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 44 Power" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 44 Stereo" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 45 Amount" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 45 Bipolar" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 45 Bypass" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 45 Power" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 45 Stereo" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 46 Amount" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 46 Bipolar" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 46 Bypass" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 46 Power" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 46 Stereo" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 47 Amount" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 47 Bipolar" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 47 Bypass" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 47 Power" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 47 Stereo" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 48 Amount" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 48 Bipolar" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 48 Bypass" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 48 Power" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 48 Stereo" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 49 Amount" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 49 Bipolar" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 49 Bypass" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 49 Power" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 49 Stereo" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 50 Amount" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 50 Bipolar" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 50 Bypass" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 50 Power" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 50 Stereo" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 51 Amount" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 51 Bipolar" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 51 Bypass" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 51 Power" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 51 Stereo" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 52 Amount" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 52 Bipolar" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 52 Bypass" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 52 Power" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 52 Stereo" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 53 Amount" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 53 Bipolar" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 53 Bypass" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 53 Power" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 53 Stereo" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 54 Amount" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 54 Bipolar" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 54 Bypass" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 54 Power" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 54 Stereo" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 55 Amount" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 55 Bipolar" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 55 Bypass" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 55 Power" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 55 Stereo" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 56 Amount" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 56 Bipolar" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 56 Bypass" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 56 Power" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 56 Stereo" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 57 Amount" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 57 Bipolar" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 57 Bypass" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 57 Power" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 57 Stereo" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 58 Amount" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 58 Bipolar" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 58 Bypass" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 58 Power" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 58 Stereo" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 59 Amount" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 59 Bipolar" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 59 Bypass" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 59 Power" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 59 Stereo" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 60 Amount" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 60 Bipolar" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 60 Bypass" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 60 Power" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 60 Stereo" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 61 Amount" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 61 Bipolar" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 61 Bypass" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 61 Power" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 61 Stereo" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 62 Amount" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 62 Bipolar" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 62 Bypass" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 62 Power" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 62 Stereo" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 63 Amount" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 63 Bipolar" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 63 Bypass" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 63 Power" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 63 Stereo" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 64 Amount" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 64 Bipolar" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 64 Bypass" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Modulation 64 Power" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Modulation 64 Stereo" direction="input" pp:default="0.0"
-            content="other"/>
-      <port name="Compressor Mix" direction="input" pp:default="1.0" content="other"/>
-      <port name="Sample Bounce" direction="input" pp:default="0.0" content="other"/>
-      <port name="Voice Transpose" direction="input" pp:default="0.5" content="other"/>
-      <port name="Stereo Mode" direction="input" pp:default="0.0" content="other"/>
-      <port name="Chorus Filter Spread" direction="input" pp:default="1.0"
-            content="other"/>
-      <port name="Reverb Delay" direction="input" pp:default="0.0" content="other"/>
-      <port name="Voice Override" direction="input" pp:default="0.0" content="other"/>
-      <port name="Bypass" direction="input" pp:default="0.0" content="other"/>
-      <port name="LFO 1 Transpose" direction="input" pp:default="0.5" content="other"/>
-      <port name="LFO 1 Tune" direction="input" pp:default="0.5" content="other"/>
-      <port name="LFO 2 Transpose" direction="input" pp:default="0.5" content="other"/>
-      <port name="LFO 2 Tune" direction="input" pp:default="0.5" content="other"/>
-      <port name="LFO 3 Transpose" direction="input" pp:default="0.5" content="other"/>
-      <port name="LFO 3 Tune" direction="input" pp:default="0.5" content="other"/>
-      <port name="LFO 4 Transpose" direction="input" pp:default="0.5" content="other"/>
-      <port name="LFO 4 Tune" direction="input" pp:default="0.5" content="other"/>
-      <port name="LFO 5 Transpose" direction="input" pp:default="0.5" content="other"/>
-      <port name="LFO 5 Tune" direction="input" pp:default="0.5" content="other"/>
-      <port name="LFO 6 Transpose" direction="input" pp:default="0.5" content="other"/>
-      <port name="LFO 6 Tune" direction="input" pp:default="0.5" content="other"/>
-      <port name="LFO 7 Transpose" direction="input" pp:default="0.5" content="other"/>
-      <port name="LFO 7 Tune" direction="input" pp:default="0.5" content="other"/>
-      <port name="LFO 8 Transpose" direction="input" pp:default="0.5" content="other"/>
-      <port name="LFO 8 Tune" direction="input" pp:default="0.5" content="other"/>
-      <port name="Random LFO 1 Transpose" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Random LFO 1 Tune" direction="input" pp:default="0.5" content="other"/>
-      <port name="Random LFO 2 Transpose" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Random LFO 2 Tune" direction="input" pp:default="0.5" content="other"/>
-      <port name="Random LFO 3 Transpose" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Random LFO 3 Tune" direction="input" pp:default="0.5" content="other"/>
-      <port name="Random LFO 4 Transpose" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Random LFO 4 Tune" direction="input" pp:default="0.5" content="other"/>
-      <port name="Filter 1 Formant Spread" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Filter 2 Formant Spread" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="Filter fx Formant Spread" direction="input" pp:default="0.5"
-            content="other"/>
-      <port name="LFO 1 Smooth Mode" direction="input" pp:default="1.0" content="other"/>
-      <port name="LFO 1 Smooth Time" direction="input" pp:default="0.1785714328289032"
-            content="other"/>
-      <port name="LFO 2 Smooth Mode" direction="input" pp:default="1.0" content="other"/>
-      <port name="LFO 2 Smooth Time" direction="input" pp:default="0.1785714328289032"
-            content="other"/>
-      <port name="LFO 3 Smooth Mode" direction="input" pp:default="1.0" content="other"/>
-      <port name="LFO 3 Smooth Time" direction="input" pp:default="0.1785714328289032"
-            content="other"/>
-      <port name="LFO 4 Smooth Mode" direction="input" pp:default="1.0" content="other"/>
-      <port name="LFO 4 Smooth Time" direction="input" pp:default="0.1785714328289032"
-            content="other"/>
-      <port name="LFO 5 Smooth Mode" direction="input" pp:default="1.0" content="other"/>
-      <port name="LFO 5 Smooth Time" direction="input" pp:default="0.1785714328289032"
-            content="other"/>
-      <port name="LFO 6 Smooth Mode" direction="input" pp:default="1.0" content="other"/>
-      <port name="LFO 6 Smooth Time" direction="input" pp:default="0.1785714328289032"
-            content="other"/>
-      <port name="LFO 7 Smooth Mode" direction="input" pp:default="1.0" content="other"/>
-      <port name="LFO 7 Smooth Time" direction="input" pp:default="0.1785714328289032"
-            content="other"/>
-      <port name="LFO 8 Smooth Mode" direction="input" pp:default="1.0" content="other"/>
-      <port name="LFO 8 Smooth Time" direction="input" pp:default="0.1785714328289032"
-            content="other"/>
-      <port name="View Spectrogram" direction="input" pp:default="0.0" content="other"/>
       <port direction="output" content="audio" name="Left"/>
       <port direction="output" content="audio" name="Right"/>
       <port direction="input" content="audio" name="Left"/>
       <port direction="input" content="audio" name="Right"/>
-      <port direction="input" content="midi" name="MIDI input"/>
+      <port direction="input" content="midi2" name="MIDI input"/>
     </ports>
   </plugin>
 </plugins>
