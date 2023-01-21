@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <plugins xmlns="urn:org.androidaudioplugin.core">
-  <plugin name="Vitaloid" category="Instrument" author="AAP developers"
+  <plugin name="AAP Vitaloid" category="Instrument" author="AAP developers"
           manufacturer="github.com/atsushieno/aap-juce-vital" unique-id="juceaap:56746c64"
           library="libjuce_jni.so" entrypoint="GetJuceAAPFactory" assets="">
     <extensions>

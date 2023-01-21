@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<JUCERPROJECT id="C9WuMW" name="Vitaloid" projectType="audioplug" version="1.0.6"
-              bundleIdentifier="org.androidaudioplugin.vitaloid" includeBinaryInAppConfig="1"
+<JUCERPROJECT id="C9WuMW" name="AAP Vitaloid" projectType="audioplug" version="1.0.6"
+              bundleIdentifier="org.androidaudioplugin.ports.juce.vitaloid" includeBinaryInAppConfig="1"
               buildVST="0" buildVST3="1" buildAU="1" buildRTAS="0" buildAAX="0"
-              pluginName="Vitaloid" pluginDesc="" pluginManufacturer="AAP developers"
+              pluginName="AAP Vitaloid" pluginDesc="" pluginManufacturer="AAP developers"
               pluginManufacturerCode="Open" pluginCode="Vtld" pluginChannelConfigs="{0, 2}"
               pluginIsSynth="1" pluginWantsMidiIn="1" pluginProducesMidiOut="0"
               pluginSilenceInIsSilenceOut="0" pluginEditorRequiresKeys="1"
-              pluginAUExportPrefix="vitaloid" pluginRTASCategory="" aaxIdentifier="org.androidaudioplugin.vitaloid"
+              pluginAUExportPrefix="vitaloid" pluginRTASCategory="" aaxIdentifier="org.androidaudioplugin.ports.juce.vitaloid"
               pluginAAXCategory="2048" companyName="AAP developers" companyEmail="atsushieno@gmail.com"
               companyWebsite="github.com/atsushieno/aap-juce-vital" pluginIsMidiEffectPlugin="0" buildAUv3="1"
               displaySplashScreen="0" reportAppUsage="0" splashScreenColour="Dark"
