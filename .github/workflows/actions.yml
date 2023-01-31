@@ -6,4 +6,5 @@ on:
 
 jobs:
   build-dist:
-    uses: atsushieno/aap-juce/.github/workflows/build-dist-with-projucer.yml@356972b3a0f884ce1fc9a24761bc2127b45920ad
+    # note that usually we recommend to use versioned reference. We do not keep compatibility across commits.
+    uses: atsushieno/aap-juce/.github/workflows/build-dist-with-projucer.yml@main
