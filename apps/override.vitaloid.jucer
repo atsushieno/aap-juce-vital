@@ -843,7 +843,7 @@
         <MODULEPATH id="juce_gui_extra" path="../third_party/JUCE/modules"/>
         <MODULEPATH id="juce_opengl" path="../third_party/JUCE/modules"/>
         <MODULEPATH id="juce_dsp" path="../third_party/JUCE/modules"/>
-        <MODULEPATH id="juceaap_audio_plugin_client" path="../../../external/aap-juce/modules" />
+        <MODULEPATH id="juceaap_audio_plugin_client" path="../../../external/aap-juce/aap-modules" />
       </MODULEPATHS>
     </LINUX_MAKE>
     <ANDROIDSTUDIO targetFolder="Builds/Android" bigIcon="JqKIEw" smallIcon="oFf3hH"
@@ -880,7 +880,7 @@
         <MODULEPATH id="juce_audio_formats" path="../third_party/JUCE/modules"/>
         <MODULEPATH id="juce_audio_devices" path="../third_party/JUCE/modules"/>
         <MODULEPATH id="juce_audio_basics" path="../third_party/JUCE/modules"/>
-        <MODULEPATH id="juceaap_audio_plugin_client" path="../../../external/aap-juce/modules" />
+        <MODULEPATH id="juceaap_audio_plugin_client" path="../../../external/aap-juce/aap-modules" />
       </MODULEPATHS>
     </ANDROIDSTUDIO>
     <XCODE_MAC targetFolder="builds/osx" vst3Folder="../third_party/VST3_SDK"
@@ -915,7 +915,7 @@
         <MODULEPATH id="juce_gui_extra" path="../third_party/JUCE/modules"/>
         <MODULEPATH id="juce_opengl" path="../third_party/JUCE/modules"/>
         <MODULEPATH id="juce_dsp" path="../third_party/JUCE/modules"/>
-        <MODULEPATH id="juceaap_audio_plugin_client" path="../../../external/aap-juce/modules" />
+        <MODULEPATH id="juceaap_audio_plugin_client" path="../../../external/aap-juce/aap-modules" />
       </MODULEPATHS>
     </XCODE_MAC>
     <XCODE_IPHONE targetFolder="builds/iOS" iosScreenOrientation="UIInterfaceOrientationLandscapeLeft,UIInterfaceOrientationLandscapeRight"
@@ -942,7 +942,7 @@
         <MODULEPATH id="juce_audio_formats" path="../third_party/JUCE/modules"/>
         <MODULEPATH id="juce_audio_devices" path="../third_party/JUCE/modules"/>
         <MODULEPATH id="juce_audio_basics" path="../third_party/JUCE/modules"/>
-        <MODULEPATH id="juceaap_audio_plugin_client" path="../../../external/aap-juce/modules" />
+        <MODULEPATH id="juceaap_audio_plugin_client" path="../../../external/aap-juce/aap-modules" />
       </MODULEPATHS>
     </XCODE_IPHONE>
     <VS2017 targetFolder="builds/vs17" vst3Folder="../third_party/VST3_SDK"
@@ -976,7 +976,7 @@
         <MODULEPATH id="juce_audio_formats" path="../third_party/JUCE/modules"/>
         <MODULEPATH id="juce_audio_devices" path="../third_party/JUCE/modules"/>
         <MODULEPATH id="juce_audio_basics" path="../third_party/JUCE/modules"/>
-        <MODULEPATH id="juceaap_audio_plugin_client" path="../../../external/aap-juce/modules" />
+        <MODULEPATH id="juceaap_audio_plugin_client" path="../../../external/aap-juce/aap-modules" />
       </MODULEPATHS>
     </VS2017>
   </EXPORTFORMATS>
