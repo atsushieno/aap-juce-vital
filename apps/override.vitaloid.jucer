@@ -843,12 +843,12 @@
         <MODULEPATH id="juce_gui_extra" path="../third_party/JUCE/modules"/>
         <MODULEPATH id="juce_opengl" path="../third_party/JUCE/modules"/>
         <MODULEPATH id="juce_dsp" path="../third_party/JUCE/modules"/>
-        <MODULEPATH id="juceaap_audio_plugin_client" path="../../../external/aap-juce/aap-modules" />
+        <MODULEPATH id="aap_audio_processors" path="../../../external/aap-juce/aap-modules" />
       </MODULEPATHS>
     </LINUX_MAKE>
     <ANDROIDSTUDIO targetFolder="Builds/Android" bigIcon="JqKIEw" smallIcon="oFf3hH"
                    androidMinimumSDK="29" androidTargetSDK="33"
-                   androidDependencies="implementation libs.libcxx.provider&#10;implementation libs.aap.core&#10;implementation libs.aap.midi.device.service"
+                   androidDependencies="implementation libs.libcxx.provider&#10;implementation libs.aap.core&#10;implementation libs.aap.midi.device.service&#10;libs.aap.ui.web"
                    extraCompilerFlags="-ffast-math -ftree-vectorize -ftree-slp-vectorize -funroll-loops"
                    extraLinkerFlags="-ffast-math -ftree-vectorize -ftree-slp-vectorize"
                    extraDefs="REQUIRE_AUTH=0&#10;NO_AUTH=1&#10;OPENGL_ES=1&#10;BUILD_DATE=2021_12_00_00_00&#10;_GLIBCXX_USE_CXX11_ABI=0&#10;JUCE_JACK_CLIENT_NAME=&quot;Vital&quot;&#10;JUCE_ALSA_MIDI_INPUT_NAME=&quot;Vital&quot;&#10;JUCE_ALSA_MIDI_OUTPUT_NAME=&quot;Vital&quot;&#10;JUCE_USE_XRANDR=0&#10;JUCE_OPENGL3=1&#10;JUCE_DSP_USE_SHARED_FFTW=1"
@@ -880,7 +880,7 @@
         <MODULEPATH id="juce_audio_formats" path="../third_party/JUCE/modules"/>
         <MODULEPATH id="juce_audio_devices" path="../third_party/JUCE/modules"/>
         <MODULEPATH id="juce_audio_basics" path="../third_party/JUCE/modules"/>
-        <MODULEPATH id="juceaap_audio_plugin_client" path="../../../external/aap-juce/aap-modules" />
+        <MODULEPATH id="aap_audio_processors" path="../../../external/aap-juce/aap-modules" />
       </MODULEPATHS>
     </ANDROIDSTUDIO>
     <XCODE_MAC targetFolder="builds/osx" vst3Folder="../third_party/VST3_SDK"
@@ -915,7 +915,7 @@
         <MODULEPATH id="juce_gui_extra" path="../third_party/JUCE/modules"/>
         <MODULEPATH id="juce_opengl" path="../third_party/JUCE/modules"/>
         <MODULEPATH id="juce_dsp" path="../third_party/JUCE/modules"/>
-        <MODULEPATH id="juceaap_audio_plugin_client" path="../../../external/aap-juce/aap-modules" />
+        <MODULEPATH id="aap_audio_processors" path="../../../external/aap-juce/aap-modules" />
       </MODULEPATHS>
     </XCODE_MAC>
     <XCODE_IPHONE targetFolder="builds/iOS" iosScreenOrientation="UIInterfaceOrientationLandscapeLeft,UIInterfaceOrientationLandscapeRight"
@@ -942,7 +942,7 @@
         <MODULEPATH id="juce_audio_formats" path="../third_party/JUCE/modules"/>
         <MODULEPATH id="juce_audio_devices" path="../third_party/JUCE/modules"/>
         <MODULEPATH id="juce_audio_basics" path="../third_party/JUCE/modules"/>
-        <MODULEPATH id="juceaap_audio_plugin_client" path="../../../external/aap-juce/aap-modules" />
+        <MODULEPATH id="aap_audio_processors" path="../../../external/aap-juce/aap-modules" />
       </MODULEPATHS>
     </XCODE_IPHONE>
     <VS2017 targetFolder="builds/vs17" vst3Folder="../third_party/VST3_SDK"
@@ -976,12 +976,12 @@
         <MODULEPATH id="juce_audio_formats" path="../third_party/JUCE/modules"/>
         <MODULEPATH id="juce_audio_devices" path="../third_party/JUCE/modules"/>
         <MODULEPATH id="juce_audio_basics" path="../third_party/JUCE/modules"/>
-        <MODULEPATH id="juceaap_audio_plugin_client" path="../../../external/aap-juce/aap-modules" />
+        <MODULEPATH id="aap_audio_processors" path="../../../external/aap-juce/aap-modules" />
       </MODULEPATHS>
     </VS2017>
   </EXPORTFORMATS>
   <MODULES>
-    <MODULE id="juceaap_audio_plugin_client" showAllCode="1" useLocalCopy="0"
+    <MODULE id="aap_audio_processors" showAllCode="1" useLocalCopy="0"
             useGlobalPath="0"/>
     <MODULES id="juce_audio_basics" showAllCode="1" useLocalCopy="0"/>
     <MODULES id="juce_audio_devices" showAllCode="1" useLocalCopy="0"/>

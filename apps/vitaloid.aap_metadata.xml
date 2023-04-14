@@ -5,7 +5,11 @@
           manufacturer="github.com/atsushieno/aap-juce-vital" unique-id="juceaap:56746c64"
           library="libjuce_jni.so" entrypoint="GetJuceAAPFactory" assets="">
     <extensions>
-      <extension uri="urn://androidaudioplugin.org/extensions/presets/v1"/>
+      <extension uri="urn://androidaudioplugin.org/extensions/plugin-info/v2"/>
+      <extension uri="urn://androidaudioplugin.org/extensions/presets/v2"/>
+      <extension uri="urn://androidaudioplugin.org/extensions/state/v2"/>
+      <extension uri="urn://androidaudioplugin.org/extensions/midi2/v2"/>
+      <extension uri="urn://androidaudioplugin.org/extensions/gui/v2"/>
     </extensions>
     <parameters xmlns="urn://androidaudioplugin.org/extensions/parameters">
       <parameter id="0" name="Beats Per Minute" direction="input" default="0.3571428656578064"
