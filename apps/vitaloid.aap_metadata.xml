@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <plugins xmlns="urn:org.androidaudioplugin.core">
-  <plugin name="AAP Vitaloid" category="Instrument" author="AAP developers"
-          manufacturer="github.com/atsushieno/aap-juce-vital" unique-id="juceaap:56746c64"
-          library="libjuce_jni.so" entrypoint="GetJuceAAPFactory" assets="">
+  <plugin name="AAP Vitaloid" category="Instrument" developer="AAP Developers"
+          unique-id="juceaap:56746c64"
+          library="libjuce_jni.so" entrypoint="GetJuceAAPFactory"
+          gui:ui-view-factory="org.androidaudioplugin.ui.compose.ComposeAudioPluginViewFactory"
+          xmlns:gui="urn://androidaudioplugin.org/extensions/gui">
     <extensions>
       <extension uri="urn://androidaudioplugin.org/extensions/plugin-info/v2"/>
+      <extension uri="urn://androidaudioplugin.org/extensions/parameters/v2.1"/>
       <extension uri="urn://androidaudioplugin.org/extensions/presets/v2"/>
       <extension uri="urn://androidaudioplugin.org/extensions/state/v2"/>
       <extension uri="urn://androidaudioplugin.org/extensions/midi2/v2"/>

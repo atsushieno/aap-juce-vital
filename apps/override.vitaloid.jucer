@@ -848,7 +848,7 @@
     </LINUX_MAKE>
     <ANDROIDSTUDIO targetFolder="Builds/Android" bigIcon="JqKIEw" smallIcon="oFf3hH"
                    androidMinimumSDK="29" androidTargetSDK="33"
-                   androidDependencies="implementation libs.libcxx.provider&#10;implementation libs.aap.core&#10;implementation libs.aap.midi.device.service&#10;implementation libs.aap.ui.web"
+                   androidDependencies="implementation libs.libcxx.provider&#10;implementation libs.aap.core&#10;implementation libs.aap.midi.device.service&#10;implementation libs.aap.ui.web&#10;implementation libs.aap.ui.compose"
                    extraCompilerFlags="-ffast-math -ftree-vectorize -ftree-slp-vectorize -funroll-loops"
                    extraLinkerFlags="-ffast-math -ftree-vectorize -ftree-slp-vectorize"
                    extraDefs="REQUIRE_AUTH=0&#10;NO_AUTH=1&#10;OPENGL_ES=1&#10;BUILD_DATE=2021_12_00_00_00&#10;_GLIBCXX_USE_CXX11_ABI=0&#10;JUCE_JACK_CLIENT_NAME=&quot;Vital&quot;&#10;JUCE_ALSA_MIDI_INPUT_NAME=&quot;Vital&quot;&#10;JUCE_ALSA_MIDI_OUTPUT_NAME=&quot;Vital&quot;&#10;JUCE_USE_XRANDR=0&#10;JUCE_OPENGL3=1&#10;JUCE_DSP_USE_SHARED_FFTW=1"
