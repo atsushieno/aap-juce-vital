@@ -20,14 +20,6 @@ There is a GitHub Actions setup that gives the normative build setup.
 
 Once the environment is set up, `make` should take care of the entire build.
 
-## Standalone build (less JUCE changes involved)
-
-It can run on Android as a standalone app, which shows the "right" UI, just with almost non-controllable on the small screen. Maybe somewhat useful on tablets. This works even without replacing JUCE modules.
-
-![sshot/standalone](https://user-images.githubusercontent.com/53929/146684386-9233832a-54d5-466d-9d92-9f2d3878dbf3.png)
-
-To build this version, overwrite `apps/override.vitaloid.jucer` with `apps/override.vitaloid-standalone.jucer` and run `make`.
-
 ## Hacking
 
 ### Upgrading to JUCE to 6.1.4 (or any later versions)
