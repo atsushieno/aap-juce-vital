@@ -847,7 +847,7 @@
       </MODULEPATHS>
     </LINUX_MAKE>
     <ANDROIDSTUDIO targetFolder="Builds/Android" bigIcon="JqKIEw" smallIcon="oFf3hH"
-                   androidMinimumSDK="29" androidTargetSDK="34"
+                   androidMinimumSDK="29" androidTargetSDK="35"
                    androidDependencies="implementation libs.libcxx.provider&#10;implementation libs.aap.core&#10;implementation libs.aap.midi.device.service&#10;implementation libs.aap.ui.web&#10;implementation libs.aap.ui.compose"
                    extraCompilerFlags="-ffast-math -ftree-vectorize -ftree-slp-vectorize -funroll-loops"
                    extraLinkerFlags="-ffast-math -ftree-vectorize -ftree-slp-vectorize"
