@@ -23,6 +23,13 @@ PATCH_FILE=$(PWD)/apps/vitaloid-aap.patch
 # diff depth, depending on the nested directory in the source tree, if patch exists.
 PATCH_DEPTH=1
 
+JUCE_DIR=$(shell pwd)/external/JUCE
+
+JUCE_PATCHES= \
+        $(AAP_JUCE_DIR)/juce-patches/6.0.5/support-plugin-ui.patch \
+        $(AAP_JUCE_DIR)/juce-patches/6.0.5/juce-component-peer-view-touch.patch
+        #$(AAP_JUCE_DIR)/juce-patches/7.0.12/disable-cgwindowlistcreateimage.patch
+
 # Enable this if it is instrument (and unless you don't want to support MIDI input).
 ENABLE_MIDI_DEVICE_SERVICE=1 
 

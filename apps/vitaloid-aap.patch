@@ -1,3 +1,66 @@
+diff --git a/src/interface/editor_components/equalizer_response.cpp b/src/interface/editor_components/equalizer_response.cpp
+index c2d005a..ad63740 100644
+--- a/src/interface/editor_components/equalizer_response.cpp
++++ b/src/interface/editor_components/equalizer_response.cpp
+@@ -181,9 +181,11 @@ void EqualizerResponse::drawResponse(OpenGlWrapper& open_gl, int index) {
+                             band_filter_.getHighAmount()[index],
+                             high_filter_.getHighAmount()[index]);
+ 
++  glEnable(GL_RASTERIZER_DISCARD);
+   open_gl.context.extensions.glBeginTransformFeedback(GL_POINTS);
+   glDrawArrays(GL_POINTS, 0, kResolution);
+   open_gl.context.extensions.glEndTransformFeedback();
++  glDisable(GL_RASTERIZER_DISCARD);
+ 
+   void* buffer = open_gl.context.extensions.glMapBufferRange(GL_TRANSFORM_FEEDBACK_BUFFER, 0,
+                                                              kResolution * sizeof(float), GL_MAP_READ_BIT);
+diff --git a/src/interface/editor_components/filter_response.cpp b/src/interface/editor_components/filter_response.cpp
+index 0ede4c2..62a8b5d 100644
+--- a/src/interface/editor_components/filter_response.cpp
++++ b/src/interface/editor_components/filter_response.cpp
+@@ -203,7 +203,7 @@ void FilterResponse::init(OpenGlWrapper& open_gl) {
+     shader->use();
+     shaders_[i].position = getAttribute(open_gl, *shader, "position");
+ 
+-    shaders_[i].mix = getUniform(open_gl, *shader, "mix");
++    shaders_[i].mix = getUniform(open_gl, *shader, "filter_mix");
+     shaders_[i].midi_cutoff = getUniform(open_gl, *shader, "midi_cutoff");
+     shaders_[i].resonance = getUniform(open_gl, *shader, "resonance");
+     shaders_[i].drive = getUniform(open_gl, *shader, "drive");
+@@ -615,9 +615,11 @@ void FilterResponse::drawFilterResponse(OpenGlWrapper& open_gl) {
+ 
+ void FilterResponse::renderLineResponse(OpenGlWrapper& open_gl) {
+   glEnable(GL_BLEND);
++  glEnable(GL_RASTERIZER_DISCARD);
+   open_gl.context.extensions.glBeginTransformFeedback(GL_POINTS);
+   glDrawArrays(GL_POINTS, 0, kResolution);
+   open_gl.context.extensions.glEndTransformFeedback();
++  glDisable(GL_RASTERIZER_DISCARD);
+ 
+   void* buffer = open_gl.context.extensions.glMapBufferRange(GL_TRANSFORM_FEEDBACK_BUFFER, 0,
+                                                              kResolution * sizeof(float), GL_MAP_READ_BIT);
+diff --git a/src/interface/editor_components/open_gl_component.h b/src/interface/editor_components/open_gl_component.h
+index fe0fd89..5913731 100644
+--- a/src/interface/editor_components/open_gl_component.h
++++ b/src/interface/editor_components/open_gl_component.h
+@@ -74,7 +74,7 @@ class OpenGlComponent : public Component {
+ 
+     static inline String translateFragmentShader(const String& code) {
+     #if OPENGL_ES
+-      return String("#version 300 es\n") + "out mediump vec4 fragColor;\n" +
++      return String("#version 300 es\nprecision mediump float;\n") + "out mediump vec4 fragColor;\n" +
+              code.replace("varying", "in").replace("texture2D", "texture").replace("gl_FragColor", "fragColor");
+     #else
+       return OpenGLHelpers::translateFragmentShaderToV3(code);
+@@ -83,7 +83,7 @@ class OpenGlComponent : public Component {
+ 
+     static inline String translateVertexShader(const String& code) {
+     #if OPENGL_ES
+-      return String("#version 300 es\n") + code.replace("attribute", "in").replace("varying", "out");
++      return String("#version 300 es\nprecision mediump float;\n") + code.replace("attribute", "in").replace("varying", "out");
+     #else
+       return OpenGLHelpers::translateVertexShaderToV3(code);
+     #endif
 diff --git a/src/interface/editor_components/synth_preset_selector.cpp b/src/interface/editor_components/synth_preset_selector.cpp
 index 64da1d5..01e7fb0 100644
 --- a/src/interface/editor_components/synth_preset_selector.cpp
@@ -121,6 +184,31 @@ index ac1a476..ef68def 100644
  }
  
  void BankExporter::loadFiles() {
+diff --git a/src/interface/editor_sections/distortion_section.cpp b/src/interface/editor_sections/distortion_section.cpp
+index a7a3a3c..2e7a2a2 100644
+--- a/src/interface/editor_sections/distortion_section.cpp
++++ b/src/interface/editor_sections/distortion_section.cpp
+@@ -168,7 +168,7 @@ void DistortionFilterResponse::init(OpenGlWrapper& open_gl) {
+   shader->use();
+   response_shader_.position = getAttribute(open_gl, *shader, "position");
+ 
+-  response_shader_.mix = getUniform(open_gl, *shader, "mix");
++  response_shader_.mix = getUniform(open_gl, *shader, "filter_mix");
+   response_shader_.midi_cutoff = getUniform(open_gl, *shader, "midi_cutoff");
+   response_shader_.resonance = getUniform(open_gl, *shader, "resonance");
+   response_shader_.drive = getUniform(open_gl, *shader, "drive");
+@@ -261,9 +261,11 @@ void DistortionFilterResponse::unbind(OpenGLContext& open_gl_context) {
+ }
+ 
+ void DistortionFilterResponse::renderLineResponse(OpenGlWrapper& open_gl) {
++  glEnable(GL_RASTERIZER_DISCARD);
+   open_gl.context.extensions.glBeginTransformFeedback(GL_POINTS);
+   glDrawArrays(GL_POINTS, 0, kResolution);
+   open_gl.context.extensions.glEndTransformFeedback();
++  glDisable(GL_RASTERIZER_DISCARD);
+ 
+   void* buffer = open_gl.context.extensions.glMapBufferRange(GL_TRANSFORM_FEEDBACK_BUFFER, 0,
+                                                              kResolution * sizeof(float), GL_MAP_READ_BIT);
 diff --git a/src/interface/editor_sections/download_section.cpp b/src/interface/editor_sections/download_section.cpp
 index fccb2d5..df8bc96 100644
 --- a/src/interface/editor_sections/download_section.cpp
@@ -155,6 +243,31 @@ index fccb2d5..df8bc96 100644
    }
 +  */
  }
+diff --git a/src/interface/editor_sections/flanger_section.cpp b/src/interface/editor_sections/flanger_section.cpp
+index f7911f9..9174359 100644
+--- a/src/interface/editor_sections/flanger_section.cpp
++++ b/src/interface/editor_sections/flanger_section.cpp
+@@ -84,7 +84,7 @@ void FlangerResponse::init(OpenGlWrapper& open_gl) {
+   shader->use();
+   response_shader_.position = getAttribute(open_gl, *shader, "position");
+ 
+-  response_shader_.mix = getUniform(open_gl, *shader, "mix");
++  response_shader_.mix = getUniform(open_gl, *shader, "filter_mix");
+   response_shader_.midi_cutoff = getUniform(open_gl, *shader, "midi_cutoff");
+   response_shader_.resonance = getUniform(open_gl, *shader, "resonance");
+   response_shader_.drive = getUniform(open_gl, *shader, "drive");
+@@ -172,9 +172,11 @@ void FlangerResponse::unbind(OpenGLContext& open_gl_context) {
+ void FlangerResponse::renderLineResponse(OpenGlWrapper& open_gl, int index) {
+   static constexpr float kMaxMidi = 128.0f;
+ 
++  glEnable(GL_RASTERIZER_DISCARD);
+   open_gl.context.extensions.glBeginTransformFeedback(GL_POINTS);
+   glDrawArrays(GL_POINTS, 0, kResolution);
+   open_gl.context.extensions.glEndTransformFeedback();
++  glDisable(GL_RASTERIZER_DISCARD);
+ 
+   void* buffer = open_gl.context.extensions.glMapBufferRange(GL_TRANSFORM_FEEDBACK_BUFFER, 0,
+                                                              kResolution * sizeof(float), GL_MAP_READ_BIT);
 diff --git a/src/interface/editor_sections/lfo_section.cpp b/src/interface/editor_sections/lfo_section.cpp
 index 170326e..8fdac12 100644
 --- a/src/interface/editor_sections/lfo_section.cpp
@@ -265,6 +378,31 @@ index 740b0cf..0a103d8 100644
  }
  
  void ModulationMatrix::fileLoaded() {
+diff --git a/src/interface/editor_sections/phaser_section.cpp b/src/interface/editor_sections/phaser_section.cpp
+index fc6ad0d..5594086 100644
+--- a/src/interface/editor_sections/phaser_section.cpp
++++ b/src/interface/editor_sections/phaser_section.cpp
+@@ -91,7 +91,7 @@ void PhaserResponse::init(OpenGlWrapper& open_gl) {
+   shader->use();
+   response_shader_.position = getAttribute(open_gl, *shader, "position");
+ 
+-  response_shader_.mix = getUniform(open_gl, *shader, "mix");
++  response_shader_.mix = getUniform(open_gl, *shader, "filter_mix");
+   response_shader_.midi_cutoff = getUniform(open_gl, *shader, "midi_cutoff");
+   response_shader_.resonance = getUniform(open_gl, *shader, "resonance");
+   response_shader_.db24 = getUniform(open_gl, *shader, "db24");
+@@ -175,9 +175,11 @@ void PhaserResponse::unbind(OpenGLContext& open_gl_context) {
+ }
+ 
+ void PhaserResponse::renderLineResponse(OpenGlWrapper& open_gl) {
++  glEnable(GL_RASTERIZER_DISCARD);
+   open_gl.context.extensions.glBeginTransformFeedback(GL_POINTS);
+   glDrawArrays(GL_POINTS, 0, kResolution);
+   open_gl.context.extensions.glEndTransformFeedback();
++  glDisable(GL_RASTERIZER_DISCARD);
+ 
+   void* buffer = open_gl.context.extensions.glMapBufferRange(GL_TRANSFORM_FEEDBACK_BUFFER, 0,
+                                                              kResolution * sizeof(float), GL_MAP_READ_BIT);
 diff --git a/src/interface/editor_sections/popup_browser.cpp b/src/interface/editor_sections/popup_browser.cpp
 index 13e827d..67ed851 100644
 --- a/src/interface/editor_sections/popup_browser.cpp
@@ -338,10 +476,39 @@ index a3a1ebe..8ec4b3a 100644
  
  void WavetableEditSection::loadFile(const File& wavetable_file) {
 diff --git a/src/interface/look_and_feel/shaders.cpp b/src/interface/look_and_feel/shaders.cpp
-index 48fceb4..39f53dc 100644
+index 48fceb4..9626d3c 100644
 --- a/src/interface/look_and_feel/shaders.cpp
 +++ b/src/interface/look_and_feel/shaders.cpp
-@@ -254,7 +254,7 @@ namespace {
+@@ -35,7 +35,7 @@
+     "uniform " MEDIUMP " float midi_cutoff;\n" \
+     "uniform " MEDIUMP " float resonance;\n" \
+     "uniform " MEDIUMP " float drive;\n" \
+-    "uniform " MEDIUMP " float mix;\n" \
++    "uniform " MEDIUMP " float filter_mix;\n" \
+     "uniform " MEDIUMP " float db24;\n" \
+     "uniform " MEDIUMP " float stage0;\n" \
+     "uniform " MEDIUMP " float stage1;\n" \
+@@ -158,7 +158,7 @@ namespace {
+       "    gl_Position.x = gl_Position.x * scale.x;\n"
+       "    gl_Position.y = gl_Position.y * scale.y;\n"
+       "    gl_Position.z = 0.0;\n"
+-      "    gl_Position.a = 1.0;\n"
++      "    gl_Position.w = 1.0;\n"
+       "}\n";
+ 
+   const char* kRotaryModulationVertexShader =
+@@ -232,8 +232,9 @@ namespace {
+       "    " MEDIUMP " vec2 response_res = complexDivide(two_stage, denominator);\n"
+       "    " MEDIUMP " vec2 response = drive * response_res;\n"
+       "    response = response + db24 * (complexMultiply(response_pre, response) - response);\n"
+-      "    response = mix * response + vec2(1.0 - mix, 0.0);\n"
++      "    response = filter_mix * response + vec2(1.0 - filter_mix, 0.0);\n"
+       "    response_out = getYForResponse(response);\n"
++      "    gl_Position = vec4(0.0, 0.0, 0.0, 1.0);\n"
+       "}\n";
+ 
+   const char* kCombFilterResponseVertexShader =
+@@ -254,7 +255,7 @@ namespace {
        "    " MEDIUMP " vec2 one_pole = stage0 * low_pass + stage1 * high_pass;\n"
        "    " MEDIUMP " vec2 high_pass2 = vec2(1.0, 0.0) - onePoleResponse(getCutoffRatio(position.x, stage3));\n"
        "    " MEDIUMP " vec2 filter_input = vec2(1.0 - 0.5 * abs(resonance), 0.0);\n"
@@ -350,16 +517,165 @@ index 48fceb4..39f53dc 100644
        "    " MEDIUMP " vec2 denominator = vec2(1.0, 0.0) - complexMultiply(complexMultiply(tick, one_pole), high_pass2);\n"
        "    " MEDIUMP " float round_value = complexMultiply(one_pole, high_pass2).x * abs(resonance);\n"
        "    " MEDIUMP " vec2 denominator_round = vec2(1.0 - round_value, 0.0);\n"
-@@ -264,7 +264,7 @@ namespace {
+@@ -264,9 +265,10 @@ namespace {
        "    denominator = max_step * max_step_denominator + (1.0 - max_step) * denominator;\n"
        "    " MEDIUMP " float denominator_round_step = 1.0 - max(max_step, step(ratio_diff, length(denominator)));\n"
        "    denominator = denominator_round_step * denominator_round + (1.0 - denominator_round_step) * denominator;\n"
 -      "    " MEDIUMP " vec2 response = complexDivide(drive * filter_input, denominator);\n"
+-      "    response = mix * response + vec2(1.0 - mix, 0.0);\n"
 +      "    " MEDIUMP " vec2 response = complexDivide(drive * filter_input2, denominator);\n"
-       "    response = mix * response + vec2(1.0 - mix, 0.0);\n"
++      "    response = filter_mix * response + vec2(1.0 - filter_mix, 0.0);\n"
        "    response_out = getYForResponse(response);\n"
++      "    gl_Position = vec4(0.0, 0.0, 0.0, 1.0);\n"
        "}\n";
-@@ -950,7 +950,8 @@ namespace {
+ 
+   const char* kPositiveFlangeFilterResponseVertexShader =
+@@ -299,8 +301,9 @@ namespace {
+       "    " MEDIUMP " float denominator_round_step = 1.0 - max(max_step, step(ratio_diff, length(denominator)));\n"
+       "    denominator = denominator_round_step * denominator_round + (1.0 - denominator_round_step) * denominator;\n"
+       "    " MEDIUMP " vec2 response = filter_input * drive + complexMultiply(complexDivide(delay_input, denominator), delay);\n"
+-      "    response = mix * response + vec2(1.0 - mix, 0.0);\n"
++      "    response = filter_mix * response + vec2(1.0 - filter_mix, 0.0);\n"
+       "    response_out = getYForResponse(response);\n"
++      "    gl_Position = vec4(0.0, 0.0, 0.0, 1.0);\n"
+       "}\n";
+ 
+   const char* kNegativeFlangeFilterResponseVertexShader =
+@@ -330,8 +333,9 @@ namespace {
+       "    " MEDIUMP " vec2 max_step_denominator = max_step_mult * denominator_round + (1.0 - max_step_mult) * denominator_round_down;\n"
+       "    denominator = max_step * max_step_denominator + (1.0 - max_step) * denominator;\n"
+       "    " MEDIUMP " vec2 response = filter_input * drive - complexMultiply(complexDivide(delay_input, denominator), delay);\n"
+-      "    response = mix * response + vec2(1.0 - mix, 0.0);\n"
++      "    response = filter_mix * response + vec2(1.0 - filter_mix, 0.0);\n"
+       "    response_out = getYForResponse(response);\n"
++      "    gl_Position = vec4(0.0, 0.0, 0.0, 1.0);\n"
+       "}\n";
+ 
+   const char* kDigitalFilterResponseVertexShader =
+@@ -352,8 +356,9 @@ namespace {
+       "    " MEDIUMP " vec2 pre_response = complexDivide(numerator_pre, pre_denominator);\n"
+       "    response = response + db24 * (complexMultiply(response, pre_response) - response);\n"
+       "    response *= drive;\n"
+-      "    response = mix * response + vec2(1.0 - mix, 0.0);\n"
++      "    response = filter_mix * response + vec2(1.0 - filter_mix, 0.0);\n"
+       "    response_out = getYForResponse(response);\n"
++      "    gl_Position = vec4(0.0, 0.0, 0.0, 1.0);\n"
+       "}\n";
+ 
+   const char* kDiodeFilterResponseVertexShader =
+@@ -378,9 +383,10 @@ namespace {
+       "    " MEDIUMP " vec2 numerator = drive * chain;\n"
+       "    " MEDIUMP " vec2 denominator = vec2(1.0, 0.0) + resonance * chain;\n"
+       "    " MEDIUMP " vec2 response = complexDivide(numerator, denominator);\n"
+-      "    response = mix * response + vec2(1.0 - mix, 0.0);\n"
++      "    response = filter_mix * response + vec2(1.0 - filter_mix, 0.0);\n"
+       "    response = complexMultiply(response, high_pass_response);\n"
+       "    response_out = getYForResponse(response);\n"
++      "    gl_Position = vec4(0.0, 0.0, 0.0, 1.0);\n"
+       "}\n";
+ 
+   const char* kDirtyFilterResponseVertexShader =
+@@ -405,8 +411,9 @@ namespace {
+       "    " MEDIUMP " vec2 response_res = complexMultiply(two_stage, vec2(1.0, 0.0) + resonance_loop);\n"
+       "    " MEDIUMP " vec2 response = drive * response_res;\n"
+       "    response = response + db24 * (complexMultiply(response_pre, response) - response);\n"
+-      "    response = mix * response + vec2(1.0 - mix, 0.0);\n"
++      "    response = filter_mix * response + vec2(1.0 - filter_mix, 0.0);\n"
+       "    response_out = getYForResponse(response);\n"
++      "    gl_Position = vec4(0.0, 0.0, 0.0, 1.0);\n"
+       "}\n";
+ 
+   const char* kFormantFilterResponseVertexShader =
+@@ -444,8 +451,9 @@ namespace {
+       "    " MEDIUMP " vec2 numerator3 = -low[3] * vec2(1.0, 0.0) + band[3] * vec2(0.0, g3) + high[3] * g3_sqr;\n"
+       "    " MEDIUMP " vec2 response3 = complexDivide(numerator3, denominator3);\n"
+       "    " MEDIUMP " vec2 response = response0 + response1 + response2 + response3;\n"
+-      "    response = mix * response + vec2(1.0 - mix, 0.0);\n"
++      "    response = filter_mix * response + vec2(1.0 - filter_mix, 0.0);\n"
+       "    response_out = getYForResponse(response);\n"
++      "    gl_Position = vec4(0.0, 0.0, 0.0, 1.0);\n"
+       "}\n";
+ 
+   const char* kLadderFilterResponseVertexShader =
+@@ -465,10 +473,11 @@ namespace {
+       "                              vec2(stage4, 0.0));\n"
+       "    " MEDIUMP " vec2 denominator = four_pole_invert + vec2(resonance, 0.0);\n"
+       "    " MEDIUMP " vec2 response = complexDivide(numerator, denominator);\n"
+-      "    response = mix * response + vec2(1.0 - mix, 0.0);\n"
++      "    response = filter_mix * response + vec2(1.0 - filter_mix, 0.0);\n"
+       "    response_out = getYForResponse(response);\n"
++      "    gl_Position = vec4(0.0, 0.0, 0.0, 1.0);\n"
+       "}\n";
+-  
++
+   const char* kPhaserFilterResponseVertexShader =
+       "in " MEDIUMP " vec2 position;\n"
+       "out " MEDIUMP " float response_out;\n"
+@@ -491,8 +500,9 @@ namespace {
+       "    " MEDIUMP " vec2 denominator = vec2(1.0, 0.0) - invert_mult * resonance * feedback_chain;\n"
+       "    " MEDIUMP " vec2 phase_response = complexDivide(chain, denominator);\n"
+       "    " MEDIUMP " vec2 response = vec2(0.5, 0.0) + 0.5 * invert_mult * phase_response;"
+-      "    response = mix * response + vec2(1.0 - mix, 0.0);\n"
++      "    response = filter_mix * response + vec2(1.0 - filter_mix, 0.0);\n"
+       "    response_out = getYForResponse(response);\n"
++      "    gl_Position = vec4(0.0, 0.0, 0.0, 1.0);\n"
+       "}\n";
+ 
+   const char* kEqFilterResponseVertexShader =
+@@ -529,6 +539,7 @@ namespace {
+       "    " MEDIUMP " vec2 denominator = complexMultiply(denominator0, complexMultiply(denominator1, denominator2));\n"
+       "    " MEDIUMP " vec2 response = complexDivide(numerator, denominator);\n"
+       "    response_out = getYForResponse(response);\n"
++      "    gl_Position = vec4(0.0, 0.0, 0.0, 1.0);\n"
+       "}\n";
+ 
+   const char* kColorFragmentShader =
+@@ -826,9 +837,9 @@ namespace {
+       "uniform " MEDIUMP " float line_width;\n"
+       "uniform " MEDIUMP " float boost;\n"
+       "varying " MEDIUMP " float depth_out;\n"
+-      "varying " MEDIUMP " float distance;\n"
++      "varying " MEDIUMP " float fill_distance;\n"
+       "void main() {\n"
+-      "    " MEDIUMP " vec4 color = color_to * distance + color_from * (1.0 - distance);\n"
++      "    " MEDIUMP " vec4 color = color_to * fill_distance + color_from * (1.0 - fill_distance);\n"
+       "    " MEDIUMP " float dist_from_edge = min(depth_out, 1.0 - depth_out);\n"
+       "    " MEDIUMP " float mult = 1.0 + boost * max(dist_from_edge - 2.0 / line_width, 0.0);\n"
+       "    " MEDIUMP " vec4 result = mult * color;\n"
+@@ -855,9 +866,9 @@ namespace {
+       "uniform " MEDIUMP " vec4 color_from;\n"
+       "uniform " MEDIUMP " vec4 color_to;\n"
+       "varying " MEDIUMP " float boost;\n"
+-      "varying " MEDIUMP " float distance;\n"
++      "varying " MEDIUMP " float fill_distance;\n"
+       "void main() {\n"
+-      "    " MEDIUMP " float delta = abs(distance);\n"
++      "    " MEDIUMP " float delta = abs(fill_distance);\n"
+       "    " MEDIUMP " vec4 base_color = color_to * delta + color_from * (1.0 - delta);\n"
+       "    gl_FragColor = base_color;\n"
+       "    gl_FragColor.a = (boost + 1.0) * base_color.a;\n"
+@@ -882,17 +893,17 @@ namespace {
+       "uniform " MEDIUMP " vec2 scale;\n"
+       "uniform " MEDIUMP " float center_position;\n"
+       "uniform " MEDIUMP " float boost_amount;\n"
+-      "out " MEDIUMP " float distance;\n"
++      "out " MEDIUMP " float fill_distance;\n"
+       "out " MEDIUMP " float boost;\n"
+       "\n"
+       "void main() {\n"
+-      "    distance = (position.y - center_position) / (1.0 - center_position);\n"
++      "    fill_distance = (position.y - center_position) / (1.0 - center_position);\n"
+       "    boost = boost_amount * position.z;\n"
+       "    gl_Position = position;\n"
+       "    gl_Position.x = gl_Position.x * scale.x;\n"
+       "    gl_Position.y = gl_Position.y * scale.y;\n"
+       "    gl_Position.z = 0.0;\n"
+-      "    gl_Position.a = 1.0;\n"
++      "    gl_Position.w = 1.0;\n"
+       "}\n";
+ 
+   const char* kBarFragmentShader =
+@@ -950,7 +961,8 @@ namespace {
  
    inline String translateFragmentShader(const String& code) {
    #if OPENGL_ES
@@ -369,7 +685,7 @@ index 48fceb4..39f53dc 100644
        code.replace("varying", "in").replace("texture2D", "texture").replace("gl_FragColor", "fragColor");
    #else
      return OpenGLHelpers::translateFragmentShaderToV3(code);
-@@ -959,7 +960,8 @@ namespace {
+@@ -959,7 +971,8 @@ namespace {
  
    inline String translateVertexShader(const String& code) {
    #if OPENGL_ES

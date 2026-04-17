@@ -4,7 +4,7 @@
   <plugin name="AAP Vitaloid" category="Instrument" developer="AAP Developers"
           unique-id="juceaap:56746c64"
           library="libjuce_jni.so" entrypoint="GetJuceAAPFactory"
-          gui:ui-view-factory="org.androidaudioplugin.ui.compose.ComposeAudioPluginViewFactory"
+          gui:ui-view-factory="org.androidaudioplugin.juce.JuceAudioPluginViewFactory"
           xmlns:gui="urn://androidaudioplugin.org/extensions/gui">
     <extensions>
       <extension uri="urn://androidaudioplugin.org/extensions/plugin-info/v3"/>
