@@ -1,0 +1,130 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+}
+
+kotlin {
+    jvmToolchain(11)
+}
+
+android {
+    namespace "org.androidaudioplugin.ports.juce.vitaloid"
+    
+    compileSdkVersion libs.versions.android.compileSdk.get().toInteger()
+    externalNativeBuild {
+        cmake {
+            path "CMakeLists.txt"
+        }
+    }
+    signingConfigs {
+        juceSigning {
+            storeFile     file("${System.properties['user.home']}${File.separator}.android${File.separator}debug.keystore")
+            storePassword "android"
+            keyAlias      "androiddebugkey"
+            keyPassword   "android"
+            storeType     "jks"
+        }
+    }
+
+    defaultConfig {
+        proguardFiles "proguard-rules.pro"
+        applicationId "org.androidaudioplugin.ports.juce.vitaloid"
+        minSdkVersion libs.versions.android.minSdk.get().toInteger()
+        targetSdkVersion libs.versions.android.targetSdk.get().toInteger()
+        externalNativeBuild {
+            cmake {
+                arguments "-DANDROID_TOOLCHAIN=clang", "-DANDROID_PLATFORM=android-29", "-DANDROID_STL=c++_shared", "-DANDROID_CPP_FEATURES=exceptions rtti", "-DINVALIDATED_ANDROID_ARM_MODE=arm", "-DANDROID_ARM_NEON=TRUE", "-DCMAKE_CXX_STANDARD=14", "-DCMAKE_CXX_EXTENSIONS=OFF"
+            }
+        }
+    }
+
+    buildTypes {
+         debug {
+             initWith debug
+             debuggable    true
+             jniDebuggable true
+             signingConfig signingConfigs.juceSigning
+         }
+         release {
+             initWith release
+             debuggable    false
+             jniDebuggable false
+             signingConfig signingConfigs.juceSigning
+         }
+    }
+
+    flavorDimensions "default"
+    productFlavors {
+        debug_ {
+            ndk {
+                abiFilters "x86", "x86_64", "arm64-v8a"
+            }
+            externalNativeBuild {
+                cmake {
+                    arguments "-DJUCE_BUILD_CONFIGURATION=DEBUG", "-DCMAKE_CXX_FLAGS_DEBUG=-O0", "-DCMAKE_C_FLAGS_DEBUG=-O0"
+                }
+            }
+
+            dimension "default"
+       }
+        release_ {
+            ndk {
+                abiFilters "x86", "x86_64", "arm64-v8a"
+            }
+            externalNativeBuild {
+                cmake {
+                    arguments "-DJUCE_BUILD_CONFIGURATION=RELEASE", "-DCMAKE_CXX_FLAGS_RELEASE=-O3", "-DCMAKE_C_FLAGS_RELEASE=-O3"
+                }
+            }
+
+            dimension "default"
+       }
+    }
+
+    variantFilter { variant ->
+        def names = variant.flavors*.name
+        if (names.contains ("debug_")
+              && variant.buildType.name != "debug") {
+            setIgnore(true)
+        }
+        if (names.contains ("release_")
+              && variant.buildType.name != "release") {
+            setIgnore(true)
+        }
+    }
+
+    sourceSets {
+        main.java.srcDirs +=
+            ["../../../../third_party/JUCE/modules/juce_core/native/javacore/init",
+             "../../../../third_party/JUCE/modules/juce_core/native/javacore/app",
+             "../../../../third_party/JUCE/modules/juce_gui_basics/native/javaopt/app",
+             "../../../../../../external/aap-juce/java",
+            ]
+
+        main.res.srcDirs +=
+            []
+    }
+
+    ndkVersion libs.versions.ndk.get() 
+    buildFeatures { prefab true }
+    repositories {
+    }
+
+    dependencies {
+        implementation libs.startup.runtime
+        implementation libs.libcxx.provider
+        implementation libs.aap.core
+        implementation libs.aap.midi.device.service
+        implementation libs.aap.ui.web
+        implementation libs.aap.ui.compose
+        implementation libs.aap.ui.compose.app
+    }
+
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
+    }
+
+}
+

@@ -47,6 +47,8 @@ METADATA_GENERATOR_EXTRA_LDFLAGS=-lGL
 
 EXTERNAL_PRE_PROJUCE_TASKS=replace-juce-modules
 
+EXTERNAL_POST_PROJUCE_TASKS=replace-app-build-gradle
+
 include $(AAP_JUCE_DIR)/Makefile.common
 
 include Makefile.exttasks
