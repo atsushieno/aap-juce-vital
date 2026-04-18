@@ -95,9 +95,10 @@ android {
 
     sourceSets {
         main.java.srcDirs +=
-            ["../../../../third_party/JUCE/modules/juce_core/native/javacore/init",
-             "../../../../third_party/JUCE/modules/juce_core/native/javacore/app",
-             "../../../../third_party/JUCE/modules/juce_gui_basics/native/javaopt/app",
+            ["../../../../../../external/JUCE/modules/juce_core/native/javacore/init",
+             "../../../../../../external/JUCE/modules/juce_core/native/javacore/app",
+             "../../../../../../external/JUCE/modules/juce_gui_basics/native/java/app",
+             "../../../../../../external/JUCE/modules/juce_gui_basics/native/javaopt/app",
              "../../../../../../external/aap-juce/java",
             ]
 
@@ -127,4 +128,3 @@ android {
     }
 
 }
-
