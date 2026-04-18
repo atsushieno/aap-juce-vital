@@ -28,8 +28,7 @@ JUCE_DIR=$(shell pwd)/external/JUCE
 JUCE_PATCHES= \
         $(AAP_JUCE_DIR)/juce-patches/6.0.5/support-plugin-ui.patch \
         $(AAP_JUCE_DIR)/juce-patches/6.0.5/juce-component-peer-view-touch.patch \
-	$(AAP_JUCE_DIR)/juce-patches/6.0.5/android-opengl-local-bounds.patch \
-        $(PWD)/apps/juce-6.0.5-android-opengl-local-bounds.patch
+	$(AAP_JUCE_DIR)/juce-patches/6.0.5/android-opengl-local-bounds.patch
         #$(AAP_JUCE_DIR)/juce-patches/7.0.12/disable-cgwindowlistcreateimage.patch
 
 # Enable this if it is instrument (and unless you don't want to support MIDI input).
