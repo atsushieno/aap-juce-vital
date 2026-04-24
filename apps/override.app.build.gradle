@@ -33,7 +33,8 @@ android {
         targetSdkVersion libs.versions.android.targetSdk.get().toInteger()
         externalNativeBuild {
             cmake {
-                arguments "-DANDROID_TOOLCHAIN=clang", "-DANDROID_PLATFORM=android-29", "-DANDROID_STL=c++_shared", "-DANDROID_CPP_FEATURES=exceptions rtti", "-DINVALIDATED_ANDROID_ARM_MODE=arm", "-DANDROID_ARM_NEON=TRUE", "-DCMAKE_CXX_STANDARD=14", "-DCMAKE_CXX_EXTENSIONS=OFF"
+                arguments "-DCMAKE_BUILD_TYPE=RelWithDebInfo",
+			"-DANDROID_TOOLCHAIN=clang", "-DANDROID_PLATFORM=android-29", "-DANDROID_STL=c++_shared", "-DANDROID_CPP_FEATURES=exceptions rtti", "-DINVALIDATED_ANDROID_ARM_MODE=arm", "-DANDROID_ARM_NEON=TRUE", "-DCMAKE_CXX_STANDARD=14", "-DCMAKE_CXX_EXTENSIONS=OFF"
             }
         }
     }
